@@ -10,7 +10,10 @@ import SwiftUI
 struct BrowserView: View {
     var body: some View {
         VStack {
-          ToolbarView(tabs: Tab.stubs)
+          ToolbarView(
+            handler: ToolbarView.Handler(
+              onBack: {},
+              onNewTab: {}))
           
           WebView()
         }
@@ -20,6 +23,7 @@ struct BrowserView: View {
 
 #Preview {
     BrowserView()
+    .environmentObject(ToolbarView.ViewModel())
 }
 
 
