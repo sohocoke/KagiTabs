@@ -12,7 +12,7 @@ struct KagiTabsApp: App {
     var body: some Scene {
         WindowGroup {
             BrowserView()
-            .environmentObject(ToolbarView.ViewModel())
+            .environmentObject(TabsView.ViewModel())
         }
     }
 }

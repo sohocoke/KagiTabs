@@ -23,7 +23,7 @@ struct BrowserView: View {
 
 #Preview {
     BrowserView()
-    .environmentObject(ToolbarView.ViewModel())
+    .environmentObject(TabsView.ViewModel())
 }
 
 

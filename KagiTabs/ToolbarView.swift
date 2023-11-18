@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ToolbarView: View {
-  @EnvironmentObject var viewModel: ViewModel
+  
   var handler: Handler
   
   var body: some View {
@@ -20,7 +20,7 @@ struct ToolbarView: View {
       
       AddressView()
       
-      TabsView(tabs: viewModel.tabs)
+      TabsView()
       
       Button("New") {
         handler.onNewTab()
@@ -28,14 +28,7 @@ struct ToolbarView: View {
     }
   }
   
-  class ViewModel: ObservableObject {
-    @Published var tabs: [Tab] = Tab.stubs
-    
-    func addTab() {
-      tabs.append(Tab())
-    }
-  }
-
+  
   class Handler {
     internal init(onBack: @escaping () -> Void, onNewTab: @escaping () -> Void) {
       self.onBack = onBack
@@ -62,14 +55,14 @@ struct AddressView: View {
 
 
 struct TabsView: View {
-  let tabs: [Tab]
-  
+  @EnvironmentObject var viewModel: ViewModel
+
   @State var activeTabId: Tab.ID?
   
   var body: some View {
     HStack {
-      ForEach(tabs) { tab in
-        if tabs.firstIndex(of: tab) != 0 {
+      ForEach(viewModel.tabs) { tab in
+        if viewModel.tabs.first != tab {
           Divider()
         }
 
@@ -78,19 +71,39 @@ struct TabsView: View {
           isActive: activeTabId == tab.id,
           onSelect: { tab in
             self.activeTabId = tab.id
+          },
+          onClose: { tab in
+            viewModel.close(tab: tab)
           }
         )
       }
     }
       .fixedSize(horizontal: false, vertical: true)
   }
+  
+  class ViewModel: ObservableObject {
+    @Published var tabs: [Tab] = Tab.stubs
+    
+    func addTab() {
+      tabs.append(Tab())
+    }
+    
+    func close(tab: Tab) {
+      tabs.removeAll { $0.id == tab.id }
+    }
+  }
+
 }
 
+// TODO when active, should lay out 'prominently' vis-a-vis other tabs.
 struct TabView: View {
   let tab: Tab
   let isActive: Bool
-  let onSelect: (Tab) -> Void
   
+  let onSelect: (Tab) -> Void
+  let onClose: (Tab) -> Void
+  
+  @State var isHovered = false
   @State var isHoveredOnFavicon = false
   
   var body: some View {
@@ -98,37 +111,67 @@ struct TabView: View {
       onSelect(tab)
     } label: {
       HStack {
-        Image(systemName: "rectangle")
-          .overlay(
-            ZStack {
-              if isHoveredOnFavicon {
-                Button("x") {
-                  // TODO
-                }
-                // TODO position
+        tab.faviconImage
+        .overlay(
+          ZStack {
+            if isHoveredOnFavicon {
+              CloseTabButton {
+                onClose(tab)
               }
             }
-          )
-          .onHover { isHovered in
-            self.isHoveredOnFavicon = isHovered
           }
+        )
+        .onHover { self.isHoveredOnFavicon = $0 }
+        
         Text(tab.label)
       }
     }
     .buttonStyle(.plain)
     .background(
-      ZStack {
-        if isActive {
-          Rectangle()
-        }
-      }
+      TabBackgroundView(isActive: isActive, isHovered: isHovered)
     )
+    
+    .onHover { self.isHovered = $0 }
   }
 }
+
+struct TabBackgroundView: View {
+  let isActive: Bool
+  let isHovered: Bool
+  
+  var body: some View {
+    ZStack {
+      if isActive {
+        Color.clear
+          .border(.blue)
+      } else if isHovered {
+        Color.clear
+          .border(.red)
+      } else {
+        Color.clear
+      }
+    }
+  }
+}
+
+struct CloseTabButton: View {
+  let action: () -> Void
+  
+  var body: some View {
+    Button("x", action: action)  // STUB
+  }
+}
+
+
+// MARK: -
 
 struct Tab: Identifiable, Hashable {
   let id = UUID()
   let label: String = "abc"
+  
+  var faviconImage: Image {
+    Image(systemName: "rectangle")
+  }
 }
 
 extension Tab {
@@ -138,13 +181,15 @@ extension Tab {
 }
 
 
+// MARK: -
+
 #Preview {
   PreviewWrapper()
 }
 
 
 struct PreviewWrapper: View {
-  @State var viewModel = ToolbarView.ViewModel()
+  @State var viewModel = TabsView.ViewModel()
   
   var body: some View {
     ToolbarView(
