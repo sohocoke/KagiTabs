@@ -12,6 +12,7 @@
 		518079542B09552700F0BB5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518079532B09552700F0BB5B /* Assets.xcassets */; };
 		518079572B09552700F0BB5B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518079562B09552700F0BB5B /* Preview Assets.xcassets */; };
 		5180795F2B0955B900F0BB5B /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5180795E2B0955B900F0BB5B /* ToolbarView.swift */; };
+		518079612B096E9700F0BB5B /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518079602B096E9700F0BB5B /* TabsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		518079562B09552700F0BB5B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		518079582B09552700F0BB5B /* KagiTabs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KagiTabs.entitlements; sourceTree = "<group>"; };
 		5180795E2B0955B900F0BB5B /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
+		518079602B096E9700F0BB5B /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				5180794F2B09552600F0BB5B /* KagiTabsApp.swift */,
 				518079512B09552600F0BB5B /* BrowserView.swift */,
 				5180795E2B0955B900F0BB5B /* ToolbarView.swift */,
+				518079602B096E9700F0BB5B /* TabsView.swift */,
 				518079532B09552700F0BB5B /* Assets.xcassets */,
 				518079582B09552700F0BB5B /* KagiTabs.entitlements */,
 				518079552B09552700F0BB5B /* Preview Content */,
@@ -144,6 +147,7 @@
 			files = (
 				518079522B09552600F0BB5B /* BrowserView.swift in Sources */,
 				518079502B09552600F0BB5B /* KagiTabsApp.swift in Sources */,
+				518079612B096E9700F0BB5B /* TabsView.swift in Sources */,
 				5180795F2B0955B900F0BB5B /* ToolbarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
