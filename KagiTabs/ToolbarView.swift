@@ -51,9 +51,10 @@ struct AddressView: View {
   
   var body: some View {
     TextField("URL", text: $address)
-      .onSubmit {
-        // TODO
-      }
+//      .onSubmit {
+//        // TODO
+//      }
+    //  wire up submission with sth compatible with macos11
   }
 }
 
