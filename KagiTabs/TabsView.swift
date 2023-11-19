@@ -1,5 +1,8 @@
 import SwiftUI
 
+/// when the tab's text label is under this threshold, we fall back to the 'labelless' version of the render.
+let labellessThreshold = 10.0
+
 
 struct TabsView: View {
   @EnvironmentObject var viewModel: ViewModel
@@ -15,7 +18,7 @@ struct TabsView: View {
           tab: tab,
           isActive: viewModel.activeTabId == tab.id,
           onSelect: { tab in
-            viewModel.activeTabId = tab.id
+            viewModel.select(tab: tab)
           },
           onClose: { tab in
             viewModel.close(tab: tab)
@@ -31,11 +34,16 @@ struct TabsView: View {
     @Published var activeTabId: Tab.ID?
     
     func addTab() {
-      tabs.append(Tab())
+      self.tabs.append(Tab())
     }
     
     func close(tab: Tab) {
-      tabs.removeAll { $0.id == tab.id }
+      self.tabs.removeAll { $0.id == tab.id }
+    }
+
+    
+    func select(tab: Tab) {
+      self.activeTabId = tab.id
     }
   }
 
@@ -58,43 +66,14 @@ struct TabView: View {
     Button {
       onSelect(tab)
     } label: {
-      // 'ground truth' rendering of the button, for size computation
       ZStack {
-        HStack {
-          tab.faviconImage
-            .overlay(
-              ZStack {
-                // show close button when hovered over favicon
-                if isHoveredOnFavicon {
-                  CloseTabButton {
-                    onClose(tab)
-                  }
-                }
-              }
-            )
-            .onHover { self.isHoveredOnFavicon = $0 }
-          
-          if isActive {
-            Text(tab.label)
-              .fixedSize()
-          } else {
-            Text(tab.label)
-              .lineLimit(1)
-            // send size pref up to determine whether close button should be rendered on hover
-              .background(
-                GeometryReader { g in
-                  Color.clear
-                    .preference(key: LabelWidthPreferenceKey.self, value: g.frame(in: .local).width)
-                }
-              )
-          }
-          // REFINE ensure no overflow
-        }
-        .opacity(isLabelless ? 0 : 1)
-        
+        // 'ground truth' rendering of the button, for size computation
+        defaultTabView
+          .opacity(isLabelless ? 0 : 1)
+
         // 'labelless' rendering avoids the tab label so the favicon can be centred
         if isLabelless {
-          tab.faviconImage
+          labellessTabView
         }
       }
     }
@@ -109,8 +88,47 @@ struct TabView: View {
     .onHover { self.isHovered = $0 }
   }
   
+  var defaultTabView: some View {
+    HStack {
+      tab.faviconImage
+        .overlay(
+          ZStack {
+            // show close button when hovered over favicon
+            if isHoveredOnFavicon {
+              CloseTabButton {
+                onClose(tab)
+              }
+            }
+          }
+        )
+        .onHover { self.isHoveredOnFavicon = $0 }
+      
+      if isActive {
+        Text(tab.label)
+          .fixedSize()
+      } else {
+        Text(tab.label)
+          .lineLimit(1)
+        // send size pref up to determine whether close button should be rendered on hover
+          .background(
+            GeometryReader { g in
+              Color.clear
+                .preference(key: LabelWidthPreferenceKey.self, value: g.frame(in: .local).width)
+            }
+          )
+      }
+      // REFINE ensure no overflow
+    }
+  }
+  
+  var labellessTabView: some View {
+    tab.faviconImage
+  }
+  
+  
   var isLabelless: Bool {
-    !isActive && self.labelWidth < 10 // STUB
+    !isActive
+    && labelWidth < labellessThreshold
   }
 }
 
