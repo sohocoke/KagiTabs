@@ -41,7 +41,6 @@ struct TabsView: View {
 
 }
 
-// TODO when active, should lay out 'prominently' vis-a-vis other tabs.
 struct TabView: View {
   let tab: Tab
   let isActive: Bool
@@ -52,32 +51,51 @@ struct TabView: View {
   @State var isHovered = false
   @State var isHoveredOnFavicon = false
   
+  /// rendered label width, to determine whether to render the 'labelless' version of the tab.
+  @State var labelWidth = CGFloat.zero
+  
   var body: some View {
     Button {
       onSelect(tab)
     } label: {
-      HStack {
-        tab.faviconImage
-        .overlay(
-          ZStack {
-            if isHoveredOnFavicon {
-              CloseTabButton {
-                onClose(tab)
+      // 'ground truth' rendering of the button, for size computation
+      ZStack {
+        HStack {
+          tab.faviconImage
+            .overlay(
+              ZStack {
+                // show close button when hovered over favicon
+                if isHoveredOnFavicon {
+                  CloseTabButton {
+                    onClose(tab)
+                  }
+                }
               }
-            }
+            )
+            .onHover { self.isHoveredOnFavicon = $0 }
+          
+          if isActive {
+            Text(tab.label)
+              .fixedSize()
+          } else {
+            Text(tab.label)
+              .lineLimit(1)
+            // send size pref up to determine whether close button should be rendered on hover
+              .background(
+                GeometryReader { g in
+                  Color.clear
+                    .preference(key: LabelWidthPreferenceKey.self, value: g.frame(in: .local).width)
+                }
+              )
           }
-        )
-        .onHover { self.isHoveredOnFavicon = $0 }
-        
-        if isActive {
-          Text(tab.label)
-            .fixedSize()
-        } else {
-          Text(tab.label)
-            .lineLimit(1)
+          // REFINE ensure no overflow
         }
-        // REFINE minimum size so inactive tab can still be chosen
-        // REFINE ensure no overflow
+        .opacity(isLabelless ? 0 : 1)
+        
+        // 'labelless' rendering avoids the tab label so the favicon can be centred
+        if isLabelless {
+          tab.faviconImage
+        }
       }
     }
     .buttonStyle(.plain)
@@ -85,7 +103,22 @@ struct TabView: View {
       TabBackgroundView(isActive: isActive, isHovered: isHovered)
     )
     
+    .onPreferenceChange(LabelWidthPreferenceKey.self) { labelWidth in
+      self.labelWidth = labelWidth
+    }
     .onHover { self.isHovered = $0 }
+  }
+  
+  var isLabelless: Bool {
+    !isActive && self.labelWidth < 10 // STUB
+  }
+}
+
+struct LabelWidthPreferenceKey: PreferenceKey {
+  static var defaultValue = CGFloat.zero
+  
+  static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+    value = nextValue()
   }
 }
 
@@ -145,6 +178,11 @@ extension Tab {
     TabsView()
       .environmentObject(TabsView.ViewModel())
       .frame(width: 300)
+    
+    TabsView()
+      .environmentObject(TabsView.ViewModel())
+      .frame(width: 100)
+
   }
 }
 
