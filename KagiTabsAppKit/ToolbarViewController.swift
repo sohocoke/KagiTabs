@@ -23,7 +23,10 @@ class ToolbarViewController: NSViewController {
   
   override func viewWillAppear() {
     super.viewWillAppear()
-    self.observations = viewModelObservations
+    self.observations = [
+      viewModelObservations,
+      viewObservations
+    ]
   }
   
   override func viewWillDisappear() {
@@ -69,7 +72,7 @@ class ToolbarViewController: NSViewController {
   }
   
   
-  // MARK: kvo to model
+  // MARK: kvo
   
   var viewModelObservations: Any? {
     [
@@ -107,6 +110,13 @@ class ToolbarViewController: NSViewController {
     ]
   }
   
+  var viewObservations: Any? {
+    tabContainerView.observe(\.frame, options: [.old, .new]) { [self] _, change in
+      if change.newValue?.width != change.oldValue?.width {
+        updateTabSizes()
+      }
+    }
+  }
   
   // MARK: misc
   
