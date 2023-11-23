@@ -14,7 +14,7 @@ class ToolbarViewController: NSViewController {
   }
   
   @IBOutlet weak var tabButtonsStackView: NSStackView!
-  @IBOutlet weak var tabContainerView: NSView!
+  @IBOutlet @objc dynamic weak var tabContainerView: NSView!
 
   var observations: Any?
   
@@ -76,7 +76,7 @@ class ToolbarViewController: NSViewController {
   
   var viewModelObservations: Any? {
     [
-      self.observe(\.viewModel?.tabs, options: [.initial, .old, .new]) { [self] _, change in
+      self.observe(\.viewModel?.tabs, options: [.initial, .old, .new]) { viewController, change in
         let oldTabIds = change.oldValue??.map { $0.id } ?? []
         let newTabIds = change.newValue??.map { $0.id } ?? []
         
@@ -84,9 +84,9 @@ class ToolbarViewController: NSViewController {
         let removed = Set(oldTabIds).subtracting(newTabIds)
         
         // update removed
-        for case let tabViewController as TabViewController in children {
+        for case let tabViewController as TabViewController in viewController.children {
           if removed.contains(tabViewController.tab.id) {
-            tabButtonsStackView.removeArrangedSubview(tabViewController.view)
+            viewController.tabButtonsStackView.removeArrangedSubview(tabViewController.view)
             tabViewController.view.removeFromSuperview()
             tabViewController.removeFromParent()
           }
@@ -95,25 +95,25 @@ class ToolbarViewController: NSViewController {
         // update added
         for tabId in added {
           if let tab = change.newValue??.first(where: { $0.id == tabId }) {
-            let tabViewController = newTabViewController(tab: tab)
-            self.addChild(tabViewController)
-            tabButtonsStackView.addArrangedSubview(tabViewController.view)
+            let tabViewController = viewController.newTabViewController(tab: tab)
+            viewController.addChild(tabViewController)
+            viewController.tabButtonsStackView.addArrangedSubview(tabViewController.view)
           }
         }
         
         // update tab sizes
-        updateTabSizes()
+        viewController.updateTabSizes()
       },
-      self.observe(\.viewModel?.activeTabId, options: [.initial, .new]) { [self] _, change in
-        updateTabSizes()
+      self.observe(\.viewModel?.activeTabId, options: [.initial, .new]) { viewController, change in
+        viewController.updateTabSizes()
       }
     ]
   }
   
   var viewObservations: Any? {
-    tabContainerView.observe(\.frame, options: [.old, .new]) { [self] _, change in
+    self.observe(\.tabContainerView.frame, options: [.old, .new]) { viewController, change in
       if change.newValue?.width != change.oldValue?.width {
-        updateTabSizes()
+        viewController.updateTabSizes()
       }
     }
   }
