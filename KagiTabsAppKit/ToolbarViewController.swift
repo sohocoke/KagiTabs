@@ -11,14 +11,50 @@ class ToolbarViewController: NSViewController {
   
   var observations: Any?
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
-  
+
   override func viewWillAppear() {
     super.viewWillAppear()
     
-    self.observations = [
+    self.observations = viewModelObservations
+    
+  }
+  
+  override func viewWillDisappear() {
+    self.observations = nil
+    
+    super.viewWillDisappear()
+  }
+
+  
+  
+  @IBAction func addTab(_ sender: Any) {
+    self.viewModel?.addNewTab()
+  }
+
+  @IBAction func closeTab(_ sender: NSView) {
+    if let tabViewController = children.first(where: {
+      sender.isDescendant(of: $0.view)
+    }),
+    let tabViewController = tabViewController as? TabViewController {
+      self.viewModel?.close(tab: tabViewController.tab)
+    }
+  }
+  
+
+  func updateTabSizes() {
+    // determine the modes of the tabs based on cum. width <> container width
+    let tabCount = self.children.filter { $0 is TabViewController }.count
+    let containerWidth = tabContainerView.frame.width
+    for child in self.children {
+      if let tabViewController = child as? TabViewController {
+        tabViewController.updateWidth(remainingContainerWidth: containerWidth, tabCount: tabCount)
+      }
+    }
+  }
+  
+  
+  var viewModelObservations: Any? {
+    [
       self.observe(\.viewModel?.tabs, options: [.initial, .old, .new]) { [self] _, change in
         let oldTabIds = change.oldValue??.map { $0.id } ?? []
         let newTabIds = change.newValue??.map { $0.id } ?? []
@@ -31,10 +67,11 @@ class ToolbarViewController: NSViewController {
           if let tabViewController = tabViewController as? TabViewController,
              removed.contains(tabViewController.tab.id) {
             tabButtonsStackView.removeArrangedSubview(tabViewController.view)
+            tabViewController.view.removeFromSuperview()
             tabViewController.removeFromParent()
           }
         }
-
+        
         // update added
         for tabId in added {
           if let tab = change.newValue??.first(where: { $0.id == tabId }) {
@@ -52,31 +89,6 @@ class ToolbarViewController: NSViewController {
       }
     ]
   }
-  
-  override func viewWillDisappear() {
-    self.observations = nil
-    
-    super.viewWillDisappear()
-  }
-
-  
-  
-  @IBAction func addTab(_ sender: Any) {
-    self.viewModel?.addNewTab()
-  }
-
-  
-  func updateTabSizes() {
-    // determine the modes of the tabs based on cum. width <> container width
-    let tabCount = self.children.filter { $0 is TabViewController }.count
-    let containerWidth = tabContainerView.frame.width
-    for child in self.children {
-      if let tabViewController = child as? TabViewController {
-//        tabViewController.updateWidth(remainingContainerWidth: containerWidth, tabCount: tabCount)
-      }
-    }
-  }
-  
   
   func newTabViewController(tab: Tab) -> NSViewController {
     let tabViewController = TabViewController(nibName: .init("TabView"), bundle: nil)
@@ -107,7 +119,12 @@ class ToolbarViewModel: NSObject {
   func addNewTab() {
     self.tabs.append(Tab(label: "new tab"))
   }
+  
+  func close(tab: Tab) {
+    self.tabs.removeAll { $0.id == tab.id }
+  }
 }
+
 
 class Tab: NSObject, Identifiable {
   internal init(label: String) {

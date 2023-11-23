@@ -25,7 +25,12 @@ class TabViewController: NSViewController {
     tabCount: Int
   ) {
     let width = remainingContainerWidth / CGFloat(tabCount)
-    self.view.frame.size.width = width
+    
+//    self.view.frame.size.width = width
+    if let tabView = self.view as? TabView {
+      tabView.overriddenWidth = width
+      tabView.invalidateIntrinsicContentSize()
+    }
   }
 }
 
@@ -34,9 +39,13 @@ class TabView: NSView {
 
   @IBOutlet weak var tabButton: NSButton!
   
+  var overriddenWidth: CGFloat?
+  
   override var intrinsicContentSize: NSSize {
-    CGSize(width: 150, height: TabView.noIntrinsicMetric)
-//    tabButton.intrinsicContentSize
+//    CGSize(width: 70, height: TabView.noIntrinsicMetric)
+    
+    let width = overriddenWidth ?? tabButton.frame.width
+    return CGSize(width: width, height: tabButton.frame.width)
   }
 }
 

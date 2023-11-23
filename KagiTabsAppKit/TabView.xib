@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="22155" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22155"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,28 +16,26 @@
             <rect key="frame" x="0.0" y="0.0" width="163" height="20"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="c51-qN-F0V" userLabel="Tab Button">
+                <button horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="249" id="c51-qN-F0V" userLabel="Tab Button">
                     <rect key="frame" x="-1" y="-2" width="165" height="23"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                     <buttonCell key="cell" type="roundTextured" title="Textured " bezelStyle="texturedRounded" image="NSSmartBadgeTemplate" imagePosition="leading" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="m4A-h3-N9y">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <button translatesAutoresizingMaskIntoConstraints="NO" id="ydW-aG-xCU" userLabel="Close Button">
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ydW-aG-xCU" userLabel="Close Button">
                     <rect key="frame" x="4" y="3.5" width="15" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="xmark.square.fill" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="0xc-do-ZzF">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="closeTab:" target="-1" id="Fc6-Ax-Llw"/>
+                    </connections>
                 </button>
             </subviews>
-            <constraints>
-                <constraint firstItem="c51-qN-F0V" firstAttribute="width" secondItem="QN1-Nq-FRA" secondAttribute="width" id="Gl6-i8-ZKV"/>
-                <constraint firstItem="ydW-aG-xCU" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="Qgz-Zw-xUE"/>
-                <constraint firstItem="c51-qN-F0V" firstAttribute="centerX" secondItem="QN1-Nq-FRA" secondAttribute="centerX" id="YSW-oM-RJf"/>
-                <constraint firstItem="c51-qN-F0V" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="rJP-zm-lWv"/>
-                <constraint firstItem="ydW-aG-xCU" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" constant="4" id="tsl-OS-eHV"/>
-            </constraints>
             <connections>
                 <outlet property="tabButton" destination="c51-qN-F0V" id="fPh-jt-1Js"/>
             </connections>
