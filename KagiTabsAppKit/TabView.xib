@@ -14,11 +14,10 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView autoresizesSubviews="NO" id="QN1-Nq-FRA" customClass="TabView" customModule="KagiTabsAppKit" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="163" height="20"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="249" id="c51-qN-F0V" userLabel="Tab Button">
+                <button horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="c51-qN-F0V" userLabel="Tab Button">
                     <rect key="frame" x="-1" y="-2" width="165" height="23"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" title="Textured " bezelStyle="texturedRounded" image="NSSmartBadgeTemplate" imagePosition="leading" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="m4A-h3-N9y">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -27,9 +26,8 @@
                         <action selector="activateTab:" target="-1" id="zJT-s6-vyG"/>
                     </connections>
                 </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ydW-aG-xCU" userLabel="Close Button">
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="ydW-aG-xCU" userLabel="Close Button">
                     <rect key="frame" x="4" y="3.5" width="15" height="14"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="xmark.square.fill" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="0xc-do-ZzF">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -38,9 +36,32 @@
                         <action selector="closeTab:" target="-1" id="Fc6-Ax-Llw"/>
                     </connections>
                 </button>
+                <button horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="gA1-mY-slP" userLabel="Tab Button Minimal">
+                    <rect key="frame" x="-1" y="-2" width="165" height="23"/>
+                    <buttonCell key="cell" type="roundTextured" title="Textured " bezelStyle="texturedRounded" image="NSSmartBadgeTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AKU-HV-lfK">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="activateTab:" target="-1" id="9yb-fj-wfe"/>
+                    </connections>
+                </button>
             </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="c51-qN-F0V" secondAttribute="bottom" id="4gg-Kk-IYP"/>
+                <constraint firstItem="gA1-mY-slP" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="705-th-TXZ"/>
+                <constraint firstItem="gA1-mY-slP" firstAttribute="width" secondItem="QN1-Nq-FRA" secondAttribute="width" id="WdN-gD-XRn"/>
+                <constraint firstItem="ydW-aG-xCU" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="Www-2N-gq1"/>
+                <constraint firstItem="c51-qN-F0V" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" id="XyH-sZ-BaV"/>
+                <constraint firstItem="ydW-aG-xCU" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" constant="4" id="hlr-u3-SEl"/>
+                <constraint firstAttribute="trailing" secondItem="c51-qN-F0V" secondAttribute="trailing" id="kYB-NR-9ic"/>
+                <constraint firstItem="c51-qN-F0V" firstAttribute="top" secondItem="QN1-Nq-FRA" secondAttribute="top" id="u6p-99-j2v"/>
+                <constraint firstItem="gA1-mY-slP" firstAttribute="centerX" secondItem="QN1-Nq-FRA" secondAttribute="centerX" id="zJw-k0-TzH"/>
+            </constraints>
             <connections>
+                <outlet property="closeButton" destination="ydW-aG-xCU" id="b9n-gP-2CZ"/>
                 <outlet property="tabButton" destination="c51-qN-F0V" id="fPh-jt-1Js"/>
+                <outlet property="tabButtonMinimal" destination="gA1-mY-slP" id="zVg-FS-Bwj"/>
             </connections>
             <point key="canvasLocation" x="-522.5" y="27"/>
         </customView>
