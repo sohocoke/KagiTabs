@@ -29,18 +29,12 @@ class TabViewController: NSViewController {
   var observations: Any?
   
   
-  override func viewWillAppear() {
-    super.viewWillAppear()
+  override func viewDidLoad() {
+    super.viewDidLoad()
     trackCloseButtonHover()
     self.observations = viewModelObservations
   }
   
-  override func viewWillDisappear() {
-    self.observations = nil
-    untrackCloseButtonHover()
-    super.viewWillDisappear()
-  }
-
 
   func trackCloseButtonHover() {
     let trackingArea = NSTrackingArea(
