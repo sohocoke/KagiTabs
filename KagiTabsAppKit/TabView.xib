@@ -18,7 +18,7 @@
             <subviews>
                 <button horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="249" id="c51-qN-F0V" userLabel="Tab Button">
                     <rect key="frame" x="-1" y="-2" width="165" height="23"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="roundTextured" title="Textured " bezelStyle="texturedRounded" image="NSSmartBadgeTemplate" imagePosition="leading" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="m4A-h3-N9y">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>

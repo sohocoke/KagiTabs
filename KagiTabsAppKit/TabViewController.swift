@@ -1,5 +1,6 @@
 import Cocoa
 
+let minimalWidthThreshold: CGFloat = 40
 
 /// width modes:
 /// - full: when tab is active: no truncation.
@@ -44,14 +45,42 @@ class TabView: NSView {
 
   @IBOutlet weak var tabButton: NSButton!
   
-  var overriddenWidth: CGFloat?
+  var overriddenWidth: CGFloat? {
+    didSet {
+      guard let overriddenWidth = overriddenWidth else {
+        self.renderMode = .normal
+        return
+      }
+      
+      self.renderMode =
+        overriddenWidth > minimalWidthThreshold
+        ? .normal
+        : .minimal
+    }
+  }
+  
+  var renderMode: RenderMode = .normal {
+    didSet {
+      switch renderMode {
+      case .normal:
+        tabButton?.imagePosition = .imageLeading
+      case .minimal:
+        tabButton?.imagePosition = .imageOnly
+      }
+    }
+  }
+  
+  enum RenderMode {
+    case normal
+    case minimal
+  }
   
   var idealSize: CGSize {
     tabButton.intrinsicContentSize
   }
   
   override var intrinsicContentSize: NSSize {
-    let width = overriddenWidth ?? idealSize.width
+    var width = overriddenWidth ?? idealSize.width
     let size = CGSize(width: width, height: idealSize.height)
     return size
   }
@@ -63,3 +92,4 @@ class TabView: NSView {
   viewController.tab = Tab(label: "test")
   return viewController
 }
+

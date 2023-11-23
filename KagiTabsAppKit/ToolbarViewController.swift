@@ -118,6 +118,7 @@ class ToolbarViewController: NSViewController {
     }
   }
   
+  
   // MARK: misc
   
   func newTabViewController(tab: Tab) -> NSViewController {
