@@ -29,11 +29,16 @@ class TabViewController: NSViewController {
     // squeezedWidth is that when many tabs are sharing the remaining container width.
     let squeezedWidth = remainingContainerWidth / CGFloat(tabCount)
     
-    // override width only when squeezed width ls less than the ideal with.
+    // override width only when squeezed width is less than the ideal with.
     if squeezedWidth < tabView.idealSize.width {
       tabView.overriddenWidth = squeezedWidth
+      tabView.renderMode =
+        squeezedWidth < minimalWidthThreshold ?
+        .minimal
+        : .normal
     } else {
       tabView.overriddenWidth = nil
+      tabView.renderMode = .normal
     }
     
     tabView.invalidateIntrinsicContentSize()
@@ -45,19 +50,7 @@ class TabView: NSView {
 
   @IBOutlet weak var tabButton: NSButton!
   
-  var overriddenWidth: CGFloat? {
-    didSet {
-      guard let overriddenWidth = overriddenWidth else {
-        self.renderMode = .normal
-        return
-      }
-      
-      self.renderMode =
-        overriddenWidth > minimalWidthThreshold
-        ? .normal
-        : .minimal
-    }
-  }
+  var overriddenWidth: CGFloat?
   
   var renderMode: RenderMode = .normal {
     didSet {
@@ -75,12 +68,13 @@ class TabView: NSView {
     case minimal
   }
   
+  // FIXME this should be made stable vis-a-vis imageposition changes.
   var idealSize: CGSize {
     tabButton.intrinsicContentSize
   }
   
   override var intrinsicContentSize: NSSize {
-    var width = overriddenWidth ?? idealSize.width
+    let width = overriddenWidth ?? idealSize.width
     let size = CGSize(width: width, height: idealSize.height)
     return size
   }
