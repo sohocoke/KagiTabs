@@ -10,7 +10,15 @@ let minimalWidthThreshold: CGFloat = 50
 /// - minimal: when truncated label below some legible width, only render icon, subject to minimum width constraint.
 ///   determinants: container width, # of tabs, width of active tab, width of label
 class TabViewController: NSViewController {
-  var tab: Tab!
+  
+  var tab: Tab {
+    get {
+      representedObject as! Tab
+    }
+    set {
+      self.representedObject = newValue
+    }
+  }
   
   var tabView: TabView {
     self.view as! TabView
