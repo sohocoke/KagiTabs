@@ -23,6 +23,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="activateTab:" target="-1" id="zJT-s6-vyG"/>
+                    </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ydW-aG-xCU" userLabel="Close Button">
                     <rect key="frame" x="4" y="3.5" width="15" height="14"/>

@@ -11,26 +11,31 @@ import Cocoa
 class TabViewController: NSViewController {
   var tab: Tab!
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
-    }
+  var tabView: TabView {
+    self.view as! TabView
+  }
+  
     
   func updateToIdealWidth() {
-    // TODO
+    tabView.overriddenWidth = nil
+    tabView.invalidateIntrinsicContentSize()
   }
   
   func updateWidth(
     remainingContainerWidth: CGFloat,
     tabCount: Int
   ) {
-    let width = remainingContainerWidth / CGFloat(tabCount)
+    // squeezedWidth is that when many tabs are sharing the remaining container width.
+    let squeezedWidth = remainingContainerWidth / CGFloat(tabCount)
     
-//    self.view.frame.size.width = width
-    if let tabView = self.view as? TabView {
-      tabView.overriddenWidth = width
-      tabView.invalidateIntrinsicContentSize()
+    // override width only when squeezed width ls less than the ideal with.
+    if squeezedWidth < tabView.idealSize.width {
+      tabView.overriddenWidth = squeezedWidth
+    } else {
+      tabView.overriddenWidth = nil
     }
+    
+    tabView.invalidateIntrinsicContentSize()
   }
 }
 
@@ -41,11 +46,14 @@ class TabView: NSView {
   
   var overriddenWidth: CGFloat?
   
+  var idealSize: CGSize {
+    tabButton.intrinsicContentSize
+  }
+  
   override var intrinsicContentSize: NSSize {
-//    CGSize(width: 70, height: TabView.noIntrinsicMetric)
-    
-    let width = overriddenWidth ?? tabButton.frame.width
-    return CGSize(width: width, height: tabButton.frame.width)
+    let width = overriddenWidth ?? idealSize.width
+    let size = CGSize(width: width, height: idealSize.height)
+    return size
   }
 }
 
