@@ -24,7 +24,41 @@ class TabViewController: NSViewController {
     self.view as! TabView
   }
   
+  
+  override func viewWillAppear() {
+    super.viewWillAppear()
     
+    let trackingArea = NSTrackingArea(
+      rect: .zero,
+      options: [.mouseEnteredAndExited, .inVisibleRect, .activeInActiveApp],
+      owner: self,
+      userInfo: ["owner": self]
+    )
+    tabView.closeButton.addTrackingArea(trackingArea)
+    
+    tabView.closeButton.alphaValue = 0
+  }
+  
+  override func viewWillDisappear() {
+    for trackingArea in tabView.closeButton.trackingAreas {
+      if trackingArea.userInfo?["owner"] as? NSObject == self {
+        tabView.closeButton.removeTrackingArea(trackingArea)
+      }
+    }
+    
+    super.viewWillDisappear()
+  }
+  
+  
+  override func mouseEntered(with event: NSEvent) {
+    tabView.closeButton.alphaValue = 1
+  }
+  
+  override func mouseExited(with event: NSEvent) {
+    tabView.closeButton.alphaValue = 0
+  }
+    
+
   func updateToIdealWidth() {
     tabView.overriddenWidth = nil
     tabView.renderMode = .normal
