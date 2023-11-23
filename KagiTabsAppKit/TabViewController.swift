@@ -11,6 +11,7 @@ let minimalWidthThreshold: CGFloat = 50
 ///   determinants: container width, # of tabs, width of active tab, width of label
 class TabViewController: NSViewController {
   
+  @objc dynamic
   var tab: Tab {
     get {
       representedObject as! Tab
@@ -25,9 +26,23 @@ class TabViewController: NSViewController {
   }
   
   
+  var observations: Any?
+  
+  
   override func viewWillAppear() {
     super.viewWillAppear()
-    
+    trackCloseButtonHover()
+    self.observations = viewModelObservations
+  }
+  
+  override func viewWillDisappear() {
+    self.observations = nil
+    untrackCloseButtonHover()
+    super.viewWillDisappear()
+  }
+
+
+  func trackCloseButtonHover() {
     let trackingArea = NSTrackingArea(
       rect: .zero,
       options: [.mouseEnteredAndExited, .inVisibleRect, .activeInActiveApp],
@@ -39,14 +54,12 @@ class TabViewController: NSViewController {
     tabView.closeButton.alphaValue = 0
   }
   
-  override func viewWillDisappear() {
+  func untrackCloseButtonHover() {
     for trackingArea in tabView.closeButton.trackingAreas {
       if trackingArea.userInfo?["owner"] as? NSObject == self {
         tabView.closeButton.removeTrackingArea(trackingArea)
       }
     }
-    
-    super.viewWillDisappear()
   }
   
   
@@ -86,6 +99,17 @@ class TabViewController: NSViewController {
     
     tabView.invalidateIntrinsicContentSize()
   }
+  
+  
+  var viewModelObservations: Any {
+    [
+      self.observe(\.tab.label, options: [.initial, .new]) { viewController, change in
+        let tabLabel = change.newValue ?? ""
+        viewController.tabView.tabButton.title = tabLabel
+      }
+    ]
+  }
+
 }
 
 

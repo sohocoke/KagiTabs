@@ -183,6 +183,8 @@ class Tab: NSObject, Identifiable {
   }
   
   let id: UUID = UUID()
+  
+  @objc dynamic
   var label: String
   
 }
