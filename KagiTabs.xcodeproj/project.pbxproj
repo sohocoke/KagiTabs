@@ -11,6 +11,8 @@
 		510EF6A52B0A339A00178579 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 510EF6A42B0A339A00178579 /* Assets.xcassets */; };
 		510EF6A82B0A339A00178579 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510EF6A62B0A339A00178579 /* Main.storyboard */; };
 		5157E4CE2B0FC7FC00BB669C /* ToolbarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4CD2B0FC7FC00BB669C /* ToolbarViewModel.swift */; };
+		5157E4D72B0FD65200BB669C /* TabCollectionTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4D52B0FD65200BB669C /* TabCollectionTestViewController.swift */; };
+		5157E4DA2B10497700BB669C /* TabCollectionTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4D92B10497700BB669C /* TabCollectionTest.storyboard */; };
 		518079502B09552600F0BB5B /* KagiTabsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5180794F2B09552600F0BB5B /* KagiTabsApp.swift */; };
 		518079522B09552600F0BB5B /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518079512B09552600F0BB5B /* BrowserView.swift */; };
 		518079542B09552700F0BB5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518079532B09552700F0BB5B /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 		510EF6A72B0A339A00178579 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		510EF6A92B0A339A00178579 /* KagiTabsAppKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KagiTabsAppKit.entitlements; sourceTree = "<group>"; };
 		5157E4CD2B0FC7FC00BB669C /* ToolbarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarViewModel.swift; sourceTree = "<group>"; };
+		5157E4D52B0FD65200BB669C /* TabCollectionTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCollectionTestViewController.swift; sourceTree = "<group>"; };
+		5157E4D92B10497700BB669C /* TabCollectionTest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabCollectionTest.storyboard; sourceTree = "<group>"; };
 		5180794C2B09552600F0BB5B /* KagiTabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KagiTabs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5180794F2B09552600F0BB5B /* KagiTabsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KagiTabsApp.swift; sourceTree = "<group>"; };
 		518079512B09552600F0BB5B /* BrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 				510EF6A62B0A339A00178579 /* Main.storyboard */,
 				51DEEEBB2B0FA4DF00BEF0FE /* TabCollectionViewController.xib */,
 				51DB99BF2B0D6B1F001340C2 /* TabViewController.xib */,
+				5157E4D92B10497700BB669C /* TabCollectionTest.storyboard */,
+				5157E4D52B0FD65200BB669C /* TabCollectionTestViewController.swift */,
 				510EF6A92B0A339A00178579 /* KagiTabsAppKit.entitlements */,
 			);
 			path = KagiTabsAppKit;
@@ -256,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				510EF6A52B0A339A00178579 /* Assets.xcassets in Resources */,
+				5157E4DA2B10497700BB669C /* TabCollectionTest.storyboard in Resources */,
 				51DB99C02B0D6B1F001340C2 /* TabViewController.xib in Resources */,
 				51DEEEBD2B0FA4DF00BEF0FE /* TabCollectionViewController.xib in Resources */,
 				510EF6A82B0A339A00178579 /* Main.storyboard in Resources */,
@@ -294,6 +301,7 @@
 				510EF6A12B0A339900178579 /* AppDelegate.swift in Sources */,
 				51DEEEBC2B0FA4DF00BEF0FE /* TabCollectionViewController.swift in Sources */,
 				51DEEEB92B0FA11100BEF0FE /* toolbar-items.swift in Sources */,
+				5157E4D72B0FD65200BB669C /* TabCollectionTestViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

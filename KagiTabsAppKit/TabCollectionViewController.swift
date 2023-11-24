@@ -134,5 +134,19 @@ class TabCollectionViewController: NSViewController {
 #Preview {
   let viewController =  TabCollectionViewController(nibName: "TabCollectionViewController", bundle: nil)
   viewController.viewModel = ToolbarViewModel.stub
+  viewController.viewModel?.tabs.append(contentsOf: [
+    Tab(label: "test \(Date())"),
+    Tab(label: "test \(Date())"),
+    Tab(label: "test \(Date())"),
+    Tab(label: "test \(Date())"),
+    Tab(label: "test \(Date())"),
+    Tab(label: "test \(Date())"),
+    Tab(label: "test \(Date())"),
+    Tab(label: "test \(Date())"),
+    Tab(label: "test \(Date())"),
+    Tab(label: "test \(Date())"),
+    Tab(label: "test \(Date())"),
+    Tab(label: "test \(Date())"),
+  ])
   return viewController
 }
