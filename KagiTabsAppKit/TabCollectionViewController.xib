@@ -9,123 +9,62 @@
             <connections>
                 <outlet property="tabButtonsStackView" destination="gvg-on-7W5" id="VXP-1v-EHi"/>
                 <outlet property="tabContainerView" destination="c2L-ze-Bo8" id="fN3-y1-DZI"/>
-                <outlet property="view" destination="c2L-ze-Bo8" id="cNd-FO-e1J"/>
+                <outlet property="view" destination="FMR-XA-gZ0" id="vQq-QV-cfC"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <view horizontalHuggingPriority="249" id="EkI-VT-2Qb" userLabel="Tabs View">
-            <rect key="frame" x="0.0" y="0.0" width="222" height="164"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+        <customView translatesAutoresizingMaskIntoConstraints="NO" id="FMR-XA-gZ0">
+            <rect key="frame" x="0.0" y="0.0" width="163" height="96"/>
             <subviews>
-                <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="KbH-q6-C85">
-                    <rect key="frame" x="-1041" y="-1" width="2304" height="166"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <clipView key="contentView" id="N6U-pb-UL1">
-                        <rect key="frame" x="1" y="1" width="2302" height="164"/>
+                <scrollView borderType="line" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="c2L-ze-Bo8">
+                    <rect key="frame" x="0.0" y="0.0" width="163" height="96"/>
+                    <clipView key="contentView" drawsBackground="NO" id="C1L-Ac-bnq">
+                        <rect key="frame" x="1" y="1" width="161" height="94"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbK-bd-88V" userLabel="Document View">
-                                <rect key="frame" x="0.0" y="0.0" width="2302" height="164"/>
+                            <view translatesAutoresizingMaskIntoConstraints="NO" id="xou-vE-Fsb" userLabel="Document View">
+                                <rect key="frame" x="0.0" y="-1" width="0.0" height="96"/>
                                 <subviews>
-                                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jlc-9e-uCk">
-                                        <rect key="frame" x="-2" y="74" width="2306" height="16"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" id="HWw-Fc-lw5">
-                                            <font key="font" usesAppearanceFont="YES"/>
-                                            <string key="title">LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel</string>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="749" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvg-on-7W5">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="96"/>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Jlc-9e-uCk" firstAttribute="centerY" secondItem="rbK-bd-88V" secondAttribute="centerY" id="Hfp-A4-66M"/>
-                                    <constraint firstItem="Jlc-9e-uCk" firstAttribute="leading" secondItem="rbK-bd-88V" secondAttribute="leading" id="Oau-7K-pQ9"/>
-                                    <constraint firstAttribute="trailing" secondItem="Jlc-9e-uCk" secondAttribute="trailing" id="kiP-IT-9JZ"/>
+                                    <constraint firstItem="gvg-on-7W5" firstAttribute="leading" secondItem="xou-vE-Fsb" secondAttribute="leading" id="EbW-RZ-7qX"/>
+                                    <constraint firstItem="gvg-on-7W5" firstAttribute="top" secondItem="xou-vE-Fsb" secondAttribute="top" id="GAS-9c-ivO"/>
+                                    <constraint firstAttribute="trailing" secondItem="gvg-on-7W5" secondAttribute="trailing" id="ORy-bw-ESJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="gvg-on-7W5" secondAttribute="bottom" id="i16-yp-Y8B"/>
                                 </constraints>
                             </view>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="xou-vE-Fsb" firstAttribute="leading" secondItem="C1L-Ac-bnq" secondAttribute="leading" id="6ao-k5-uEY"/>
+                            <constraint firstItem="xou-vE-Fsb" firstAttribute="centerY" secondItem="C1L-Ac-bnq" secondAttribute="centerY" id="7pc-qC-c5Q"/>
+                        </constraints>
                     </clipView>
-                    <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Jjs-Ea-ba9">
-                        <rect key="frame" x="1" y="149" width="2302" height="16"/>
+                    <constraints>
+                        <constraint firstItem="xou-vE-Fsb" firstAttribute="height" secondItem="c2L-ze-Bo8" secondAttribute="height" id="RnR-GH-KWa"/>
+                    </constraints>
+                    <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                    <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.49976426214049974" horizontal="YES" id="Kr8-Wv-vi8">
+                        <rect key="frame" x="1" y="79" width="161" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="BFk-7y-Trl">
-                        <rect key="frame" x="2287" y="1" width="16" height="164"/>
+                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.5" horizontal="NO" id="hCZ-tB-xGq">
+                        <rect key="frame" x="146" y="1" width="16" height="94"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
             </subviews>
-            <point key="canvasLocation" x="-282" y="55"/>
-        </view>
-        <scrollView horizontalHuggingPriority="249" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="0.0" verticalPageScroll="0.0" hasHorizontalScroller="NO" hasVerticalScroller="NO" verticalScrollElasticity="none" id="nZ5-1Z-xjl" userLabel="Scroll View">
-            <rect key="frame" x="0.0" y="0.0" width="222" height="164"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <clipView key="contentView" id="zrL-yf-Ji6">
-                <rect key="frame" x="0.0" y="0.0" width="222" height="164"/>
-                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                <subviews>
-                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="749" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WPL-5k-vZm">
-                        <rect key="frame" x="111" y="0.0" width="0.0" height="164"/>
-                    </stackView>
-                </subviews>
-                <constraints>
-                    <constraint firstItem="WPL-5k-vZm" firstAttribute="centerY" secondItem="zrL-yf-Ji6" secondAttribute="centerY" id="NN7-pO-YOt"/>
-                    <constraint firstItem="WPL-5k-vZm" firstAttribute="centerX" secondItem="zrL-yf-Ji6" secondAttribute="centerX" id="xje-xj-PuY"/>
-                </constraints>
-                <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
-            </clipView>
             <constraints>
-                <constraint firstItem="WPL-5k-vZm" firstAttribute="height" secondItem="nZ5-1Z-xjl" secondAttribute="height" id="qIN-wv-YgR"/>
+                <constraint firstItem="c2L-ze-Bo8" firstAttribute="top" secondItem="FMR-XA-gZ0" secondAttribute="top" id="8cZ-Wh-kvc"/>
+                <constraint firstItem="c2L-ze-Bo8" firstAttribute="leading" secondItem="FMR-XA-gZ0" secondAttribute="leading" id="Zrl-Rc-aLl"/>
+                <constraint firstAttribute="trailing" secondItem="c2L-ze-Bo8" secondAttribute="trailing" id="iPz-uP-blO"/>
+                <constraint firstItem="c2L-ze-Bo8" firstAttribute="centerX" secondItem="FMR-XA-gZ0" secondAttribute="centerX" id="kXN-XO-c9H"/>
+                <constraint firstAttribute="bottom" secondItem="c2L-ze-Bo8" secondAttribute="bottom" id="lMs-We-o4A"/>
             </constraints>
-            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="MUM-Xj-fL6">
-                <rect key="frame" x="-100" y="-100" width="570" height="16"/>
-                <autoresizingMask key="autoresizingMask"/>
-            </scroller>
-            <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="QTu-dC-rbV">
-                <rect key="frame" x="-100" y="-100" width="16" height="19"/>
-                <autoresizingMask key="autoresizingMask"/>
-            </scroller>
-            <point key="canvasLocation" x="-262" y="-174"/>
-        </scrollView>
-        <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="c2L-ze-Bo8">
-            <rect key="frame" x="0.0" y="0.0" width="183" height="96"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <clipView key="contentView" id="C1L-Ac-bnq">
-                <rect key="frame" x="1" y="1" width="181" height="94"/>
-                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                <subviews>
-                    <view translatesAutoresizingMaskIntoConstraints="NO" id="xou-vE-Fsb" userLabel="Document View">
-                        <rect key="frame" x="91" y="-1" width="0.0" height="96"/>
-                        <subviews>
-                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="749" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvg-on-7W5">
-                                <rect key="frame" x="0.0" y="48" width="0.0" height="0.0"/>
-                            </stackView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="gvg-on-7W5" firstAttribute="leading" secondItem="xou-vE-Fsb" secondAttribute="leading" id="61w-rV-2lt"/>
-                            <constraint firstItem="gvg-on-7W5" firstAttribute="centerY" secondItem="xou-vE-Fsb" secondAttribute="centerY" id="QEA-xO-uEm"/>
-                            <constraint firstAttribute="trailing" secondItem="gvg-on-7W5" secondAttribute="trailing" id="bMv-CF-2b3"/>
-                        </constraints>
-                    </view>
-                </subviews>
-                <constraints>
-                    <constraint firstItem="xou-vE-Fsb" firstAttribute="centerX" secondItem="C1L-Ac-bnq" secondAttribute="centerX" id="t73-cU-SIt"/>
-                </constraints>
-            </clipView>
-            <constraints>
-                <constraint firstItem="xou-vE-Fsb" firstAttribute="top" secondItem="c2L-ze-Bo8" secondAttribute="top" id="DUy-cO-L8g"/>
-                <constraint firstAttribute="bottom" secondItem="xou-vE-Fsb" secondAttribute="bottom" id="Q3k-kD-kxj"/>
-            </constraints>
-            <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.49976426214049974" horizontal="YES" id="Kr8-Wv-vi8">
-                <rect key="frame" x="1" y="79" width="181" height="16"/>
-                <autoresizingMask key="autoresizingMask"/>
-            </scroller>
-            <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.5" horizontal="NO" id="hCZ-tB-xGq">
-                <rect key="frame" x="166" y="1" width="16" height="94"/>
-                <autoresizingMask key="autoresizingMask"/>
-            </scroller>
-            <point key="canvasLocation" x="-552" y="201"/>
-        </scrollView>
+            <point key="canvasLocation" x="-448" y="40"/>
+        </customView>
     </objects>
 </document>

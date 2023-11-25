@@ -29,6 +29,14 @@ class TabCollectionViewController: NSViewController {
       + viewObservations
   }
   
+  override func viewDidAppear() {
+    super.viewDidAppear()
+    // PoC scroll view border as the cause of the malfunctioning horizontal constraints when presented in toolbar.
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+      (self.tabContainerView as! NSScrollView).borderType = .noBorder
+    }
+  }
+
   deinit {
     for o in observations {
       o.invalidate()

@@ -16,10 +16,18 @@ class ToolbarViewModel: NSObject {
   var activeTabId: Tab.ID?
   
   static var stub = ToolbarViewModel(tabs: [
-    Tab(label: "asddklf"),
-    Tab(label: "asddklf"),
-    Tab(label: "asddklf"),
-    Tab(label: "asddklf"),
+    Tab(label: "test \(Date())"),
+    Tab(label: "test \(Date())"),
+    Tab(label: "test \(Date())"),
+    Tab(label: "test \(Date())"),
+//    Tab(label: "test \(Date())"),
+//    Tab(label: "test \(Date())"),
+//    Tab(label: "test \(Date())"),
+//    Tab(label: "test \(Date())"),
+//    Tab(label: "test \(Date())"),
+//    Tab(label: "test \(Date())"),
+//    Tab(label: "test \(Date())"),
+//    Tab(label: "test \(Date())"),
   ])
   
   func addNewTab() {
