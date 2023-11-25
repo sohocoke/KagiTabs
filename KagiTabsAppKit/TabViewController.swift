@@ -26,13 +26,13 @@ class TabViewController: NSViewController {
   }
   
   
-  var observations: Any?
+  var subscriptions: Any?
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
     trackCloseButtonHover()
-    self.observations = viewModelObservations
+    self.subscriptions = viewModelSubscriptions
   }
   
 
@@ -95,12 +95,10 @@ class TabViewController: NSViewController {
   }
   
   
-  var viewModelObservations: Any {
+  var viewModelSubscriptions: Any {
     [
-      self.observe(\.tab.label, options: [.initial, .new]) { viewController, change in
-        let tabLabel = change.newValue ?? ""
-        viewController.tabView.tabButton.title = tabLabel
-      }
+      self.publisher(for: \.tab.label)
+        .assign(to: \.tabView.tabButton.title, on: self)
     ]
   }
 
