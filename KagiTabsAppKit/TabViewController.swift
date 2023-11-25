@@ -148,7 +148,7 @@ class TabView: NSView {
 
 
 #Preview {
-  let viewController = TabViewController(nibName: .init("TabView"), bundle: nil)
+  let viewController = TabViewController(nibName: nil, bundle: nil)
   viewController.tab = Tab(label: "test")
   return viewController
 }

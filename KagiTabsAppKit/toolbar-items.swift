@@ -1,28 +1,45 @@
 import Cocoa
 
-class AddressBarToolbarItem: NSToolbarItem {
-  override init(itemIdentifier: NSToolbarItem.Identifier) {
+
+class BrowserToolbarItem: NSToolbarItem {
+  var browserToolbarViewController: BrowserToolbarViewController
+  
+  init(itemIdentifier: NSToolbarItem.Identifier, viewModel: ToolbarViewModel) {
+    guard let browserToolbarViewController = NSStoryboard(name: .init("BrowserToolbar"), bundle: nil).instantiateInitialController() as? BrowserToolbarViewController
+    else { fatalError() }
+    self.browserToolbarViewController = browserToolbarViewController
+
     super.init(itemIdentifier: itemIdentifier)
     
-    let textField = NSTextField(string: "test string")
-    textField.addConstraint(
-      textField.widthAnchor.constraint(greaterThanOrEqualToConstant: 150)
-    )
-    
-    self.view = textField
-    
-    self.label = "address"
+    browserToolbarViewController.viewModel = viewModel
+
+    self.view = browserToolbarViewController.view
   }
 }
 
-class TabCollectionToolbarItem: NSToolbarItem {
-  init(itemIdentifier: NSToolbarItem.Identifier, view: NSView) {
-    
-    super.init(itemIdentifier: itemIdentifier)
 
-    self.view = view
-        
-    self.label = "tabs"
-    
+class BrowserToolbarViewController: NSViewController {
+  
+  var tabCollectionViewController: TabCollectionViewController? {
+    didSet {
+      tabCollectionViewController?.viewModel = viewModel
+    }
   }
+  
+  var viewModel: ToolbarViewModel? {
+    didSet {
+      tabCollectionViewController?.viewModel = viewModel
+    }
+  }
+  
+
+  // MARK: storyboard lifecycle
+  
+  override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+    super.prepare(for: segue, sender: sender)
+    if let tabCollectionViewController = segue.destinationController as? TabCollectionViewController {
+      self.tabCollectionViewController = tabCollectionViewController
+    }
+  }
+
 }

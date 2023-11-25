@@ -15,6 +15,7 @@
 		5157E4DA2B10497700BB669C /* TabCollectionTest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4D92B10497700BB669C /* TabCollectionTest.storyboard */; };
 		5157E4E12B10930800BB669C /* TestScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4DF2B10930800BB669C /* TestScrollViewController.swift */; };
 		5157E4E22B10930800BB669C /* TestScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4E02B10930800BB669C /* TestScrollViewController.xib */; };
+		5157E4E52B11EC6700BB669C /* BrowserToolbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4E42B11EC6700BB669C /* BrowserToolbar.storyboard */; };
 		518079502B09552600F0BB5B /* KagiTabsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5180794F2B09552600F0BB5B /* KagiTabsApp.swift */; };
 		518079522B09552600F0BB5B /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518079512B09552600F0BB5B /* BrowserView.swift */; };
 		518079542B09552700F0BB5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518079532B09552700F0BB5B /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		5157E4D92B10497700BB669C /* TabCollectionTest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabCollectionTest.storyboard; sourceTree = "<group>"; };
 		5157E4DF2B10930800BB669C /* TestScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScrollViewController.swift; sourceTree = "<group>"; };
 		5157E4E02B10930800BB669C /* TestScrollViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestScrollViewController.xib; sourceTree = "<group>"; };
+		5157E4E42B11EC6700BB669C /* BrowserToolbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BrowserToolbar.storyboard; sourceTree = "<group>"; };
 		5180794C2B09552600F0BB5B /* KagiTabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KagiTabs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5180794F2B09552600F0BB5B /* KagiTabsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KagiTabsApp.swift; sourceTree = "<group>"; };
 		518079512B09552600F0BB5B /* BrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				5157E4CD2B0FC7FC00BB669C /* ToolbarViewModel.swift */,
 				510EF6A42B0A339A00178579 /* Assets.xcassets */,
 				510EF6A62B0A339A00178579 /* Main.storyboard */,
+				5157E4E42B11EC6700BB669C /* BrowserToolbar.storyboard */,
 				51DEEEBB2B0FA4DF00BEF0FE /* TabCollectionViewController.xib */,
 				51DB99BF2B0D6B1F001340C2 /* TabViewController.xib */,
 				5157E4E32B11EB2800BB669C /* test tab collection layout */,
@@ -281,6 +284,7 @@
 				51DB99C02B0D6B1F001340C2 /* TabViewController.xib in Resources */,
 				51DEEEBD2B0FA4DF00BEF0FE /* TabCollectionViewController.xib in Resources */,
 				510EF6A82B0A339A00178579 /* Main.storyboard in Resources */,
+				5157E4E52B11EC6700BB669C /* BrowserToolbar.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

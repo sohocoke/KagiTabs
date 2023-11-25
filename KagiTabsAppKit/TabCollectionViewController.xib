@@ -18,7 +18,7 @@
             <rect key="frame" x="0.0" y="0.0" width="373" height="96"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="c2L-ze-Bo8" userLabel="Scroll View">
+                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="c2L-ze-Bo8" userLabel="Scroll View">
                     <rect key="frame" x="1" y="0.0" width="371" height="96"/>
                     <clipView key="contentView" drawsBackground="NO" id="C1L-Ac-bnq">
                         <rect key="frame" x="0.0" y="0.0" width="371" height="96"/>
@@ -48,12 +48,12 @@
                         <constraint firstItem="xou-vE-Fsb" firstAttribute="height" secondItem="c2L-ze-Bo8" secondAttribute="height" id="RnR-GH-KWa"/>
                     </constraints>
                     <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
-                    <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.49976426214049974" horizontal="YES" id="Kr8-Wv-vi8">
-                        <rect key="frame" x="0.0" y="80" width="371" height="16"/>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.49976426214049974" horizontal="YES" id="Kr8-Wv-vi8">
+                        <rect key="frame" x="-100" y="-100" width="371" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.5" horizontal="NO" id="hCZ-tB-xGq">
-                        <rect key="frame" x="355" y="0.0" width="16" height="96"/>
+                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.5" horizontal="NO" id="hCZ-tB-xGq">
+                        <rect key="frame" x="-100" y="-100" width="16" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>

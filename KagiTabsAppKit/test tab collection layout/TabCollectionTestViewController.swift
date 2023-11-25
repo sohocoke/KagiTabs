@@ -18,7 +18,7 @@ class TabCollectionTestViewController: NSViewController {
   override func viewDidLoad() {
       super.viewDidLoad()
 
-    tabCollectionViewController = TabCollectionViewController(nibName: nil, bundle: nil)
+    tabCollectionViewController = TabCollectionViewController()
     tabCollectionViewController.viewModel = ToolbarViewModel.stub
     
     tabCollectionContainerView.addSubview(

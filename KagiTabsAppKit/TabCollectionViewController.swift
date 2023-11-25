@@ -19,7 +19,18 @@ class TabCollectionViewController: NSViewController {
 
   var observations: [NSKeyValueObservation] = []
   
+  
+  // MARK: initialisers
 
+  required init?(coder: NSCoder) {
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  init() {
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  
   // MARK: view lifecycle
   
   override func viewDidLoad() {
@@ -108,7 +119,7 @@ class TabCollectionViewController: NSViewController {
   // MARK: misc
   
   func newTabViewController(tab: Tab) -> NSViewController {
-    let tabViewController = TabViewController(nibName: .init("TabViewController"), bundle: nil)
+    let tabViewController = TabViewController()
     tabViewController.tab = tab
     return tabViewController
   }
@@ -134,7 +145,7 @@ class TabCollectionViewController: NSViewController {
 
 
 #Preview {
-  let viewController =  TabCollectionViewController(nibName: "TabCollectionViewController", bundle: nil)
+  let viewController =  TabCollectionViewController()
   viewController.viewModel = ToolbarViewModel.stub
   viewController.viewModel?.tabs.append(contentsOf: [
     Tab(label: "test \(Date())"),
