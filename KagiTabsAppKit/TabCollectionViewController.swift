@@ -1,4 +1,5 @@
 import Cocoa
+import Combine
 
 
 
@@ -17,7 +18,7 @@ class TabCollectionViewController: NSViewController {
   @IBOutlet weak var tabButtonsStackView: NSStackView!
   @IBOutlet @objc dynamic weak var tabContainerView: NSScrollView!
 
-  var observations: [NSKeyValueObservation] = []
+  var subscriptions: Any?
   
   
   // MARK: initialisers
@@ -33,21 +34,20 @@ class TabCollectionViewController: NSViewController {
   
   // MARK: view lifecycle
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    self.observations =
-      viewModelObservations
-      + viewObservations
+  override func viewDidAppear() {
+    super.viewDidAppear()
+    
+    self.subscriptions =
+      viewModelSubscriptions
+      + viewSubscriptions
   }
   
-  
-  deinit {
-    for o in observations {
-      o.invalidate()
-    }
-    observations = []
+  override func viewWillDisappear() {
+    self.subscriptions = nil
+    
+    super.viewWillDisappear()
   }
-  
+    
   
   // MARK: tab sizing
   
@@ -69,49 +69,56 @@ class TabCollectionViewController: NSViewController {
   
   // MARK: kvo
   
-  var viewModelObservations: [NSKeyValueObservation] {
+  var viewModelSubscriptions: [Any] {
     [
-      self.observe(\.viewModel?.tabs, options: [.initial, .old, .new]) { viewController, change in
-        guard change.oldValue != change.newValue else { return }
-        let oldTabIds = change.oldValue??.map { $0.id } ?? []
-        let newTabIds = change.newValue??.map { $0.id } ?? []
-        
-        let added = Set(newTabIds).subtracting(oldTabIds)
-        let removed = Set(oldTabIds).subtracting(newTabIds)
-        
-        // update removed
-        for case let tabViewController as TabViewController in viewController.children {
-          if removed.contains(tabViewController.tab.id) {
-            tabViewController.view.removeFromSuperview()
-            tabViewController.removeFromParent()
-          }
+      self.publisher(for: \.viewModel?.tabs)
+        .scan(([], [])) { (priorClosureResult, current) -> ([Tab], [Tab]) in
+          let (_, prior) = priorClosureResult
+          return (prior, current ?? [])
         }
-        
-        // update added
-        for tabId in added {
-          if let tab = change.newValue??.first(where: { $0.id == tabId }) {
-            let tabViewController = viewController.newTabViewController(tab: tab)
-            viewController.addChild(tabViewController)
-            viewController.tabButtonsStackView.addArrangedSubview(tabViewController.view)
-          }
+        .filter { $0 != $1 }
+        .map { prior, current in
+          let oldTabIds = prior.map { $0.id }
+          let newTabIds = current.map { $0.id }
+          
+          let added = current.filter { !oldTabIds.contains($0.id) }
+          let removed = prior.filter { !newTabIds.contains($0.id) }
+          return (added, removed)
         }
-        
-        // update tab sizes
-        viewController.updateTabSizes()
-      },
-      self.observe(\.viewModel?.activeTabId, options: [.initial, .new]) { viewController, change in
-        viewController.updateTabSizes()
-      }
+        .sink { [unowned self] added, removed in
+          // update removed
+          for case let tabViewController as TabViewController in self.children {
+            if removed.contains(where: { $0.id == tabViewController.tab.id}) {
+              tabViewController.view.removeFromSuperview()
+              tabViewController.removeFromParent()
+            }
+          }
+          
+          // update added
+          for tab in added {
+            let tabViewController = self.newTabViewController(tab: tab)
+            self.addChild(tabViewController)
+            self.tabButtonsStackView.addArrangedSubview(tabViewController.view)
+          }
+          
+          // update tab sizes
+          self.updateTabSizes()
+        },
+      
+      self.publisher(for: \.viewModel?.activeTabId)
+        .sink { [unowned self] _ in
+          self.updateTabSizes()
+        }
     ]
   }
   
-  var viewObservations: [NSKeyValueObservation] {
+  var viewSubscriptions: [Any] {
     [
-      self.observe(\.tabContainerView.frame, options: [.old, .new]) { viewController, change in
-        if change.newValue?.width != change.oldValue?.width {
-          viewController.updateTabSizes()
+      self.publisher(for: \.tabContainerView.frame)
+        .removeDuplicates()
+        .sink { [unowned self] _ in
+          self.updateTabSizes()
         }
-      }
     ]
   }
   
