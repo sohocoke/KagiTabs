@@ -15,3 +15,7 @@ class TestScrollViewController: NSViewController {
     }
     
 }
+
+#Preview(traits: .fixedLayout(width: 100, height: 300)) {
+  TestScrollViewController(nibName: nil, bundle: nil)
+}
