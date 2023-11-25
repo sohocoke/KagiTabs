@@ -28,7 +28,7 @@
                 </button>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="ydW-aG-xCU" userLabel="Close Button">
                     <rect key="frame" x="4" y="3.5" width="15" height="14"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="xmark.square.fill" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="0xc-do-ZzF">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="xmark.square.fill" catalog="system" imagePosition="only" alignment="center" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" inset="2" id="0xc-do-ZzF">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
