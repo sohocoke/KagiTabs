@@ -15,7 +15,7 @@ class TabCollectionViewController: NSViewController {
   }
   
   @IBOutlet weak var tabButtonsStackView: NSStackView!
-  @IBOutlet @objc dynamic weak var tabContainerView: NSView!
+  @IBOutlet @objc dynamic weak var tabContainerView: NSScrollView!
 
   var observations: [NSKeyValueObservation] = []
   
@@ -31,18 +31,18 @@ class TabCollectionViewController: NSViewController {
   
   override func viewDidAppear() {
     super.viewDidAppear()
-    // PoC scroll view border as the cause of the malfunctioning horizontal constraints when presented in toolbar.
-    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-      (self.tabContainerView as! NSScrollView).borderType = .noBorder
-    }
+    // there appears to be a bug with autolayout and NSScrollView, whereby constraints are not honoured correctly if the border is disabled.
+    // work around by having the scroll view border on in the xib, then remove on render.
+    removeScrollViewBorder()
   }
-
+  
   deinit {
     for o in observations {
       o.invalidate()
     }
     observations = []
   }
+  
   
   // MARK: tab sizing
   
@@ -113,6 +113,14 @@ class TabCollectionViewController: NSViewController {
   
   // MARK: misc
   
+  /// remove the scroll view border immediately after presenting, to work around apparent bug with NSScrollView + autolayout constraints.
+  func removeScrollViewBorder() {
+    DispatchQueue.main.async {
+      self.tabContainerView.borderType = .noBorder
+    }
+  }
+
+
   func newTabViewController(tab: Tab) -> NSViewController {
     let tabViewController = TabViewController(nibName: .init("TabViewController"), bundle: nil)
     tabViewController.tab = tab
