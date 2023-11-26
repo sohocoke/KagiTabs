@@ -10,7 +10,7 @@
         <scene sceneID="PEd-7d-5j0">
             <objects>
                 <viewController id="bU7-R8-ocO" userLabel="Browser Toolbar View Controller" customClass="BrowserToolbarViewController" customModule="KagiTabsAppKit" customModuleProvider="target" sceneMemberID="viewController">
-                    <stackView key="view" distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="aUs-Un-jLI">
+                    <stackView key="view" distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="aUs-Un-jLI">
                         <rect key="frame" x="0.0" y="0.0" width="775" height="450"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                         <subviews>
