@@ -108,7 +108,14 @@ class TabCollectionViewController: NSViewController {
       self.publisher(for: \.viewModel?.activeTabId)
         .sink { [unowned self] _ in
           self.updateTabSizes()
-        }
+        },
+      
+      self.publisher(for: \.viewModel?.activeTabId)
+        .sink { [unowned self] activeTabId in
+          for case let tabViewController as TabViewController in self.children {
+            tabViewController.isActive = tabViewController.tab.id == activeTabId
+          }
+        },
     ]
   }
   

@@ -21,6 +21,10 @@ class TabViewController: NSViewController {
     }
   }
   
+  @objc dynamic
+  var isActive: Bool = false
+  
+  
   var tabView: TabView {
     self.view as! TabView
   }
