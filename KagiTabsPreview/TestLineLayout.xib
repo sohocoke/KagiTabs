@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="22155" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22155"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ogX-rm-aPZ">
+            <rect key="frame" x="0.0" y="0.0" width="207" height="96"/>
+            <subviews>
+                <button horizontalHuggingPriority="751" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zax-6K-pMj" userLabel="1">
+                    <rect key="frame" x="-7" y="31" width="75" height="32"/>
+                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xJF-3u-xM1">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <button verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="gEN-t4-VVP" userLabel="2">
+                    <rect key="frame" x="66" y="31" width="75" height="32"/>
+                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AgZ-hu-RwG">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <button verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="RzA-Bi-hKP" userLabel="3">
+                    <rect key="frame" x="139" y="31" width="75" height="32"/>
+                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="F4c-PY-1zC">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="RzA-Bi-hKP" secondAttribute="trailing" id="6DL-i4-G38"/>
+                <constraint firstItem="gEN-t4-VVP" firstAttribute="centerY" secondItem="ogX-rm-aPZ" secondAttribute="centerY" id="B9P-Vk-6o9"/>
+                <constraint firstItem="RzA-Bi-hKP" firstAttribute="leading" secondItem="gEN-t4-VVP" secondAttribute="trailing" constant="12" symbolic="YES" id="Ogf-qZ-K9T"/>
+                <constraint firstItem="zax-6K-pMj" firstAttribute="centerY" secondItem="ogX-rm-aPZ" secondAttribute="centerY" id="Pmh-Uy-mIa"/>
+                <constraint firstItem="RzA-Bi-hKP" firstAttribute="centerY" secondItem="ogX-rm-aPZ" secondAttribute="centerY" id="ZDb-5a-RQD"/>
+                <constraint firstAttribute="trailing" secondItem="gEN-t4-VVP" secondAttribute="trailing" priority="750" id="ZNl-fp-eRI"/>
+                <constraint firstAttribute="trailing" secondItem="zax-6K-pMj" secondAttribute="trailing" priority="750" id="lJT-LN-Iqk"/>
+                <constraint firstItem="zax-6K-pMj" firstAttribute="leading" secondItem="ogX-rm-aPZ" secondAttribute="leading" id="qFb-LW-NfT"/>
+                <constraint firstItem="gEN-t4-VVP" firstAttribute="leading" secondItem="zax-6K-pMj" secondAttribute="trailing" constant="12" symbolic="YES" id="u4n-xt-tE6"/>
+            </constraints>
+            <point key="canvasLocation" x="-11.5" y="-17"/>
+        </customView>
+    </objects>
+</document>

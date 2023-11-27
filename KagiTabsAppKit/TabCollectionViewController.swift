@@ -15,7 +15,6 @@ class TabCollectionViewController: NSViewController {
     }
   }
   
-  @IBOutlet weak var tabButtonsStackView: NSStackView!
   @IBOutlet @objc dynamic weak var tabContainerView: NSScrollView!
 
   var subscriptions: Any?
@@ -52,18 +51,28 @@ class TabCollectionViewController: NSViewController {
   // MARK: tab sizing
   
   func updateTabSizes() {
-    // first update active tab width
-    activeTabViewController?.updateToIdealWidth()
+//    // first update active tab width
+//    activeTabViewController?.updateToIdealWidth()
+//    
+//    // determine the modes of the tabs based on cum. width <> container width
+//    let tabCount = children.filter { $0 is TabViewController }.count
+//    let activeTabWidth = activeTabViewController?.view.intrinsicContentSize.width ?? 0
+//    let horizontalInsets = tabButtonsStackView.edgeInsets.left + tabButtonsStackView.edgeInsets.right
+//    let totalInsets = horizontalInsets * CGFloat(tabCount)
+//    let totalSpacing = tabButtonsStackView.spacing * CGFloat(tabCount - 1)
+//    let remainingContainerWidth = tabContainerView.frame.width - activeTabWidth - totalInsets
+//    
+//    for case let inactiveTabViewController as TabViewController in children
+//    where inactiveTabViewController.tab.id != viewModel?.activeTabId {
+//      inactiveTabViewController.updateWidth(remainingContainerWidth: remainingContainerWidth, tabCount: tabCount - 1)
+//    }
     
-    // determine the modes of the tabs based on cum. width <> container width
-    let tabCount = children.filter { $0 is TabViewController }.count
-    let activeTabWidth = activeTabViewController?.view.intrinsicContentSize.width ?? 0
-    let remainingContainerWidth = tabContainerView.frame.width - activeTabWidth
     
-    for case let inactiveTabViewController as TabViewController in children
-    where inactiveTabViewController.tab.id != viewModel?.activeTabId {
-      inactiveTabViewController.updateWidth(remainingContainerWidth: remainingContainerWidth, tabCount: tabCount - 1)
-    }
+    // IT2 use constraints
+    
+    // update active tab width TODO
+    
+    
   }
   
   
@@ -95,19 +104,25 @@ class TabCollectionViewController: NSViewController {
           }
           
           // update added
+          var tabViews: [NSView] = []
           for tab in added {
             let tabViewController = self.newTabViewController(tab: tab)
             self.addChild(tabViewController)
-            self.tabButtonsStackView.addArrangedSubview(tabViewController.view)
+            tabViews.append(tabViewController.view)
           }
+          tabContainerView.documentView?.addLine(subviews: tabViews)
           
-          // update tab sizes
-          self.updateTabSizes()
+//          // update tab sizes
+//          self.updateTabSizes()
         },
       
       self.publisher(for: \.viewModel?.activeTabId)
         .sink { [unowned self] _ in
-          self.updateTabSizes()
+//          self.updateTabSizes()
+          
+          // TODO remove active tab constraint from previous
+          
+          // TODO add active tab constraint to current
         },
       
       self.publisher(for: \.viewModel?.activeTabId)

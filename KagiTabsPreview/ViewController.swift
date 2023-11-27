@@ -9,10 +9,16 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+  var testDynamicConstraintsViewController = TestDynamicConstraintsViewController()
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
     // Do any additional setup after loading the view.
+//    self.view.addSubview(testDynamicConstraintsViewController.view)
+//    testDynamicConstraintsViewController.view.frame = self.view.bounds
+    self.view = testDynamicConstraintsViewController.view
+//    testDynamicConstraintsViewController.view.setDebugBorder(.blue)
   }
 
   override var representedObject: Any? {
