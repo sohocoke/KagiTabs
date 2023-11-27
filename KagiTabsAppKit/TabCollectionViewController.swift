@@ -98,7 +98,8 @@ class TabCollectionViewController: NSViewController {
           // update removed
           for case let tabViewController as TabViewController in self.children {
             if removed.contains(where: { $0.id == tabViewController.tab.id}) {
-              tabViewController.view.removeFromSuperview()
+//              tabViewController.view.removeFromSuperview()
+              tabContainerView.documentView?.removeFromTiled(subview: tabViewController.view)
               tabViewController.removeFromParent()
             }
           }

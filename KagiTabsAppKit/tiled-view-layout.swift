@@ -19,7 +19,7 @@ extension NSView {
       subview.setContentHuggingPriority(.defaultHigh, for: .horizontal)
       
       // allow compression -- caller should ensure minimum width constraint on subviews for sane presentation.
-      subview.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+//      subview.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
 //      subview.addConstraint(
 //        subview.widthAnchor.constraint(greaterThanOrEqualToConstant: minWidth)
 //      )
