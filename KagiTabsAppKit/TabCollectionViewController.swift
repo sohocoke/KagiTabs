@@ -72,16 +72,16 @@ class TabCollectionViewController: NSViewController {
   var viewModelSubscriptions: [Any] {
     [
       self.publisher(for: \.viewModel?.tabs)
-        .scan(([], [])) { (priorClosureResult, current) -> ([Tab], [Tab]) in
-          let (_, prior) = priorClosureResult
-          return (prior, current ?? [])
-        }
-        .filter { $0 != $1 }
-        .map { prior, current in
-          let oldTabIds = prior.map { $0.id }
-          let newTabIds = current.map { $0.id }
+        .map { [unowned self] tabs in
+          let tabs = tabs ?? []
+          let prior = self.children.compactMap {
+            ($0 as? TabViewController)?.tab
+          }
           
-          let added = current.filter { !oldTabIds.contains($0.id) }
+          let oldTabIds = prior.map { $0.id }
+          let newTabIds = tabs.map { $0.id }
+
+          let added = tabs.filter { !oldTabIds.contains($0.id) }
           let removed = prior.filter { !newTabIds.contains($0.id) }
           return (added, removed)
         }
