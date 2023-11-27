@@ -113,18 +113,18 @@ class TabCollectionViewController: NSViewController {
           }
           tabContainerView.documentView?.addTiled(subviews: tabViews)
           
-//          // update tab sizes
-//          self.updateTabSizes()
+          // update tab sizes
+          self.updateTabSizes()
         },
       
-//      self.publisher(for: \.viewModel?.activeTabId)
-//        .sink { [unowned self] _ in
-////          self.updateTabSizes()
+      self.publisher(for: \.viewModel?.activeTabId)
+        .sink { [unowned self] _ in
+          self.updateTabSizes()
 //          
 //          // TODO remove active tab constraint from previous
 //          
 //          // TODO add active tab constraint to current
-//        },
+        },
       
       self.publisher(for: \.viewModel?.activeTabId)
         .sink { [unowned self] activeTabId in
