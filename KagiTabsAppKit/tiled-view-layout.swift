@@ -8,11 +8,21 @@ extension NSView {
   /// ensure subviews have suitable vertical constraints.
   func addTiled(subviews: [NSView]) {
     guard !subviews.isEmpty else { return }
+
+    let minWidth: CGFloat = 15  // stub
     
-    // prep subviews for autolayout and hug tightly.
+    // prep subviews for autolayout.
     for subview in subviews {
       subview.translatesAutoresizingMaskIntoConstraints = false
+      
+      // content items should hug tightly so total width is accurate.
       subview.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+      
+      // allow compression -- caller should ensure minimum width constraint on subviews for sane presentation.
+      subview.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+//      subview.addConstraint(
+//        subview.widthAnchor.constraint(greaterThanOrEqualToConstant: minWidth)
+//      )
     }
 
     updateToSubviews(subviews)
@@ -21,11 +31,7 @@ extension NSView {
   func addTiled(subview: NSView) {
     assert(!self.subviews.contains(subview))
     
-    // setup layout properties for the subview.
-    subview.translatesAutoresizingMaskIntoConstraints = false
-    subview.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-
-    updateToSubviews(self.subviews + [subview])
+    addTiled(subviews: self.subviews + [subview])
   }
   
   func removeFromTiled(subview: NSView) {
