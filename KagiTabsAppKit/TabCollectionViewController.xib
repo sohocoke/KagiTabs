@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TabCollectionViewController" customModule="KagiTabsAppKit" customModuleProvider="target">
             <connections>
+                <outlet property="tabButtonsStackView" destination="gvg-on-7W5" id="VXP-1v-EHi"/>
                 <outlet property="tabContainerView" destination="c2L-ze-Bo8" id="fN3-y1-DZI"/>
                 <outlet property="view" destination="FMR-XA-gZ0" id="vQq-QV-cfC"/>
             </connections>
@@ -18,13 +19,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="c2L-ze-Bo8" userLabel="Scroll View">
-                    <rect key="frame" x="0.0" y="0.0" width="373" height="96"/>
+                    <rect key="frame" x="1" y="0.0" width="371" height="96"/>
                     <clipView key="contentView" drawsBackground="NO" id="C1L-Ac-bnq">
-                        <rect key="frame" x="0.0" y="0.0" width="373" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="371" height="96"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view translatesAutoresizingMaskIntoConstraints="NO" id="xou-vE-Fsb" userLabel="Document View">
-                                <rect key="frame" x="0.0" y="0.0" width="373" height="96"/>
+                                <rect key="frame" x="0.0" y="0.0" width="8" height="96"/>
+                                <subviews>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="749" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvg-on-7W5" userLabel="Tab Collection Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="8" height="96"/>
+                                        <edgeInsets key="edgeInsets" left="4" right="4" top="4" bottom="4"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gvg-on-7W5" firstAttribute="leading" secondItem="xou-vE-Fsb" secondAttribute="leading" id="EbW-RZ-7qX"/>
+                                    <constraint firstItem="gvg-on-7W5" firstAttribute="top" secondItem="xou-vE-Fsb" secondAttribute="top" id="GAS-9c-ivO"/>
+                                    <constraint firstAttribute="trailing" secondItem="gvg-on-7W5" secondAttribute="trailing" id="ORy-bw-ESJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="gvg-on-7W5" secondAttribute="bottom" id="i16-yp-Y8B"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <constraints>
@@ -34,8 +47,6 @@
                     </clipView>
                     <constraints>
                         <constraint firstItem="xou-vE-Fsb" firstAttribute="height" secondItem="c2L-ze-Bo8" secondAttribute="height" id="RnR-GH-KWa"/>
-                        <constraint firstItem="xou-vE-Fsb" firstAttribute="leading" secondItem="c2L-ze-Bo8" secondAttribute="leading" id="eul-oz-24g"/>
-                        <constraint firstAttribute="trailing" secondItem="xou-vE-Fsb" secondAttribute="trailing" id="mWd-xx-5jK"/>
                     </constraints>
                     <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                     <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.49976426214049974" horizontal="YES" id="Kr8-Wv-vi8">
@@ -50,8 +61,8 @@
             </subviews>
             <constraints>
                 <constraint firstItem="c2L-ze-Bo8" firstAttribute="top" secondItem="FMR-XA-gZ0" secondAttribute="top" id="8cZ-Wh-kvc"/>
-                <constraint firstItem="c2L-ze-Bo8" firstAttribute="leading" secondItem="FMR-XA-gZ0" secondAttribute="leading" id="Zrl-Rc-aLl"/>
-                <constraint firstAttribute="trailing" secondItem="c2L-ze-Bo8" secondAttribute="trailing" id="iPz-uP-blO"/>
+                <constraint firstItem="c2L-ze-Bo8" firstAttribute="leading" secondItem="FMR-XA-gZ0" secondAttribute="leading" constant="1" id="Zrl-Rc-aLl"/>
+                <constraint firstAttribute="trailing" secondItem="c2L-ze-Bo8" secondAttribute="trailing" constant="1" id="iPz-uP-blO"/>
                 <constraint firstAttribute="bottom" secondItem="c2L-ze-Bo8" secondAttribute="bottom" id="lMs-We-o4A"/>
             </constraints>
             <point key="canvasLocation" x="-343.5" y="40"/>
