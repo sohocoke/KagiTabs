@@ -32,6 +32,65 @@ class TestDynamicConstraintsViewController: NSViewController {
   }
 }
 
+
+
+#Preview {
+  TestDynamicConstraintsViewController()
+}
+
+
+extension NSView {
+  /// adds views as subviews laid out horizontally, vertically centred.
+  /// ensure subviews have suitable vertical constraints.
+  func addLine(subviews: [NSView]) {
+    guard !subviews.isEmpty else { return }
+    
+    // prep subviews for autolayout and hug tightly.
+    for subview in subviews {
+      subview.translatesAutoresizingMaskIntoConstraints = false
+      subview.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+      
+      self.addSubview(subview)
+    }
+
+    // name the constraints so we can remove them.
+    
+    let firstSubview = subviews[0]
+    let pinLeading = firstSubview.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+    pinLeading.identifier = "pinLeadingViewLeading"
+    let centreVertically = firstSubview.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+    
+    self.addConstraints([
+      pinLeading, 
+      centreVertically])
+    
+    let restSubviews = subviews[1..<subviews.count]
+    guard !restSubviews.isEmpty else { return }
+    var lastSubview = firstSubview
+    for subview in restSubviews {
+      let leadingToPriorTrailing = subview.leadingAnchor.constraint(equalToSystemSpacingAfter: lastSubview.trailingAnchor, multiplier: 1)
+      let centreVertically = subview.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+
+      self.addConstraints([
+        leadingToPriorTrailing,
+        centreVertically
+      ])
+
+      lastSubview = subview
+    }
+    
+    // pin trailing view trailing
+    if let trailingView = subviews.last {
+      let pinTrailing = trailingView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+      pinTrailing.identifier = "pinTrailing"
+      self.addConstraint(pinTrailing)
+    }
+
+  }
+  
+}
+
+
 extension NSView {
   func addTrailing(subview: NSView) {
     // pre-condition: there is a line of subviews.
@@ -39,33 +98,32 @@ extension NSView {
       fatalError()
     }
 
-    // deprioritise constraint that pins trailng edge of last subview
-    // relies on the order of the anchors in constraint, so ensure the line rendering setup respects this order when building constraints.
-    self.constraints.filter {
-      $0.firstAnchor == self.trailingAnchor
-      && $0.secondAnchor == priorTrailingSubview.trailingAnchor
-    }
-    .forEach {
-      $0.priority = .defaultHigh
-    }
-    
     // setup layout properties for the subview.
     subview.translatesAutoresizingMaskIntoConstraints = false
     subview.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-    
-    subview.setContentCompressionResistancePriority(.required, for: .horizontal)  // temp
-    
+        
     self.addSubview(subview)
     
     // setup constraints so subview is positioned as trailing.
     let priorTrailingToLeading = subview.leadingAnchor.constraint(equalToSystemSpacingAfter: priorTrailingSubview.trailingAnchor, multiplier: 1)
-    let trailingPinnedToSuperview = self.trailingAnchor.constraint(equalTo: subview.trailingAnchor)
-    let verticallyCentred = priorTrailingSubview.centerYAnchor.constraint(equalTo: subview.centerYAnchor)
+    let verticallyCentred = subview.centerYAnchor.constraint(equalTo: self.centerYAnchor)
     self.addConstraints([
       priorTrailingToLeading,
-      trailingPinnedToSuperview,
       verticallyCentred,
     ])
+    
+    // repin trailing
+    if let trailingView = subviews.last {
+      if let pinPriorTrailing = self.constraints.last(where: { $0.identifier
+        == "pinTrailing"}) {
+        self.removeConstraint(pinPriorTrailing)
+      }
+      
+      let pinTrailing = trailingView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+      pinTrailing.identifier = "pinTrailing"
+      self.addConstraint(pinTrailing)
+    }
+
   }
   
   func removeFromLine(subview: NSView) {
@@ -75,6 +133,3 @@ extension NSView {
   }
 }
 
-#Preview {
-  TestDynamicConstraintsViewController()
-}
