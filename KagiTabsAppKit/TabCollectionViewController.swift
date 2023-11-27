@@ -110,20 +110,20 @@ class TabCollectionViewController: NSViewController {
             self.addChild(tabViewController)
             tabViews.append(tabViewController.view)
           }
-          tabContainerView.documentView?.addLine(subviews: tabViews)
+          tabContainerView.documentView?.addTiled(subviews: tabViews)
           
 //          // update tab sizes
 //          self.updateTabSizes()
         },
       
-      self.publisher(for: \.viewModel?.activeTabId)
-        .sink { [unowned self] _ in
-//          self.updateTabSizes()
-          
-          // TODO remove active tab constraint from previous
-          
-          // TODO add active tab constraint to current
-        },
+//      self.publisher(for: \.viewModel?.activeTabId)
+//        .sink { [unowned self] _ in
+////          self.updateTabSizes()
+//          
+//          // TODO remove active tab constraint from previous
+//          
+//          // TODO add active tab constraint to current
+//        },
       
       self.publisher(for: \.viewModel?.activeTabId)
         .sink { [unowned self] activeTabId in
