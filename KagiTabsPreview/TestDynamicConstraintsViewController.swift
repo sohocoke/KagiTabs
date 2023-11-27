@@ -81,9 +81,7 @@ extension NSView {
     
     // pin trailing view trailing
     if let trailingView = subviews.last {
-      let pinTrailing = trailingView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-      pinTrailing.identifier = "pinTrailing"
-      self.addConstraint(pinTrailing)
+      repin(trailingView: trailingView)
     }
 
   }
@@ -112,24 +110,49 @@ extension NSView {
       verticallyCentred,
     ])
     
-    // repin trailing
     if let trailingView = subviews.last {
-      if let pinPriorTrailing = self.constraints.last(where: { $0.identifier
-        == "pinTrailing"}) {
-        self.removeConstraint(pinPriorTrailing)
-      }
-      
-      let pinTrailing = trailingView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-      pinTrailing.identifier = "pinTrailing"
-      self.addConstraint(pinTrailing)
+      repin(trailingView: trailingView)
     }
-
+    
   }
   
-  func removeFromLine(subview: NSView) {
-    // TODO
+  func repin(trailingView: NSView) {
+    if let pinPriorTrailing = self.constraints.last(where: { $0.identifier
+      == "pinTrailing"}) {
+      self.removeConstraint(pinPriorTrailing)
+    }
     
+    let pinTrailing = trailingView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+    pinTrailing.identifier = "pinTrailing"
+    self.addConstraint(pinTrailing)
+  }
+
+  func removeFromLine(subview: NSView) {
+    let priorSubviews = subviews
     subview.removeFromSuperview()
+
+    let i = priorSubviews.firstIndex(of: subview)
+    switch i {
+    case nil: fatalError()
+      
+    case 0:
+      // repin first view
+      fatalError("TODO")
+      
+    case priorSubviews.count - 1:
+      if let trailingView = self.subviews.last {
+        repin(trailingView: trailingView)
+      }
+      
+    default:
+      // obtain next view and update its leading constraint
+      let priorView = self.subviews[i! - 1]
+      let nextView = self.subviews[i!]
+      self.addConstraint(
+        nextView.leadingAnchor.constraint(equalToSystemSpacingAfter: priorView.trailingAnchor, multiplier: 1)
+      )
+    }
+    
   }
 }
 
