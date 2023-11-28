@@ -19,9 +19,16 @@ class BrowserToolbarItem: NSToolbarItem {
     self.label = "Address and Tabs"
     self.paletteLabel = "Address and Tabs"
     
-//    self.view?.updateWidthConstraint(width: 50)
     self.minSize.width = 150
     self.maxSize.width = 15000
+
+//    // let's see if these constraints work as equivalents to setting min / max size
+//    self.view?.updateWidthConstraint(width: 150)
+//    
+//    if let c =
+//        self.view?.widthAnchor.constraint(lessThanOrEqualToConstant: 15000) {
+//      self.view?.addConstraint(c)
+//    }
   }
 }
 extension BrowserToolbarItem: NSToolbarDelegate {

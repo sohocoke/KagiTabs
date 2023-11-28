@@ -711,7 +711,7 @@
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="ngC-oB-XPF" kind="relationship" relationship="window.shadowedContentViewController" id="WVW-mO-DZJ"/>
+                        <segue destination="WuZ-05-5SO" kind="relationship" relationship="window.shadowedContentViewController" id="6ZI-jj-dGE"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -726,10 +726,10 @@
             </objects>
             <point key="canvasLocation" x="-51" y="491"/>
         </scene>
-        <!--TabCollectionTest-->
+        <!--TestTabCollection-->
         <scene sceneID="HOH-Wa-75s">
             <objects>
-                <controllerPlaceholder storyboardName="TabCollectionTest" id="WuZ-05-5SO" sceneMemberID="viewController"/>
+                <controllerPlaceholder storyboardName="TestTabCollection" id="WuZ-05-5SO" sceneMemberID="viewController"/>
                 <customObject id="mgW-k0-QiJ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="196" y="491"/>
