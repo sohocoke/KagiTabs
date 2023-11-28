@@ -7,8 +7,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TabCollectionViewController" customModule="KagiTabsAppKit" customModuleProvider="target">
             <connections>
-                <outlet property="tabButtonsStackView" destination="gvg-on-7W5" id="VXP-1v-EHi"/>
                 <outlet property="tabContainerView" destination="c2L-ze-Bo8" id="fN3-y1-DZI"/>
+                <outlet property="tabsDocumentView" destination="xou-vE-Fsb" id="acj-GG-QeG"/>
                 <outlet property="view" destination="FMR-XA-gZ0" id="vQq-QV-cfC"/>
             </connections>
         </customObject>
@@ -24,25 +24,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="371" height="96"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view translatesAutoresizingMaskIntoConstraints="NO" id="xou-vE-Fsb" userLabel="Document View">
-                                <rect key="frame" x="0.0" y="0.0" width="8" height="96"/>
-                                <subviews>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="749" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gvg-on-7W5" userLabel="Tab Collection Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="8" height="96"/>
-                                        <edgeInsets key="edgeInsets" left="4" right="4" top="4" bottom="4"/>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="gvg-on-7W5" firstAttribute="leading" secondItem="xou-vE-Fsb" secondAttribute="leading" id="EbW-RZ-7qX"/>
-                                    <constraint firstItem="gvg-on-7W5" firstAttribute="top" secondItem="xou-vE-Fsb" secondAttribute="top" id="GAS-9c-ivO"/>
-                                    <constraint firstAttribute="trailing" secondItem="gvg-on-7W5" secondAttribute="trailing" id="ORy-bw-ESJ"/>
-                                    <constraint firstAttribute="bottom" secondItem="gvg-on-7W5" secondAttribute="bottom" id="i16-yp-Y8B"/>
-                                </constraints>
+                            <view autoresizesSubviews="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xou-vE-Fsb" userLabel="Document View">
+                                <rect key="frame" x="0.0" y="0.0" width="371" height="96"/>
                             </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="xou-vE-Fsb" firstAttribute="leading" secondItem="C1L-Ac-bnq" secondAttribute="leading" id="6ao-k5-uEY"/>
                             <constraint firstItem="xou-vE-Fsb" firstAttribute="centerY" secondItem="C1L-Ac-bnq" secondAttribute="centerY" id="7pc-qC-c5Q"/>
+                            <constraint firstAttribute="trailing" secondItem="xou-vE-Fsb" secondAttribute="trailing" id="NoZ-Hc-oEe"/>
                         </constraints>
                     </clipView>
                     <constraints>

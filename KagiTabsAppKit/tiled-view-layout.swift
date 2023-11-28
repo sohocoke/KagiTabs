@@ -70,3 +70,30 @@ extension NSView {
   }
 
 }
+
+// temp position
+
+func allowCompression(_ views: [NSView], except: NSView) {
+  views.forEach {
+    // allow compression
+    $0.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+  }
+  
+  except.setContentCompressionResistancePriority(.required, for: .horizontal)
+}
+   
+func updateToSameWidthConstraints(_ inactiveViews: [NSView], superview: NSView) {
+  let widthConstraints = {
+    if let firstView = inactiveViews.first {
+      return inactiveViews[1..<inactiveViews.count].map {
+        let c = $0.widthAnchor.constraint(equalTo: firstView.widthAnchor)
+        c.priority = .defaultLow
+        c.identifier = "sameWidths"
+        return c
+      }
+    }
+    return []
+  }()
+  superview.removeConstraints(superview.constraints.filter { $0.identifier == "sameWidths" })
+  superview.addConstraints(widthConstraints)
+}

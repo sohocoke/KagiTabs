@@ -15,7 +15,7 @@ class TabCollectionViewController: NSViewController {
     }
   }
   
-  @IBOutlet weak var tabButtonsStackView: NSStackView!
+  @IBOutlet weak var tabsDocumentView: NSView!
   @IBOutlet @objc dynamic weak var tabContainerView: NSScrollView!
 
   var subscriptions: Any?
@@ -52,17 +52,16 @@ class TabCollectionViewController: NSViewController {
   // MARK: tab sizing
   
   func updateTabSizes() {
-    // first update active tab width
-    activeTabViewController?.updateToIdealWidth()
-    
-    // determine the modes of the tabs based on cum. width <> container width
-    let tabCount = children.filter { $0 is TabViewController }.count
-    let activeTabWidth = activeTabViewController?.view.intrinsicContentSize.width ?? 0
-    let remainingContainerWidth = tabContainerView.frame.width - activeTabWidth
-    
-    for case let inactiveTabViewController as TabViewController in children
-    where inactiveTabViewController.tab.id != viewModel?.activeTabId {
-      inactiveTabViewController.updateWidth(remainingContainerWidth: remainingContainerWidth, tabCount: tabCount - 1)
+    let activeTabViewController = self.activeTabViewController
+ 
+    // use width constraints and compression resistance
+    if let activeView = activeTabViewController?.tabView {
+      let inactiveViews = children.filter {
+        $0 is TabViewController
+        && $0.view != activeView
+      }.map { $0.view }
+      allowCompression(inactiveViews, except: activeView)
+      updateToSameWidthConstraints(inactiveViews, superview: tabsDocumentView)
     }
   }
   
@@ -89,7 +88,7 @@ class TabCollectionViewController: NSViewController {
           // update removed
           for case let tabViewController as TabViewController in self.children {
             if removed.contains(where: { $0.id == tabViewController.tab.id}) {
-              tabViewController.view.removeFromSuperview()
+              self.tabsDocumentView.removeFromTiled(subview: tabViewController.view)
               tabViewController.removeFromParent()
             }
           }
@@ -98,7 +97,7 @@ class TabCollectionViewController: NSViewController {
           for tab in added {
             let tabViewController = self.newTabViewController(tab: tab)
             self.addChild(tabViewController)
-            self.tabButtonsStackView.addArrangedSubview(tabViewController.view)
+            self.tabsDocumentView.addTiled(subview: tabViewController.view)
           }
           
           // update tab sizes

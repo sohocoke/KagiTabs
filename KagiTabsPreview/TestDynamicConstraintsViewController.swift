@@ -42,34 +42,20 @@ class TestDynamicConstraintsViewController: NSViewController {
     // set one to active
     tabViewControllers.randomElement()!.isActive = true
     
-    tabViewControllers.forEach {
-      if $0.isActive {
-        $0.view.setContentCompressionResistancePriority(.required, for: .horizontal)
-      } else {
-        // allow compression
-        $0.view.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-      }
-
-      self.addChild($0)
-    }
-    
     self.view.addTiled(subviews: tabViews)
     
-    let inactiveViews = tabViewControllers.filter { !$0.isActive }
-      .map { $0.view }
+    tabViewControllers.forEach {
+      self.addChild($0)
+    }
+
     
-    let widthConstraints = {
-      if let firstView = inactiveViews.first {
-        return inactiveViews[1..<inactiveViews.count].map {
-          let c = $0.widthAnchor.constraint(equalTo: firstView.widthAnchor)
-          c.priority = .defaultLow
-          c.identifier = "sameWidths"
-          return c
-        }
-      }
-      return []
-    }()
-    self.view.addConstraints(widthConstraints)
+    // TODO refactor constraints etc for reuse
+    let activeView = tabViewControllers.first { $0.isActive }!.view
+    let inactiveViews = tabViewControllers.filter { $0.view != activeView }.map { $0.view }
+    allowCompression(inactiveViews, except: activeView)
+    
+    updateToSameWidthConstraints(inactiveViews, superview: self.view)
+    
   }
   
   @IBAction func addButton(_ sender: Any) {
@@ -87,4 +73,5 @@ class TestDynamicConstraintsViewController: NSViewController {
 #Preview {
   TestDynamicConstraintsViewController()
 }
+
 
