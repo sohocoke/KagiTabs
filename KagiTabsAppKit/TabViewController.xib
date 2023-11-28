@@ -12,10 +12,10 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView autoresizesSubviews="NO" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="QN1-Nq-FRA" customClass="TabView" customModule="KagiTabsAppKit" customModuleProvider="target">
+        <customView autoresizesSubviews="NO" horizontalHuggingPriority="248" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="QN1-Nq-FRA" customClass="TabView" customModule="KagiTabsAppKit" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="163" height="20"/>
             <subviews>
-                <button verticalHuggingPriority="750" horizontalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="c51-qN-F0V" userLabel="Tab Button">
+                <button horizontalHuggingPriority="248" verticalHuggingPriority="750" horizontalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="c51-qN-F0V" userLabel="Tab Button">
                     <rect key="frame" x="1" y="-2" width="161" height="23"/>
                     <buttonCell key="cell" type="roundTextured" title="Textured " bezelStyle="texturedRounded" image="NSSmartBadgeTemplate" imagePosition="leading" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="m4A-h3-N9y">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
@@ -36,7 +36,7 @@
                         <action selector="closeTab:" target="-1" id="Fc6-Ax-Llw"/>
                     </connections>
                 </button>
-                <button hidden="YES" horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="gA1-mY-slP" userLabel="Tab Button Minimal">
+                <button hidden="YES" horizontalHuggingPriority="248" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="gA1-mY-slP" userLabel="Tab Button Minimal">
                     <rect key="frame" x="69" y="-2" width="26" height="23"/>
                     <buttonCell key="cell" type="roundTextured" title="Textured " bezelStyle="texturedRounded" image="NSSmartBadgeTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AKU-HV-lfK">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
