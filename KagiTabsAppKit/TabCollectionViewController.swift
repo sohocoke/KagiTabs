@@ -17,7 +17,7 @@ class TabCollectionViewController: NSViewController {
   
   @IBOutlet weak var tabsStackView: NSStackView!
   @IBOutlet @objc dynamic weak var tabsScrollView: NSScrollView!
-
+  
   var subscriptions: Any?
   
   
@@ -64,9 +64,54 @@ class TabCollectionViewController: NSViewController {
       allowCompression(inactiveViews, except: activeView)
       
       updateToSameWidthConstraints(inactiveViews, superview: tabsStackView)
+      
+      // if sum(item.width) > scroll view width,
+      let totalItemsWidth: CGFloat = tabViewControllers.reduce(.zero) { acc, e in
+        acc + e.tabView.idealSize.width
+      }
+      if totalItemsWidth > tabsScrollView.frame.width {
+        
+        // if sum(item.minWidth) < scroll view width,
+        let totalItemsMinWidth: CGFloat = tabViewControllers.reduce(.zero) { acc, e in
+          acc + e.tabView.minSize.width
+        }
+        if totalItemsMinWidth < tabsScrollView.frame.width {
+          // pin stack view width to scroll view width.
+          let c = tabsStackView.widthAnchor.constraint(equalTo: tabsScrollView.widthAnchor)
+          c.identifier = "tabsStackWidthPinnedToScrollViewFrame"
+          c.isActive = true
+          
+        } else {
+          // if sum(item.minWidth) > scroll view width,
+          // need to scroll: unpin stack view width.
+          tabsScrollView.constraints.filter {
+            $0.identifier == "tabsStackWidthPinnedToScrollViewFrame"
+          }.forEach {
+            $0.isActive = false
+          }
+        }
+        
+      } else {
+        // unpin any prior.
+        tabsScrollView.constraints.filter {
+          $0.identifier == "tabsStackWidthPinnedToScrollViewFrame"
+        }.forEach {
+          $0.isActive = false
+        }
+      }
+      
+      // outstanding issues:
+      // when items compressed, width becomes ambiguous
+      // - can result in active tab presentation being off
+      // - consider adding explicit width constraints to avoid
+      // when content becomes scrollable, items spring back to intrinsic size
+      // - also consider adding constraints
     }
   }
   
+  var tabViewControllers: [TabViewController] {
+    children.compactMap { $0 as? TabViewController }
+  }
   
   // MARK: kvo
   

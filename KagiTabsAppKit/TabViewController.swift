@@ -154,11 +154,15 @@ class TabView: NSView {
     tabButton.intrinsicContentSize
   }
   
-  override var intrinsicContentSize: NSSize {
-    let width = overriddenWidth ?? idealSize.width
-    let size = CGSize(width: width, height: idealSize.height)
-    return size
+  var minSize: CGSize {
+    tabButtonMinimal.intrinsicContentSize
   }
+  
+//  override var intrinsicContentSize: NSSize {
+//    let width = overriddenWidth ?? idealSize.width
+//    let size = CGSize(width: width, height: idealSize.height)
+//    return size
+//  }
 }
 
 

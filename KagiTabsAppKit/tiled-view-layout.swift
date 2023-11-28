@@ -73,6 +73,7 @@ extension NSView {
 
 // temp position
 
+// this doesn't work when under a scroll view. :(
 func allowCompression(_ views: [NSView], except: NSView) {
   views.forEach {
     // allow compression
