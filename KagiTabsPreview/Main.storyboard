@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="f9Q-Eb-IC7">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22155"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -9,7 +10,7 @@
         <scene sceneID="JsO-Pg-Ygj">
             <objects>
                 <windowController id="f9Q-Eb-IC7" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Ksc-rp-INl">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titleVisibility="hidden" id="Ksc-rp-INl">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="294" y="313" width="480" height="270"/>
@@ -18,6 +19,24 @@
                             <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </view>
+                        <toolbar key="toolbar" implicitIdentifier="941F357B-6C12-4FF3-B2A6-EA4B53152260" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="KEr-fg-zfC">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="94E6F92A-3229-47F9-800F-C26F185FFC4C" label="Toolbar Item" paletteLabel="Toolbar Item" tag="-1" bordered="YES" sizingBehavior="auto" id="NeJ-vb-E50" customClass="FlexibleToolbarItem" customModule="KagiTabsPreview" customModuleProvider="target"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="w1S-0H-a5Z"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="EsX-8s-yaw"/>
+                                <toolbarItem implicitItemIdentifier="C892D2F0-93A3-46BD-8C2F-0155298002C0" label="Toolbar Item" paletteLabel="Toolbar Item" tag="-1" bordered="YES" sizingBehavior="auto" id="aON-24-izD">
+                                    <imageReference key="image" image="square" catalog="system" symbolScale="large"/>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="3503CA06-D898-4AC9-B5EF-54B1BE849540" label="Toolbar Item" paletteLabel="Toolbar Item" tag="-1" bordered="YES" sizingBehavior="auto" id="sWQ-l2-bxK">
+                                    <imageReference key="image" image="square" catalog="system" symbolScale="large"/>
+                                </toolbarItem>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="aON-24-izD"/>
+                                <toolbarItem reference="NeJ-vb-E50"/>
+                                <toolbarItem reference="sWQ-l2-bxK"/>
+                            </defaultToolbarItems>
+                        </toolbar>
                         <connections>
                             <outlet property="delegate" destination="f9Q-Eb-IC7" id="B1X-zg-VrG"/>
                         </connections>
@@ -41,7 +60,10 @@
                 </viewController>
                 <customObject id="xDa-J6-HaK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-465" y="66"/>
+            <point key="canvasLocation" x="-111" y="165"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="square" catalog="system" width="19" height="18"/>
+    </resources>
 </document>
