@@ -7,8 +7,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TabCollectionViewController" customModule="KagiTabsAppKit" customModuleProvider="target">
             <connections>
-                <outlet property="tabContainerView" destination="epe-hB-edh" id="PbS-or-SS4"/>
-                <outlet property="tabsDocumentView" destination="69N-2I-2zX" id="Nos-gb-Irp"/>
+                <outlet property="tabsScrollView" destination="epe-hB-edh" id="PbS-or-SS4"/>
+                <outlet property="tabsStackView" destination="69N-2I-2zX" id="Nos-gb-Irp"/>
                 <outlet property="view" destination="CJw-am-yjm" id="cIb-c4-6lN"/>
             </connections>
         </customObject>

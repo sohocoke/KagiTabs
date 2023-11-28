@@ -15,8 +15,8 @@ class TabCollectionViewController: NSViewController {
     }
   }
   
-  @IBOutlet weak var tabsDocumentView: NSStackView!  // RENAME
-  @IBOutlet @objc dynamic weak var tabContainerView: NSScrollView!
+  @IBOutlet weak var tabsStackView: NSStackView!
+  @IBOutlet @objc dynamic weak var tabsScrollView: NSScrollView!
 
   var subscriptions: Any?
   
@@ -63,7 +63,7 @@ class TabCollectionViewController: NSViewController {
       }.map { $0.view }
       allowCompression(inactiveViews, except: activeView)
       
-      updateToSameWidthConstraints(inactiveViews, superview: tabsDocumentView)
+      updateToSameWidthConstraints(inactiveViews, superview: tabsStackView)
     }
   }
   
@@ -91,7 +91,7 @@ class TabCollectionViewController: NSViewController {
           for case let tabViewController as TabViewController in self.children {
             if removed.contains(where: { $0.id == tabViewController.tab.id}) {
 //              self.tabsDocumentView.removeFromTiled(subview: tabViewController.view)
-              self.tabsDocumentView.removeArrangedSubview(tabViewController.view)
+              self.tabsStackView.removeArrangedSubview(tabViewController.view)
               tabViewController.view.removeFromSuperview()
               tabViewController.removeFromParent()
             }
@@ -102,7 +102,7 @@ class TabCollectionViewController: NSViewController {
             let tabViewController = self.newTabViewController(tab: tab)
             self.addChild(tabViewController)
 //            self.tabsDocumentView.addTiled(subview: tabViewController.view)
-            self.tabsDocumentView.addArrangedSubview(tabViewController.view)
+            self.tabsStackView.addArrangedSubview(tabViewController.view)
           }
           
           // update tab sizes
@@ -125,7 +125,7 @@ class TabCollectionViewController: NSViewController {
   
   var viewSubscriptions: [Any] {
     [
-      self.publisher(for: \.tabContainerView.frame)
+      self.publisher(for: \.tabsScrollView.frame)
         .removeDuplicates()
         .sink { [unowned self] _ in
           self.updateTabSizes()
