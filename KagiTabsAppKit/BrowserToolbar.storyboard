@@ -33,9 +33,11 @@
                             <constraint firstItem="bqb-1q-unu" firstAttribute="top" secondItem="VIJ-cY-Yvl" secondAttribute="top" id="9OQ-fd-yfH"/>
                             <constraint firstAttribute="bottom" secondItem="6En-xX-TeV" secondAttribute="bottom" id="U8G-wT-aXh"/>
                             <constraint firstItem="6En-xX-TeV" firstAttribute="top" secondItem="VIJ-cY-Yvl" secondAttribute="top" id="a1t-83-2ub"/>
+                            <constraint firstAttribute="height" constant="300" id="bKB-XH-ioO"/>
                             <constraint firstItem="6En-xX-TeV" firstAttribute="leading" secondItem="bqb-1q-unu" secondAttribute="trailing" constant="8" symbolic="YES" id="c9f-cr-vC4"/>
                             <constraint firstAttribute="bottom" secondItem="bqb-1q-unu" secondAttribute="bottom" id="h3Q-xM-rHe"/>
                             <constraint firstAttribute="trailing" secondItem="6En-xX-TeV" secondAttribute="trailing" id="m8c-tN-YwM"/>
+                            <constraint firstItem="6En-xX-TeV" firstAttribute="height" relation="greaterThanOrEqual" secondItem="bqb-1q-unu" secondAttribute="height" id="rPE-fl-9I5"/>
                             <constraint firstItem="bqb-1q-unu" firstAttribute="leading" secondItem="VIJ-cY-Yvl" secondAttribute="leading" id="sOr-2f-n4D"/>
                         </constraints>
                     </customView>
@@ -77,37 +79,7 @@
         <!--Tab Collection View Controller-->
         <scene sceneID="Pbt-6o-cYf">
             <objects>
-                <viewController id="u0l-L8-hS5" customClass="TabCollectionViewController" customModule="KagiTabsAppKit" customModuleProvider="target" sceneMemberID="viewController">
-                    <scrollView key="view" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="OMA-Xy-9GH">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <clipView key="contentView" id="2lE-W0-EsZ">
-                            <rect key="frame" x="1" y="1" width="448" height="298"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <subviews>
-                                <view translatesAutoresizingMaskIntoConstraints="NO" id="1ip-8C-yo2">
-                                    <rect key="frame" x="0.0" y="0.0" width="448" height="298"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="448" id="n64-Az-oZp"/>
-                                    </constraints>
-                                </view>
-                            </subviews>
-                            <constraints>
-                                <constraint firstItem="1ip-8C-yo2" firstAttribute="top" secondItem="2lE-W0-EsZ" secondAttribute="top" id="6Iy-Wq-EX2"/>
-                                <constraint firstItem="1ip-8C-yo2" firstAttribute="leading" secondItem="2lE-W0-EsZ" secondAttribute="leading" id="8La-iE-ME6"/>
-                                <constraint firstAttribute="bottom" secondItem="1ip-8C-yo2" secondAttribute="bottom" id="h0y-mP-alr"/>
-                            </constraints>
-                        </clipView>
-                        <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="RxD-Ra-Adq">
-                            <rect key="frame" x="1" y="283" width="448" height="16"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ko5-9R-zkm">
-                            <rect key="frame" x="433" y="1" width="16" height="298"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                    </scrollView>
-                </viewController>
+                <viewController id="u0l-L8-hS5" customClass="TabCollectionViewController" customModule="KagiTabsAppKit" customModuleProvider="target" sceneMemberID="viewController"/>
                 <customObject id="R57-0S-A5i" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-117" y="243"/>

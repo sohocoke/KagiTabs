@@ -28,9 +28,9 @@
                                 <rect key="frame" x="-1" y="0.0" width="418" height="169"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="251" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="69N-2I-2zX">
-                                        <rect key="frame" x="0.0" y="1" width="61" height="167"/>
+                                        <rect key="frame" x="0.0" y="1" width="0.0" height="167"/>
                                         <subviews>
-                                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="TJs-us-5UR">
+                                            <button hidden="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="TJs-us-5UR">
                                                 <rect key="frame" x="-7" y="67" width="75" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="u5h-FJ-PpZ">
@@ -47,7 +47,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <customView horizontalHuggingPriority="1" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="wUv-MA-SFf" userLabel="Spacer View">
-                                        <rect key="frame" x="61" y="0.0" width="357" height="169"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="418" height="169"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" id="JTa-4I-Ah7"/>
                                         </constraints>
