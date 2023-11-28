@@ -36,8 +36,8 @@
                         <action selector="closeTab:" target="-1" id="Fc6-Ax-Llw"/>
                     </connections>
                 </button>
-                <button hidden="YES" horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="gA1-mY-slP" userLabel="Tab Button Minimal">
-                    <rect key="frame" x="-1" y="-2" width="165" height="23"/>
+                <button hidden="YES" horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="gA1-mY-slP" userLabel="Tab Button Minimal">
+                    <rect key="frame" x="69" y="-2" width="26" height="23"/>
                     <buttonCell key="cell" type="roundTextured" title="Textured " bezelStyle="texturedRounded" image="NSSmartBadgeTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AKU-HV-lfK">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -50,7 +50,7 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="c51-qN-F0V" secondAttribute="bottom" id="4gg-Kk-IYP"/>
                 <constraint firstItem="gA1-mY-slP" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="705-th-TXZ"/>
-                <constraint firstItem="gA1-mY-slP" firstAttribute="width" secondItem="QN1-Nq-FRA" secondAttribute="width" id="WdN-gD-XRn"/>
+                <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="gA1-mY-slP" secondAttribute="width" id="WdN-gD-XRn"/>
                 <constraint firstItem="ydW-aG-xCU" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="Www-2N-gq1"/>
                 <constraint firstItem="c51-qN-F0V" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" id="XyH-sZ-BaV"/>
                 <constraint firstItem="ydW-aG-xCU" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" constant="4" id="hlr-u3-SEl"/>
