@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <customView wantsLayer="YES" horizontalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="9fl-a5-lhn" userLabel="Document View">
-                                <rect key="frame" x="-1" y="-1" width="418" height="171"/>
+                                <rect key="frame" x="208" y="-1" width="0.0" height="171"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="248" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="248" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="69N-2I-2zX">
                                         <rect key="frame" x="0.0" y="1" width="0.0" height="169"/>
@@ -46,7 +46,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <customView horizontalHuggingPriority="1" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="wUv-MA-SFf" userLabel="Spacer View">
-                                        <rect key="frame" x="0.0" y="0.0" width="418" height="171"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="171"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" id="JTa-4I-Ah7"/>
                                         </constraints>
@@ -68,21 +68,23 @@
                                     <constraint firstAttribute="bottom" secondItem="69N-2I-2zX" secondAttribute="bottom" constant="1" id="mF7-SP-jqG"/>
                                     <constraint firstItem="69N-2I-2zX" firstAttribute="top" secondItem="9fl-a5-lhn" secondAttribute="top" constant="1" id="rGN-CV-CNy"/>
                                     <constraint firstAttribute="bottom" secondItem="wUv-MA-SFf" secondAttribute="bottom" id="sd6-IU-BMU"/>
+                                    <constraint firstAttribute="trailing" secondItem="69N-2I-2zX" secondAttribute="trailing" id="xyb-70-1Dk"/>
                                 </constraints>
                             </customView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="9fl-a5-lhn" firstAttribute="centerY" secondItem="OqO-zc-lJq" secondAttribute="centerY" id="Jne-D7-dBj"/>
+                            <constraint firstItem="9fl-a5-lhn" firstAttribute="centerX" secondItem="OqO-zc-lJq" secondAttribute="centerX" id="PNg-tP-djw"/>
+                        </constraints>
                     </clipView>
                     <constraints>
-                        <constraint firstItem="9fl-a5-lhn" firstAttribute="top" secondItem="epe-hB-edh" secondAttribute="top" id="CsE-Qr-Tzs"/>
-                        <constraint firstAttribute="bottom" secondItem="9fl-a5-lhn" secondAttribute="bottom" id="jb0-vo-GAM"/>
-                        <constraint firstAttribute="trailing" secondItem="9fl-a5-lhn" secondAttribute="trailing" id="nQl-Cq-NXk"/>
-                        <constraint firstItem="9fl-a5-lhn" firstAttribute="leading" secondItem="epe-hB-edh" secondAttribute="leading" id="t89-p9-VPm"/>
+                        <constraint firstItem="9fl-a5-lhn" firstAttribute="height" secondItem="epe-hB-edh" secondAttribute="height" id="OWP-6P-vZJ"/>
                     </constraints>
-                    <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.5" horizontal="YES" id="u1s-RT-Iub">
+                    <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="u1s-RT-Iub">
                         <rect key="frame" x="1" y="154" width="416" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.5" horizontal="NO" id="hbH-VI-BKU">
+                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="hbH-VI-BKU">
                         <rect key="frame" x="401" y="1" width="16" height="169"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
