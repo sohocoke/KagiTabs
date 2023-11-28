@@ -13,7 +13,7 @@ class TestScrollViewController: NSViewController {
   override func viewDidAppear() {
     super.viewDidAppear()
     
-    updateToSameWidthConstraints(stackView.arrangedSubviews, superview: stackView)
+    updateToEqualWidthConstraints(stackView.arrangedSubviews, superview: stackView)
   }
     
   var stackViewItemsTotalWidth: CGFloat {
@@ -36,7 +36,7 @@ class TestScrollViewController: NSViewController {
     stackView.addArrangedSubview(tabView)
     
     // update the same width constraints
-    updateToSameWidthConstraints(stackView.arrangedSubviews, superview: stackView)
+    updateToEqualWidthConstraints(stackView.arrangedSubviews, superview: stackView)
   }
 }
 

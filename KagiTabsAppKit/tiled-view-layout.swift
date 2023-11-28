@@ -83,7 +83,7 @@ func allowCompression(_ views: [NSView], except: NSView) {
   except.setContentCompressionResistancePriority(.required, for: .horizontal)
 }
    
-func updateToSameWidthConstraints(_ inactiveViews: [NSView], superview: NSView) {
+func updateToEqualWidthConstraints(_ inactiveViews: [NSView], superview: NSView) {
   let widthConstraints = {
     if let firstView = inactiveViews.first {
       return inactiveViews[1..<inactiveViews.count].map {
@@ -95,8 +95,9 @@ func updateToSameWidthConstraints(_ inactiveViews: [NSView], superview: NSView) 
     }
     return []
   }()
-  superview.removeConstraints(superview.constraints.filter { $0.identifier == "sameWidths" })
-  superview.addConstraints(widthConstraints)
+  superview.constraints.filter { $0.identifier == "sameWidths" }
+    .forEach { $0.isActive = false }
+  widthConstraints.forEach { $0.isActive = true }
 }
 
 
