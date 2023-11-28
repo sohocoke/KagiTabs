@@ -14,21 +14,21 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="CJw-am-yjm" userLabel="Enclosing View">
+        <customView clipsToBounds="YES" id="CJw-am-yjm" userLabel="Enclosing View">
             <rect key="frame" x="0.0" y="0.0" width="416" height="169"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epe-hB-edh">
-                    <rect key="frame" x="0.0" y="0.0" width="416" height="169"/>
-                    <clipView key="contentView" id="OqO-zc-lJq">
-                        <rect key="frame" x="1" y="1" width="414" height="167"/>
+                <scrollView borderType="line" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epe-hB-edh">
+                    <rect key="frame" x="-1" y="-1" width="418" height="171"/>
+                    <clipView key="contentView" drawsBackground="NO" id="OqO-zc-lJq">
+                        <rect key="frame" x="1" y="1" width="416" height="169"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9fl-a5-lhn" userLabel="Document View">
-                                <rect key="frame" x="-1" y="0.0" width="416" height="167"/>
+                                <rect key="frame" x="-1" y="0.0" width="418" height="169"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="251" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="69N-2I-2zX">
-                                        <rect key="frame" x="0.0" y="0.0" width="61" height="167"/>
+                                        <rect key="frame" x="0.0" y="1" width="61" height="167"/>
                                         <subviews>
                                             <button horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="TJs-us-5UR">
                                                 <rect key="frame" x="-7" y="67" width="75" height="32"/>
@@ -47,7 +47,7 @@
                                         </customSpacing>
                                     </stackView>
                                     <customView horizontalHuggingPriority="1" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="wUv-MA-SFf" userLabel="Spacer View">
-                                        <rect key="frame" x="61" y="0.0" width="355" height="167"/>
+                                        <rect key="frame" x="61" y="0.0" width="357" height="169"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" id="JTa-4I-Ah7"/>
                                         </constraints>
@@ -66,8 +66,8 @@
                                     <constraint firstItem="69N-2I-2zX" firstAttribute="leading" secondItem="9fl-a5-lhn" secondAttribute="leading" id="N4Z-Y2-QcF"/>
                                     <constraint firstItem="wUv-MA-SFf" firstAttribute="leading" secondItem="69N-2I-2zX" secondAttribute="trailing" id="iRM-R6-XRu"/>
                                     <constraint firstAttribute="trailing" secondItem="wUv-MA-SFf" secondAttribute="trailing" id="kUZ-3J-F3o"/>
-                                    <constraint firstAttribute="bottom" secondItem="69N-2I-2zX" secondAttribute="bottom" id="mF7-SP-jqG"/>
-                                    <constraint firstItem="69N-2I-2zX" firstAttribute="top" secondItem="9fl-a5-lhn" secondAttribute="top" id="rGN-CV-CNy"/>
+                                    <constraint firstAttribute="bottom" secondItem="69N-2I-2zX" secondAttribute="bottom" constant="1" id="mF7-SP-jqG"/>
+                                    <constraint firstItem="69N-2I-2zX" firstAttribute="top" secondItem="9fl-a5-lhn" secondAttribute="top" constant="1" id="rGN-CV-CNy"/>
                                     <constraint firstAttribute="bottom" secondItem="wUv-MA-SFf" secondAttribute="bottom" id="sd6-IU-BMU"/>
                                 </constraints>
                             </customView>
@@ -82,11 +82,11 @@
                         <constraint firstItem="9fl-a5-lhn" firstAttribute="leading" secondItem="epe-hB-edh" secondAttribute="leading" id="DnO-7H-g0I"/>
                     </constraints>
                     <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="u1s-RT-Iub">
-                        <rect key="frame" x="1" y="152" width="414" height="16"/>
+                        <rect key="frame" x="1" y="154" width="416" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="hbH-VI-BKU">
-                        <rect key="frame" x="399" y="1" width="16" height="167"/>
+                        <rect key="frame" x="401" y="1" width="16" height="169"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
@@ -100,10 +100,10 @@
                 </button>
             </subviews>
             <constraints>
-                <constraint firstItem="epe-hB-edh" firstAttribute="leading" secondItem="CJw-am-yjm" secondAttribute="leading" id="5vN-Nk-lm8"/>
-                <constraint firstAttribute="bottom" secondItem="epe-hB-edh" secondAttribute="bottom" id="628-Cu-xoR"/>
-                <constraint firstAttribute="trailing" secondItem="epe-hB-edh" secondAttribute="trailing" id="SyU-Fw-zZZ"/>
-                <constraint firstItem="epe-hB-edh" firstAttribute="top" secondItem="CJw-am-yjm" secondAttribute="top" id="t8K-cw-FYB"/>
+                <constraint firstItem="epe-hB-edh" firstAttribute="leading" secondItem="CJw-am-yjm" secondAttribute="leading" constant="-1" id="5vN-Nk-lm8"/>
+                <constraint firstAttribute="bottom" secondItem="epe-hB-edh" secondAttribute="bottom" constant="-1" id="628-Cu-xoR"/>
+                <constraint firstAttribute="trailing" secondItem="epe-hB-edh" secondAttribute="trailing" constant="-1" id="SyU-Fw-zZZ"/>
+                <constraint firstItem="epe-hB-edh" firstAttribute="top" secondItem="CJw-am-yjm" secondAttribute="top" constant="-1" id="t8K-cw-FYB"/>
             </constraints>
             <point key="canvasLocation" x="-2536.5" y="-8.5"/>
         </customView>
