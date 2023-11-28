@@ -54,7 +54,7 @@ extension NSView {
     let viewDict = Dictionary(uniqueKeysWithValues: subviews.enumerated().map { i, view in
       ("subview_\(i)", view)
     })
-    let layoutFormat = "|-0-\(tiledSubviewsFormat)-0-|"
+    let layoutFormat = "|-0-\(tiledSubviewsFormat)->=0-|"
     
     let tileConstraints = NSLayoutConstraint.constraints(
       withVisualFormat: layoutFormat,

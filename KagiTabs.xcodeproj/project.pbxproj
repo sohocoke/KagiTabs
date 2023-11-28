@@ -45,6 +45,7 @@
 		51DEEEB92B0FA11100BEF0FE /* toolbar-items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DEEEB82B0FA11100BEF0FE /* toolbar-items.swift */; };
 		51DEEEBC2B0FA4DF00BEF0FE /* TabCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DEEEBA2B0FA4DF00BEF0FE /* TabCollectionViewController.swift */; };
 		51DEEEBD2B0FA4DF00BEF0FE /* TabCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DEEEBB2B0FA4DF00BEF0FE /* TabCollectionViewController.xib */; };
+		51DF122D2B15670200E431A7 /* FlexibleToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DF122C2B15670200E431A7 /* FlexibleToolbarItem.swift */; };
 		51E4EF562B140F4700FAD2F2 /* TabCollectionTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4D52B0FD65200BB669C /* TabCollectionTestViewController.swift */; };
 		51E4EF572B140F6200FAD2F2 /* TestScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4DF2B10930800BB669C /* TestScrollViewController.swift */; };
 /* End PBXBuildFile section */
@@ -86,6 +87,7 @@
 		51DEEEB82B0FA11100BEF0FE /* toolbar-items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "toolbar-items.swift"; sourceTree = "<group>"; };
 		51DEEEBA2B0FA4DF00BEF0FE /* TabCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCollectionViewController.swift; sourceTree = "<group>"; };
 		51DEEEBB2B0FA4DF00BEF0FE /* TabCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabCollectionViewController.xib; sourceTree = "<group>"; };
+		51DF122C2B15670200E431A7 /* FlexibleToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleToolbarItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 				51DB99CF2B0DD372001340C2 /* AppDelegate.swift */,
 				51DB99D12B0DD372001340C2 /* ViewController.swift */,
 				510A5EDE2B1306E200824E5A /* TestDynamicConstraintsViewController.swift */,
+				51DF122C2B15670200E431A7 /* FlexibleToolbarItem.swift */,
 				519C89B32B1410DB00A6F3EF /* TestLineLayout.xib */,
 				51DB99D32B0DD373001340C2 /* Assets.xcassets */,
 				515247E52B12CC90000DEA4F /* Main.storyboard */,
@@ -380,6 +383,7 @@
 				51E4EF572B140F6200FAD2F2 /* TestScrollViewController.swift in Sources */,
 				515247E22B12CBB7000DEA4F /* BrowserToolbarViewController.swift in Sources */,
 				515247E32B12CBBE000DEA4F /* TabCollectionViewController.swift in Sources */,
+				51DF122D2B15670200E431A7 /* FlexibleToolbarItem.swift in Sources */,
 				51DB99D02B0DD372001340C2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

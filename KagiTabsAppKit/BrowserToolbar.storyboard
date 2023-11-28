@@ -10,47 +10,71 @@
         <scene sceneID="PEd-7d-5j0">
             <objects>
                 <viewController id="bU7-R8-ocO" userLabel="Browser Toolbar View Controller" customClass="BrowserToolbarViewController" customModule="KagiTabsAppKit" customModuleProvider="target" sceneMemberID="viewController">
-                    <stackView key="view" distribution="fill" orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="aUs-Un-jLI">
-                        <rect key="frame" x="0.0" y="0.0" width="775" height="450"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                    <customView key="view" translatesAutoresizingMaskIntoConstraints="NO" id="VIJ-cY-Yvl">
+                        <rect key="frame" x="0.0" y="0.0" width="255" height="300"/>
                         <subviews>
-                            <containerView horizontalHuggingPriority="249" id="bqb-1q-unu" userLabel="Address Field Container View">
-                                <rect key="frame" x="0.0" y="181" width="823" height="269"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="bqb-1q-unu" userLabel="Address Field Container View">
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="250" constant="120" id="YS0-cZ-rF7"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="yln-uZ-XSo" kind="embed" id="gkw-rL-VNQ"/>
                                 </connections>
                             </containerView>
-                            <containerView id="6En-xX-TeV" userLabel="Tab Collection Container View">
-                                <rect key="frame" x="725" y="181" width="50" height="269"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <containerView horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="6En-xX-TeV" userLabel="Tab Collection Container View">
+                                <rect key="frame" x="120" y="0.0" width="135" height="300"/>
                                 <connections>
                                     <segue destination="u0l-L8-hS5" kind="embed" id="kz0-9h-GB6"/>
                                 </connections>
                             </containerView>
                         </subviews>
-                        <visibilityPriorities>
-                            <integer value="1000"/>
-                            <integer value="1000"/>
-                        </visibilityPriorities>
-                        <customSpacing>
-                            <real value="3.4028234663852886e+38"/>
-                            <real value="3.4028234663852886e+38"/>
-                        </customSpacing>
-                    </stackView>
+                        <constraints>
+                            <constraint firstItem="bqb-1q-unu" firstAttribute="top" secondItem="VIJ-cY-Yvl" secondAttribute="top" id="9OQ-fd-yfH"/>
+                            <constraint firstAttribute="bottom" secondItem="6En-xX-TeV" secondAttribute="bottom" id="U8G-wT-aXh"/>
+                            <constraint firstItem="6En-xX-TeV" firstAttribute="top" secondItem="VIJ-cY-Yvl" secondAttribute="top" id="a1t-83-2ub"/>
+                            <constraint firstItem="6En-xX-TeV" firstAttribute="leading" secondItem="bqb-1q-unu" secondAttribute="trailing" id="c9f-cr-vC4"/>
+                            <constraint firstAttribute="bottom" secondItem="bqb-1q-unu" secondAttribute="bottom" id="h3Q-xM-rHe"/>
+                            <constraint firstAttribute="trailing" secondItem="6En-xX-TeV" secondAttribute="trailing" id="m8c-tN-YwM"/>
+                            <constraint firstItem="bqb-1q-unu" firstAttribute="leading" secondItem="VIJ-cY-Yvl" secondAttribute="leading" id="sOr-2f-n4D"/>
+                        </constraints>
+                    </customView>
                 </viewController>
                 <customObject id="9uD-mB-xHs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-302.5" y="-307"/>
+            <point key="canvasLocation" x="-239.5" y="-276"/>
         </scene>
         <!--Tab Collection View Controller-->
         <scene sceneID="Pbt-6o-cYf">
             <objects>
                 <viewController id="u0l-L8-hS5" customClass="TabCollectionViewController" customModule="KagiTabsAppKit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="4oN-p2-zcw">
+                    <scrollView key="view" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="OMA-Xy-9GH">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <clipView key="contentView" id="2lE-W0-EsZ">
+                            <rect key="frame" x="1" y="1" width="448" height="298"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <view translatesAutoresizingMaskIntoConstraints="NO" id="1ip-8C-yo2">
+                                    <rect key="frame" x="0.0" y="0.0" width="448" height="298"/>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="1ip-8C-yo2" firstAttribute="top" secondItem="2lE-W0-EsZ" secondAttribute="top" id="6Iy-Wq-EX2"/>
+                                <constraint firstItem="1ip-8C-yo2" firstAttribute="leading" secondItem="2lE-W0-EsZ" secondAttribute="leading" id="8La-iE-ME6"/>
+                                <constraint firstAttribute="bottom" secondItem="1ip-8C-yo2" secondAttribute="bottom" id="h0y-mP-alr"/>
+                                <constraint firstAttribute="trailing" secondItem="1ip-8C-yo2" secondAttribute="trailing" id="kmX-H0-aLg"/>
+                            </constraints>
+                        </clipView>
+                        <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="RxD-Ra-Adq">
+                            <rect key="frame" x="1" y="283" width="448" height="16"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ko5-9R-zkm">
+                            <rect key="frame" x="433" y="1" width="16" height="298"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
                 </viewController>
                 <customObject id="R57-0S-A5i" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,14 +84,13 @@
         <scene sceneID="x5H-VZ-qom">
             <objects>
                 <viewController id="yln-uZ-XSo" userLabel="Address Field View Controller" sceneMemberID="viewController">
-                    <view key="view" id="WcL-Ax-NZb">
+                    <view key="view" translatesAutoresizingMaskIntoConstraints="NO" id="WcL-Ax-NZb">
                         <rect key="frame" x="0.0" y="0.0" width="180" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BhO-eC-df3">
+                            <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BhO-eC-df3">
                                 <rect key="frame" x="0.0" y="140" width="180" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="iFg-L6-BTo"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="iFg-L6-BTo"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="WRl-cA-bbF">
                                     <font key="font" usesAppearanceFont="YES"/>

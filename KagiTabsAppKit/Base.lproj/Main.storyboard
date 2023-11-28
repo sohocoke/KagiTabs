@@ -711,7 +711,7 @@
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="ngC-oB-XPF" kind="relationship" relationship="window.shadowedContentViewController" id="ZIE-vo-NV2"/>
+                        <segue destination="ngC-oB-XPF" kind="relationship" relationship="window.shadowedContentViewController" id="WVW-mO-DZJ"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -724,7 +724,15 @@
                 <controllerPlaceholder storyboardName="BrowserContent" id="ngC-oB-XPF" sceneMemberID="viewController"/>
                 <customObject id="DdW-F9-2fi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-78" y="445"/>
+            <point key="canvasLocation" x="-51" y="491"/>
+        </scene>
+        <!--TabCollectionTest-->
+        <scene sceneID="HOH-Wa-75s">
+            <objects>
+                <controllerPlaceholder storyboardName="TabCollectionTest" id="WuZ-05-5SO" sceneMemberID="viewController"/>
+                <customObject id="mgW-k0-QiJ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="196" y="491"/>
         </scene>
     </scenes>
     <resources>

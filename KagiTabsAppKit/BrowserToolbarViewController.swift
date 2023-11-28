@@ -24,6 +24,8 @@ class BrowserToolbarViewController: NSViewController {
     if let tabCollectionViewController = segue.destinationController as? TabCollectionViewController {
       self.tabCollectionViewController = tabCollectionViewController
     }
+    
+    self.view.setDebugBorder(.red)
   }
 
 }

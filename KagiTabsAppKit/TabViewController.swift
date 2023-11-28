@@ -37,6 +37,7 @@ class TabViewController: NSViewController {
     super.viewDidLoad()
     trackCloseButtonHover()
     self.subscriptions = viewModelSubscriptions
+     + viewSubscriptions
   }
   
 
@@ -99,13 +100,25 @@ class TabViewController: NSViewController {
   }
   
   
-  var viewModelSubscriptions: Any {
+  var viewModelSubscriptions: [Any] {
     [
       self.publisher(for: \.tab.label)
         .assign(to: \.tabView.tabButton.title, on: self)
     ]
   }
 
+  var viewSubscriptions: [Any] {
+    [
+      self.publisher(for: \.view.frame)
+        .sink { [unowned self] frame in
+          if frame.width < minimalWidthThreshold {
+            self.tabView.renderMode = .minimal
+          } else {
+            self.tabView.renderMode = .normal
+          }
+        },
+    ]
+  }
 }
 
 
