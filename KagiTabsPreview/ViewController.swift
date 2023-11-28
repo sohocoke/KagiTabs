@@ -10,15 +10,19 @@ import Cocoa
 class ViewController: NSViewController {
 
   var testDynamicConstraintsViewController = TestDynamicConstraintsViewController()
-
+  var scrollViewController = TestScrollViewController(nibName: nil, bundle: nil)
+  
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    // Do any additional setup after loading the view.
-//    self.view.addSubview(testDynamicConstraintsViewController.view)
-//    testDynamicConstraintsViewController.view.frame = self.view.bounds
-    self.view = testDynamicConstraintsViewController.view
+//    // ** test dynamic constraints for equal widths
+//    self.view = testDynamicConstraintsViewController.view
 //    testDynamicConstraintsViewController.view.setDebugBorder(.blue)
+    
+    // ** test scrollable stack view that shrinks items before scrolling enabled
+    self.addChild(scrollViewController)
+    self.view.addSubview(scrollViewController.view)
+    scrollViewController.view.frame = self.view.bounds
   }
 
   override var representedObject: Any? {
@@ -26,7 +30,6 @@ class ViewController: NSViewController {
     // Update the view, if already loaded.
     }
   }
-
 
 }
 

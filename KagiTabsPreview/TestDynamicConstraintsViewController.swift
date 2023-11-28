@@ -1,7 +1,8 @@
 import Cocoa
 
 
-
+// PoC equal-width views that don't depend on any explicit size computation.
+// set up in preview target's view controller.
 class TestDynamicConstraintsViewController: NSViewController {
 
   override func viewDidLoad() {

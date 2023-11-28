@@ -97,3 +97,13 @@ func updateToSameWidthConstraints(_ inactiveViews: [NSView], superview: NSView) 
   superview.removeConstraints(superview.constraints.filter { $0.identifier == "sameWidths" })
   superview.addConstraints(widthConstraints)
 }
+
+
+extension NSView {
+  func setDebugBorder(_ colour: NSColor) {
+    self.wantsLayer = true
+    self.layer?.borderColor = colour.cgColor
+    self.layer?.borderWidth = 2
+
+  }
+}

@@ -1,8 +1,10 @@
 import Cocoa
 
+
+// PoC flexible-width toolbar item by using a simple width constraint.
+// set up in main.storyboard.
 class FlexibleToolbarItem: NSToolbarItem {
   
-  // PoC flexible-width toolbar item by using a simple width constraint.
   override init(itemIdentifier: NSToolbarItem.Identifier) {
     super.init(itemIdentifier: itemIdentifier)
     

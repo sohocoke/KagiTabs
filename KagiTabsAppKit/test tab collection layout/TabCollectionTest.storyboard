@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Collection Test View Controller-->
+        <!--Test Scroll View Controller-->
         <scene sceneID="PEd-7d-5j0">
             <objects>
-                <viewController id="bU7-R8-ocO" customClass="TabCollectionTestViewController" customModule="KagiTabsAppKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bU7-R8-ocO" customClass="TestScrollViewController" customModule="KagiTabsAppKit" customModuleProvider="target" sceneMemberID="viewController">
                     <customView key="view" id="3Gl-7f-Bmf">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
