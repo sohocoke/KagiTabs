@@ -15,7 +15,7 @@ class TabCollectionViewController: NSViewController {
     }
   }
   
-  @IBOutlet weak var tabsDocumentView: NSView!
+  @IBOutlet weak var tabsDocumentView: NSStackView!  // RENAME
   @IBOutlet @objc dynamic weak var tabContainerView: NSScrollView!
 
   var subscriptions: Any?
@@ -40,6 +40,7 @@ class TabCollectionViewController: NSViewController {
     self.subscriptions =
       viewModelSubscriptions
       + viewSubscriptions
+    
   }
   
   override func viewWillDisappear() {
@@ -61,6 +62,7 @@ class TabCollectionViewController: NSViewController {
         && $0.view != activeView
       }.map { $0.view }
       allowCompression(inactiveViews, except: activeView)
+      
       updateToSameWidthConstraints(inactiveViews, superview: tabsDocumentView)
     }
   }
@@ -88,7 +90,9 @@ class TabCollectionViewController: NSViewController {
           // update removed
           for case let tabViewController as TabViewController in self.children {
             if removed.contains(where: { $0.id == tabViewController.tab.id}) {
-              self.tabsDocumentView.removeFromTiled(subview: tabViewController.view)
+//              self.tabsDocumentView.removeFromTiled(subview: tabViewController.view)
+              self.tabsDocumentView.removeArrangedSubview(tabViewController.view)
+              tabViewController.view.removeFromSuperview()
               tabViewController.removeFromParent()
             }
           }
@@ -97,7 +101,8 @@ class TabCollectionViewController: NSViewController {
           for tab in added {
             let tabViewController = self.newTabViewController(tab: tab)
             self.addChild(tabViewController)
-            self.tabsDocumentView.addTiled(subview: tabViewController.view)
+//            self.tabsDocumentView.addTiled(subview: tabViewController.view)
+            self.tabsDocumentView.addArrangedSubview(tabViewController.view)
           }
           
           // update tab sizes

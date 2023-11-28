@@ -95,10 +95,10 @@
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
-                                    <customView horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="2Zv-hG-aKM" userLabel="Spacer View">
+                                    <customView horizontalHuggingPriority="1" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="2Zv-hG-aKM" userLabel="Spacer View">
                                         <rect key="frame" x="406" y="0.0" width="10" height="167"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="QYK-7F-N5o"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" id="QYK-7F-N5o"/>
                                         </constraints>
                                         <contentFilters>
                                             <ciFilter name="CIEdges">

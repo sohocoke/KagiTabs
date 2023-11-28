@@ -7,10 +7,23 @@ import Foundation
 class ToolbarViewModel: NSObject {
   internal init(tabs: [Tab]) {
     self.tabs = tabs
+    if let lastTab = tabs.last {
+      self.activeTabId = lastTab.id
+    }
   }
   
   @objc dynamic
-  var tabs: [Tab]
+  var tabs: [Tab] {
+    didSet {
+      // when active tab closed, select the last tab.
+      let currentIds = tabs.map { $0.id }
+      let removed = oldValue.filter { !currentIds.contains($0.id) }
+      if removed.contains(where: { $0.id == activeTabId }) {
+        let lastTab = tabs.last
+        self.activeTabId = lastTab?.id
+      }
+    }
+  }
   
   @objc dynamic
   var activeTabId: Tab.ID?

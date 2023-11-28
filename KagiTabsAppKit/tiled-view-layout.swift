@@ -87,7 +87,7 @@ func updateToSameWidthConstraints(_ inactiveViews: [NSView], superview: NSView) 
     if let firstView = inactiveViews.first {
       return inactiveViews[1..<inactiveViews.count].map {
         let c = $0.widthAnchor.constraint(equalTo: firstView.widthAnchor)
-        c.priority = .defaultLow
+        c.priority = .defaultHigh
         c.identifier = "sameWidths"
         return c
       }

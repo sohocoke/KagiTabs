@@ -19,10 +19,14 @@ class BrowserToolbarItem: NSToolbarItem {
     self.label = "Address and Tabs"
     self.paletteLabel = "Address and Tabs"
     
-    self.view?.updateWidthConstraint(width: 50)
+//    self.view?.updateWidthConstraint(width: 50)
+    self.minSize.width = 150
+    self.maxSize.width = 15000
   }
 }
-
+extension BrowserToolbarItem: NSToolbarDelegate {
+  
+}
 
 extension NSView {
   func updateWidthConstraint(width: CGFloat) {

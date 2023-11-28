@@ -10,7 +10,7 @@
         <scene sceneID="PEd-7d-5j0">
             <objects>
                 <viewController id="bU7-R8-ocO" userLabel="Browser Toolbar View Controller" customClass="BrowserToolbarViewController" customModule="KagiTabsAppKit" customModuleProvider="target" sceneMemberID="viewController">
-                    <customView key="view" translatesAutoresizingMaskIntoConstraints="NO" id="VIJ-cY-Yvl">
+                    <customView key="view" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="VIJ-cY-Yvl">
                         <rect key="frame" x="0.0" y="0.0" width="255" height="300"/>
                         <subviews>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="bqb-1q-unu" userLabel="Address Field Container View">
@@ -22,7 +22,7 @@
                                     <segue destination="yln-uZ-XSo" kind="embed" id="gkw-rL-VNQ"/>
                                 </connections>
                             </containerView>
-                            <containerView horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="6En-xX-TeV" userLabel="Tab Collection Container View">
+                            <containerView horizontalHuggingPriority="249" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="6En-xX-TeV" userLabel="Tab Collection Container View">
                                 <rect key="frame" x="120" y="0.0" width="135" height="300"/>
                                 <connections>
                                     <segue destination="u0l-L8-hS5" kind="embed" id="kz0-9h-GB6"/>

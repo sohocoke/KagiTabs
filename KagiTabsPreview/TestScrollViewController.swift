@@ -23,13 +23,20 @@ class TestScrollViewController: NSViewController {
   }
   
   @IBAction func addButton(_ sender: Any) {
-    let button = NSButton(title: "new button", target: nil, action: nil)
-    button.translatesAutoresizingMaskIntoConstraints = false
-    button.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-    stackView.addArrangedSubview(button)
+    // load up the tab v.
+    let vc = TabViewController(nibName: nil, bundle: nil)
+    vc.tab = Tab(label: "new tab")
+    addChild(vc)
+
+    // set up tab view for autolayout
+    let tabView = vc.view
+    tabView.translatesAutoresizingMaskIntoConstraints = false
     
-    let stackViewSubviews = stackView.arrangedSubviews
-    updateToSameWidthConstraints(stackViewSubviews, superview: stackView)
+    // add to the stack view
+    stackView.addArrangedSubview(tabView)
+    
+    // update the same width constraints
+    updateToSameWidthConstraints(stackView.arrangedSubviews, superview: stackView)
   }
 }
 
