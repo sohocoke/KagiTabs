@@ -187,10 +187,9 @@ class TabCollectionViewController: NSViewController {
           for case let tabViewController as TabViewController in self.children {
             if removed.contains(where: { $0.id == tabViewController.tab.id}) {
               NSAnimationContext.runAnimationGroup { context in
-                context.allowsImplicitAnimation = true
                 self.tabsStackView.animator()
                   .removeArrangedSubview(tabViewController.view)
-                tabViewController.view.animator().isHidden = true
+                tabViewController.view.isHidden = true
               } completionHandler: {
                 tabViewController.view.removeFromSuperview()
                 tabViewController.removeFromParent()
@@ -206,8 +205,7 @@ class TabCollectionViewController: NSViewController {
             let tabView = tabViewController.view
             tabView.isHidden = true
             NSAnimationContext.runAnimationGroup { context in
-              context.allowsImplicitAnimation = true
-              self.tabsStackView.animator()
+              self.tabsStackView
                 .addArrangedSubview(tabView)
             } completionHandler: {
               tabView.animator().isHidden = false
