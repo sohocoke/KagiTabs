@@ -71,7 +71,6 @@ class TabViewController: NSViewController {
     
 
   func updateToIdealWidth() {
-    tabView.overriddenWidth = nil
     tabView.renderMode = .normal
     tabView.invalidateIntrinsicContentSize()
   }
@@ -85,13 +84,11 @@ class TabViewController: NSViewController {
     
     // override width only when squeezed width is less than the ideal with.
     if squeezedWidth < tabView.idealSize.width {
-      tabView.overriddenWidth = squeezedWidth
       tabView.renderMode =
         squeezedWidth < minimalWidthThreshold ?
         .minimal
         : .normal
     } else {
-      tabView.overriddenWidth = nil
       tabView.renderMode = .normal
     }
     
@@ -127,8 +124,6 @@ class TabView: NSView {
   @IBOutlet weak var closeButton: NSButton!
   @IBOutlet weak var tabButtonMinimal: NSButton!
   
-  var overriddenWidth: CGFloat?  // TODO obsolete -- remove.
-  
   var renderMode: RenderMode = .normal {
     didSet {
       switch renderMode {
@@ -156,12 +151,6 @@ class TabView: NSView {
   var minSize: CGSize {
     tabButtonMinimal.intrinsicContentSize
   }
-  
-//  override var intrinsicContentSize: NSSize {
-//    let width = overriddenWidth ?? idealSize.width
-//    let size = CGSize(width: width, height: idealSize.height)
-//    return size
-//  }
   
 }
 

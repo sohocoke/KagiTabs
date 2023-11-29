@@ -2,7 +2,8 @@ import Cocoa
 import Combine
 
 
-
+/// outstanding animations:
+/// - frame change on tab activation
 class TabCollectionViewController: NSViewController {
 
   @objc dynamic
@@ -17,6 +18,7 @@ class TabCollectionViewController: NSViewController {
   
   @IBOutlet weak var tabsStackView: NSStackView!
   @IBOutlet @objc dynamic weak var tabsScrollView: NSScrollView!
+  @IBOutlet weak var scrollDocumentView: NSView!
   
   var subscriptions: Any?
   
@@ -77,17 +79,8 @@ class TabCollectionViewController: NSViewController {
     // so it doesn't display less prominently if narrow.
     if let firstInactive = inactiveViews.first {
       let c = activeView.widthAnchor.constraint(greaterThanOrEqualTo: firstInactive.widthAnchor)
-      c.identifier = "sameWidths"
+      c.identifier = "sameWidths" // reusing this constraint id.
       c.isActive = true
-    }
-    
-    // ensure active tab gets decent prominence.
-    let c = activeView.widthAnchor.constraint(greaterThanOrEqualToConstant: activeView.idealSize.width)
-    c.identifier = "activeTabMinWidth"
-    c.isActive = true
-    inactiveViews.forEach {
-      $0.constraints.filter { $0.identifier == "activeTabMinWidth" }
-        .forEach { $0.isActive = false }
     }
     
     // ** pin stack view and item wim width for certain conditions for ( scroll view width, sum(item.width), sum(item.minWidth) ),
@@ -95,8 +88,7 @@ class TabCollectionViewController: NSViewController {
 
     let totalItemsWidth: CGFloat = tabViewControllers.reduce(.zero) { acc, e in
       acc + 
-      // use ideal width, or current width if wider.
-      max(e.tabView.idealSize.width, e.tabView.frame.width)
+      e.tabView.idealSize.width
     }
 
     let totalItemsMinWidth: CGFloat = tabViewControllers.reduce(.zero) { acc, e in
@@ -129,7 +121,7 @@ class TabCollectionViewController: NSViewController {
         // turn on scrolling and constrain first inactive tab to minsize.
         self.isScrollable = true
         if let v = inactiveViews.first {
-          let c = v.widthAnchor.constraint(equalToConstant: v.minSize.width)
+          let c = v.animator().widthAnchor.constraint(equalToConstant: v.minSize.width)
           c.identifier = "firstTabToMinSize"
           c.isActive = true
         }
@@ -183,52 +175,60 @@ class TabCollectionViewController: NSViewController {
         }
         .sink { [unowned self] added, removed in
         
-          // update removed
-          for case let tabViewController as TabViewController in self.children {
-            if removed.contains(where: { $0.id == tabViewController.tab.id}) {
-              NSAnimationContext.runAnimationGroup { context in
-                self.tabsStackView.animator()
-                  .removeArrangedSubview(tabViewController.view)
-                tabViewController.view.isHidden = true
-              } completionHandler: {
-                tabViewController.view.removeFromSuperview()
-                tabViewController.removeFromParent()
-              }
-            }
+          let tabViewControllersToRemove = tabViewControllers.filter { vc in
+            removed.contains { $0.id == vc.tab.id }
+          }
+          let tabViewControllersToAdd = added.map {
+            newTabViewController(tab: $0)
           }
           
-          // update added
-          for tab in added {
-            let tabViewController = self.newTabViewController(tab: tab)
-            self.addChild(tabViewController)
-            
-            let tabView = tabViewController.view
-            tabView.isHidden = true
+          // take out the removed tabs
+          tabViewControllersToRemove.forEach { vc in
             NSAnimationContext.runAnimationGroup { context in
-              self.tabsStackView
-                .addArrangedSubview(tabView)
+              vc.view
+                .animator()
+                .alphaValue = 0
+              
             } completionHandler: {
-              tabView.animator().isHidden = false
+              // remove all constraints to guard against edge cases
+              NSLayoutConstraint.deactivate(vc.view.animator().constraints)
+              vc.view.removeFromSuperview()
+              vc.removeFromParent()
             }
+            self.tabsStackView
+              .animator()
+              .removeArrangedSubview(vc.view)
           }
-        
+
+          // present the added tabs
+          tabViewControllersToAdd.forEach {
+            self.addChild($0)
+            $0.view.alphaValue = 0
+            self.tabsStackView
+              .animator()
+              .addArrangedSubview($0.view)
+            $0.view
+              .animator()
+              .alphaValue = 1
+          }
+          
           // update tab sizes
           self.updateTabSizes()
-        },
-      
-      self.publisher(for: \.viewModel?.activeTabId)
-        .sink { [unowned self] _ in
-          NSAnimationContext.runAnimationGroup { context in
-            context.allowsImplicitAnimation = true
-            self.updateTabSizes()
-          }
+        
         },
       
       self.publisher(for: \.viewModel?.activeTabId)
         .sink { [unowned self] activeTabId in
+          // update active vc
           for case let tabViewController as TabViewController in self.children {
             tabViewController.isActive = tabViewController.tab.id == activeTabId
           }
+          
+          // update tabs accordingly
+//          NSAnimationContext.runAnimationGroup { context in
+//            context.allowsImplicitAnimation = true
+            self.updateTabSizes()
+//          }
         },
     ]
   }
