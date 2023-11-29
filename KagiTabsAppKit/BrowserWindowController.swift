@@ -10,9 +10,6 @@ class BrowserWindowController: NSWindowController {
   /// set during toolbar delegate method invocation.
   var browserToolbarViewController: BrowserToolbarViewController?
   
-  /// manages a web view per tab.
-  var browserContentViewControllers: [Tab.ID : BrowserContentViewController] = [:]
-
 
   var subscriptions: Any?
 
@@ -84,7 +81,6 @@ class BrowserWindowController: NSWindowController {
           return (prior, current)
         }
         .map { prior, current in
-          let oldTabIds = prior.map { $0.id }
           let newTabIds = current.map { $0.id }
           
           let removed = prior.filter { !newTabIds.contains($0.id) }
@@ -92,38 +88,48 @@ class BrowserWindowController: NSWindowController {
         }
         .sink { [unowned self] removedTabs in
           for removed in removedTabs {
-            tearDown(tab: removed)
+            tearDownBrowser(tab: removed)
           }
         }
     ]
   }
   
   
-  // MARK: misc
+  // MARK: managing browser content
 
   func browserContentViewController(tab: Tab) -> BrowserContentViewController {
-    if browserContentViewControllers[tab.id] == nil {
-      guard let browserContentViewController = NSStoryboard(name: "BrowserContent", bundle: nil).instantiateInitialController() as? BrowserContentViewController
-      else { fatalError() }
-      
-      browserContentViewController.tab = tab
-      browserContentViewControllers[tab.id] = browserContentViewController
+    if let vc = contentViewController?.children.first(where: { ($0 as? BrowserContentViewController)?.tab?.id == tab.id }) {
+      return vc as! BrowserContentViewController
     }
-    let viewController = browserContentViewControllers[tab.id]!
-    return viewController
+    
+    guard let browserContentViewController = NSStoryboard(name: "BrowserContent", bundle: nil).instantiateInitialController() as? BrowserContentViewController
+    else { fatalError() }
+
+    browserContentViewController.tab = tab
+    
+    // keep ref as a child; ensure removal in teardown routine.
+    contentViewController?.addChild(browserContentViewController)
+    
+    return browserContentViewController
   }
   
-  func activate(browserContentViewController: BrowserContentViewController) {
-    self.window!.contentView = browserContentViewController.view
-    self.contentViewController = browserContentViewController
+  func tearDownBrowser(tab: Tab) {
+    for case let vc as BrowserContentViewController in contentViewController?.children ?? [] {
+      vc.tearDown()
+    }
   }
 
-  func tearDown(tab: Tab) {
-    browserContentViewControllers[tab.id]?.view.removeFromSuperview()
-    self.browserContentViewControllers.removeValue(forKey: tab.id)
+  func activate(browserContentViewController: BrowserContentViewController) {
+    // assuming no unrelated subviews!
+    contentViewController?.view.subviews.forEach {
+      $0.removeFromSuperview()
+    }
+    contentViewController?.view.addSubview(browserContentViewController.view)
+    browserContentViewController.view.frame = contentViewController!.view.bounds
   }
+
 }
- 
+
 
 // MARK: toolbar lifecycle
 

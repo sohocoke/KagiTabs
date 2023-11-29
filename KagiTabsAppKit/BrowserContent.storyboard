@@ -12,7 +12,7 @@
                 <viewController id="bU7-R8-ocO" customClass="BrowserContentViewController" customModule="KagiTabsAppKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="tOy-S4-hL0">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView wantsLayer="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JDo-v7-eTD">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>

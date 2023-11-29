@@ -49,4 +49,9 @@ class BrowserContentViewController: NSViewController {
     ]
   }
   
+  func tearDown() {
+    self.subscriptions = nil
+    self.view.removeFromSuperview()
+    self.removeFromParent()
+  }
 }
