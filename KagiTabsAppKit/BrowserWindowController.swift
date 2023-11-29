@@ -6,7 +6,12 @@ class BrowserWindowController: NSWindowController {
   
   let viewModel = ToolbarViewModel.stub
   
+  /// set during toolbar delegate method invocation.
   var browserToolbarViewController: BrowserToolbarViewController?
+  
+  var browserContentViewController: BrowserContentViewController? {
+    self.contentViewController as? BrowserContentViewController
+  }
   
   // MARK: tab actions
   // note: we can't get the toolbar view controller to go on the responder chain when we present its view as a toolbar item.
@@ -28,6 +33,29 @@ class BrowserWindowController: NSWindowController {
     }
   }
 
+  
+  // first port of call when address entered.
+  // looks like we need better mediation between the tabs and browser content.
+  @IBAction func addressFieldSubmitted(_ sender: NSTextField) {
+    guard let url = URL(string: sender.stringValue)
+    else {
+        print("invalid url!")
+        return
+      }
+
+    let tab: Tab
+    if let activeTab = viewModel.activeTab {
+      tab = activeTab
+    } else {
+      tab = viewModel.addNewTab()
+      viewModel.activeTabId = tab.id
+    }
+    
+    tab.url = url
+    
+    self.browserContentViewController?.url = tab.url
+  }
+  
 }
  
 extension BrowserWindowController: NSToolbarDelegate {

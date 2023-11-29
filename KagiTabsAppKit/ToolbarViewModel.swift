@@ -43,12 +43,25 @@ class ToolbarViewModel: NSObject {
 //    Tab(label: "test \(Date())"),
   ])
   
-  func addNewTab() {
-    self.tabs.append(Tab(label: "new tab"))
+  @discardableResult
+  func addNewTab() -> Tab {
+    let tab = Tab(label: "new tab")
+    self.tabs.append(tab)
+    return tab
   }
   
   func close(tab: Tab) {
     self.tabs.removeAll { $0.id == tab.id }
+  }
+  
+  // MARK: -
+  
+  var lastAddedTab: Tab? {
+    tabs.last
+  }
+  
+  var activeTab: Tab? {
+    tabs.first { $0.id == activeTabId } 
   }
 }
 
@@ -63,4 +76,5 @@ class Tab: NSObject, Identifiable {
   @objc dynamic
   var label: String
   
+  var url: URL?
 }
