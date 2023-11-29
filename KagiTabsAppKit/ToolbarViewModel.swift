@@ -26,11 +26,15 @@ class ToolbarViewModel: NSObject {
   }
   
   @objc dynamic
-  var activeTabId: Tab.ID?
+  var activeTabId: Tab.ID? {
+    didSet {
+      self.activeTab = tabs.first { $0.id == activeTabId }
+    }
+  }
   
   static var stub = ToolbarViewModel(tabs: [
-    Tab(label: "test \(Date())"),
-    Tab(label: "test \(Date())"),
+    Tab(label: "test \(Date())", url: URL(string: "https://example.com")!),
+    Tab(label: "test \(Date())", url: URL(string: "https://kagi.com")!),
     Tab(label: "test \(Date())"),
     Tab(label: "test \(Date())"),
 //    Tab(label: "test \(Date())"),
@@ -60,15 +64,15 @@ class ToolbarViewModel: NSObject {
     tabs.last
   }
   
-  var activeTab: Tab? {
-    tabs.first { $0.id == activeTabId } 
-  }
+  @objc dynamic
+  private(set) var activeTab: Tab?
 }
 
 
 class Tab: NSObject, Identifiable {
-  internal init(label: String) {
+  internal init(label: String, url: URL? = nil) {
     self.label = label
+    self.url = url
   }
   
   let id: UUID = UUID()
@@ -76,5 +80,6 @@ class Tab: NSObject, Identifiable {
   @objc dynamic
   var label: String
   
+  @objc dynamic
   var url: URL?
 }

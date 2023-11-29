@@ -4,14 +4,23 @@ import Cocoa
 
 class BrowserWindowController: NSWindowController {
   
-  let viewModel = ToolbarViewModel.stub
+  @objc dynamic
+  var viewModel = ToolbarViewModel.stub
   
   /// set during toolbar delegate method invocation.
   var browserToolbarViewController: BrowserToolbarViewController?
   
-  var browserContentViewController: BrowserContentViewController? {
-    self.contentViewController as? BrowserContentViewController
+  
+  var subscriptions: Any?
+  
+  
+  // MARK: window lifecycle
+  
+  override func windowDidLoad() {
+    super.windowDidLoad()
+    subscriptions = viewModelSubscriptions
   }
+  
   
   // MARK: tab actions
   // note: we can't get the toolbar view controller to go on the responder chain when we present its view as a toolbar item.
@@ -34,6 +43,8 @@ class BrowserWindowController: NSWindowController {
   }
 
   
+  // MARK: browser content actions
+    
   // first port of call when address entered.
   // looks like we need better mediation between the tabs and browser content.
   @IBAction func addressFieldSubmitted(_ sender: NSTextField) {
@@ -52,12 +63,47 @@ class BrowserWindowController: NSWindowController {
     }
     
     tab.url = url
-    
-    self.browserContentViewController?.url = tab.url
   }
   
+  
+  var viewModelSubscriptions: Any {
+    [
+      self.publisher(for: \.viewModel.activeTab)
+        .sink { [unowned self] tab in
+          guard let tab = tab
+          else { return }
+          
+          let c = browserContentViewController(tab: tab)  // tidy!
+          activate(browserContentViewController: c)
+        }
+    ]
+  }
+  
+  
+  var browserContentViewControllers: [Tab.ID : BrowserContentViewController] = [:]
+
+  func browserContentViewController(tab: Tab) -> BrowserContentViewController {
+    if browserContentViewControllers[tab.id] == nil {
+      guard let browserContentViewController = NSStoryboard(name: "BrowserContent", bundle: nil).instantiateInitialController() as? BrowserContentViewController
+      else { fatalError() }
+      
+      browserContentViewController.tab = tab
+      browserContentViewControllers[tab.id] = browserContentViewController
+    }
+    let viewController = browserContentViewControllers[tab.id]!
+    return viewController
+  }
+  
+  func activate(browserContentViewController: BrowserContentViewController) {
+    self.window!.contentView = browserContentViewController.view
+    self.contentViewController = browserContentViewController
+  }
+
 }
  
+
+// MARK: toolbar lifecycle
+
 extension BrowserWindowController: NSToolbarDelegate {
   func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
     if itemIdentifier.rawValue == ToolbarIdentifiers.browserToolbar.rawValue {

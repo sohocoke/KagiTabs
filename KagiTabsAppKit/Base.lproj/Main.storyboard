@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22155"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -711,20 +712,12 @@
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="ngC-oB-XPF" kind="relationship" relationship="window.shadowedContentViewController" id="g7e-H5-VWc"/>
+                        <segue destination="Khf-gz-ZPi" kind="relationship" relationship="window.shadowedContentViewController" id="pTU-fe-2zD"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
-        </scene>
-        <!--BrowserContent-->
-        <scene sceneID="icl-4Q-KFg">
-            <objects>
-                <controllerPlaceholder storyboardName="BrowserContent" id="ngC-oB-XPF" sceneMemberID="viewController"/>
-                <customObject id="DdW-F9-2fi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-51" y="491"/>
         </scene>
         <!--TestTabCollection-->
         <scene sceneID="HOH-Wa-75s">
@@ -733,6 +726,19 @@
                 <customObject id="mgW-k0-QiJ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="196" y="491"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="A4s-ee-qdZ">
+            <objects>
+                <viewController id="Khf-gz-ZPi" sceneMemberID="viewController">
+                    <view key="view" id="76p-Ch-qhB">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                </viewController>
+                <customObject id="WMe-7d-wbX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-240" y="711"/>
         </scene>
     </scenes>
     <resources>

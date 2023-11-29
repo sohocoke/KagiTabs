@@ -30,4 +30,8 @@ class BrowserToolbarViewController: NSViewController {
     self.view.setDebugBorder(.red)  // DEBUG
   }
 
+  // doesn't work because not in responder chain. :|
+  @IBAction func addressFieldSubmitted(_ sender: NSTextField) {
+
+  }
 }
