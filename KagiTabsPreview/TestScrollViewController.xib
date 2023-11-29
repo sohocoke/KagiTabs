@@ -164,7 +164,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <clipView key="contentView" id="CqW-bu-xc9">
                 <rect key="frame" x="1" y="1" width="1126" height="164"/>
-                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view translatesAutoresizingMaskIntoConstraints="NO" id="51N-ij-qEg" userLabel="Document View">
                         <rect key="frame" x="-588" y="0.0" width="2302" height="164"/>

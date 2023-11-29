@@ -39,7 +39,6 @@ class TabViewController: NSViewController {
     self.subscriptions = viewModelSubscriptions
      + viewSubscriptions
   }
-  
 
   func trackCloseButtonHover() {
     let trackingArea = NSTrackingArea(
@@ -163,6 +162,7 @@ class TabView: NSView {
 //    let size = CGSize(width: width, height: idealSize.height)
 //    return size
 //  }
+  
 }
 
 

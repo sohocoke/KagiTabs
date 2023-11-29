@@ -23,10 +23,10 @@
                         <rect key="frame" x="1" y="1" width="416" height="169"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <customView wantsLayer="YES" horizontalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="9fl-a5-lhn" userLabel="Content View">
+                            <customView horizontalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="9fl-a5-lhn" userLabel="Content View">
                                 <rect key="frame" x="208" y="-1" width="0.0" height="171"/>
                                 <subviews>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="248" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="248" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="69N-2I-2zX">
+                                    <stackView wantsLayer="YES" distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="248" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="69N-2I-2zX">
                                         <rect key="frame" x="0.0" y="1" width="0.0" height="169"/>
                                         <subviews>
                                             <button hidden="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="TJs-us-5UR">
@@ -38,6 +38,19 @@
                                                 </buttonCell>
                                             </button>
                                         </subviews>
+                                        <animations>
+                                            <caTransition key="subviews">
+                                                <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T
+S2V5ZWRBcmNoaXZlctEICVRyb290gAGnCwwTFA0ZH1UkbnVsbNMNDg8QERJUdHlwZVYkY2xhc3NfEBJf
+X0NBQ29kaW5nQ29udGVudHOAAoAGgANWcmV2ZWFs0hUOFhhaTlMub2JqZWN0c6EXgASABdIaGxwdWiRj
+bGFzc25hbWVYJGNsYXNzZXNXTlNBcnJheaIcHlhOU09iamVjdNIaGyAhXENBVHJhbnNpdGlvbqMiIx5c
+Q0FUcmFuc2l0aW9uW0NBQW5pbWF0aW9uAAgAEQAaACQAKQAyADcASQBMAFEAUwBbAGEAaABtAHQAiQCL
+AI0AjwCWAJsApgCoAKoArACxALwAxQDNANAA2QDeAOsA7wD8AAAAAAAAAgEAAAAAAAAAJAAAAAAAAAAA
+AAAAAAAAAQg
+</mutableData>
+                                            </caTransition>
+                                        </animations>
                                         <visibilityPriorities>
                                             <integer value="1000"/>
                                         </visibilityPriorities>

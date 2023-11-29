@@ -55,7 +55,7 @@ class TestDynamicConstraintsViewController: NSViewController {
     let inactiveViews = tabViewControllers.filter { $0.view != activeView }.map { $0.view }
     allowCompression(inactiveViews, except: activeView)
     
-    updateToSameWidthConstraints(inactiveViews, superview: self.view)
+    updateToEqualWidthConstraints(inactiveViews, superview: self.view)
     
   }
   

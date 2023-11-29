@@ -39,6 +39,12 @@ class TabCollectionViewController: NSViewController {
   override func viewDidAppear() {
     super.viewDidAppear()
     
+    // clear placeholder views from stack view.
+    tabsStackView.arrangedSubviews.forEach {
+      tabsStackView.removeArrangedSubview($0)
+      $0.removeFromSuperview()
+    }
+    
     self.subscriptions =
       viewModelSubscriptions
       + viewSubscriptions
@@ -170,12 +176,19 @@ class TabCollectionViewController: NSViewController {
           return (added, removed)
         }
         .sink { [unowned self] added, removed in
+        
           // update removed
           for case let tabViewController as TabViewController in self.children {
             if removed.contains(where: { $0.id == tabViewController.tab.id}) {
-              self.tabsStackView.removeArrangedSubview(tabViewController.view)
-              tabViewController.view.removeFromSuperview()
-              tabViewController.removeFromParent()
+              NSAnimationContext.runAnimationGroup { context in
+                context.allowsImplicitAnimation = true
+                self.tabsStackView.animator()
+                  .removeArrangedSubview(tabViewController.view)
+                tabViewController.view.animator().isHidden = true
+              } completionHandler: {
+                tabViewController.view.removeFromSuperview()
+                tabViewController.removeFromParent()
+              }
             }
           }
           
@@ -183,16 +196,28 @@ class TabCollectionViewController: NSViewController {
           for tab in added {
             let tabViewController = self.newTabViewController(tab: tab)
             self.addChild(tabViewController)
-            self.tabsStackView.addArrangedSubview(tabViewController.view)
+            
+            let tabView = tabViewController.view
+            tabView.isHidden = true
+            NSAnimationContext.runAnimationGroup { context in
+              context.allowsImplicitAnimation = true
+              self.tabsStackView.animator()
+                .addArrangedSubview(tabView)
+            } completionHandler: {
+              tabView.animator().isHidden = false
+            }
           }
-          
+        
           // update tab sizes
           self.updateTabSizes()
         },
       
       self.publisher(for: \.viewModel?.activeTabId)
         .sink { [unowned self] _ in
-          self.updateTabSizes()
+          NSAnimationContext.runAnimationGroup { context in
+            context.allowsImplicitAnimation = true
+            self.updateTabSizes()
+          }
         },
       
       self.publisher(for: \.viewModel?.activeTabId)
