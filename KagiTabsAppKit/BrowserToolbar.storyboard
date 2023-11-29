@@ -10,11 +10,11 @@
         <scene sceneID="PEd-7d-5j0">
             <objects>
                 <viewController id="bU7-R8-ocO" userLabel="Browser Toolbar View Controller" customClass="BrowserToolbarViewController" customModule="KagiTabsAppKit" customModuleProvider="target" sceneMemberID="viewController">
-                    <customView key="view" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="VIJ-cY-Yvl">
-                        <rect key="frame" x="0.0" y="0.0" width="255" height="300"/>
+                    <customView key="view" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VIJ-cY-Yvl">
+                        <rect key="frame" x="0.0" y="0.0" width="255" height="25"/>
                         <subviews>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="bqb-1q-unu" userLabel="Address Field Container View">
-                                <rect key="frame" x="0.0" y="0.0" width="120" height="300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" priority="250" constant="120" id="YS0-cZ-rF7"/>
                                 </constraints>
@@ -23,21 +23,20 @@
                                 </connections>
                             </containerView>
                             <containerView horizontalHuggingPriority="249" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="6En-xX-TeV" userLabel="Tab Collection Container View">
-                                <rect key="frame" x="128" y="0.0" width="127" height="300"/>
+                                <rect key="frame" x="128" y="0.0" width="127" height="25"/>
                                 <connections>
                                     <segue destination="u0l-L8-hS5" kind="embed" id="kz0-9h-GB6"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="bqb-1q-unu" firstAttribute="top" secondItem="VIJ-cY-Yvl" secondAttribute="top" id="9OQ-fd-yfH"/>
-                            <constraint firstAttribute="bottom" secondItem="6En-xX-TeV" secondAttribute="bottom" id="U8G-wT-aXh"/>
-                            <constraint firstItem="6En-xX-TeV" firstAttribute="top" secondItem="VIJ-cY-Yvl" secondAttribute="top" id="a1t-83-2ub"/>
-                            <constraint firstAttribute="height" constant="300" id="bKB-XH-ioO"/>
+                            <constraint firstItem="bqb-1q-unu" firstAttribute="firstBaseline" secondItem="VIJ-cY-Yvl" secondAttribute="firstBaseline" id="7yR-83-FXR"/>
+                            <constraint firstItem="6En-xX-TeV" firstAttribute="height" secondItem="bqb-1q-unu" secondAttribute="height" id="XJe-hY-z7B"/>
+                            <constraint firstItem="6En-xX-TeV" firstAttribute="firstBaseline" secondItem="bqb-1q-unu" secondAttribute="firstBaseline" id="aOP-Ac-Kct"/>
+                            <constraint firstAttribute="height" constant="25" id="bKB-XH-ioO"/>
                             <constraint firstItem="6En-xX-TeV" firstAttribute="leading" secondItem="bqb-1q-unu" secondAttribute="trailing" constant="8" symbolic="YES" id="c9f-cr-vC4"/>
-                            <constraint firstAttribute="bottom" secondItem="bqb-1q-unu" secondAttribute="bottom" id="h3Q-xM-rHe"/>
                             <constraint firstAttribute="trailing" secondItem="6En-xX-TeV" secondAttribute="trailing" id="m8c-tN-YwM"/>
-                            <constraint firstItem="6En-xX-TeV" firstAttribute="height" relation="greaterThanOrEqual" secondItem="bqb-1q-unu" secondAttribute="height" id="rPE-fl-9I5"/>
+                            <constraint firstItem="bqb-1q-unu" firstAttribute="height" secondItem="VIJ-cY-Yvl" secondAttribute="height" id="oNT-Ho-r88"/>
                             <constraint firstItem="bqb-1q-unu" firstAttribute="leading" secondItem="VIJ-cY-Yvl" secondAttribute="leading" id="sOr-2f-n4D"/>
                         </constraints>
                     </customView>
@@ -51,15 +50,15 @@
             <objects>
                 <viewController id="yln-uZ-XSo" userLabel="Address Field View Controller" sceneMemberID="viewController">
                     <view key="view" translatesAutoresizingMaskIntoConstraints="NO" id="WcL-Ax-NZb">
-                        <rect key="frame" x="0.0" y="0.0" width="180" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="21"/>
                         <subviews>
                             <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BhO-eC-df3" userLabel="address field">
-                                <rect key="frame" x="0.0" y="140" width="180" height="21"/>
+                                <rect key="frame" x="0.0" y="0.0" width="180" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="iFg-L6-BTo"/>
                                 </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" title="https://example.com" drawsBackground="YES" usesSingleLineMode="YES" id="WRl-cA-bbF">
-                                    <font key="font" usesAppearanceFont="YES"/>
+                                <textFieldCell key="cell" controlSize="large" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" title="https://example.com" drawsBackground="YES" usesSingleLineMode="YES" id="WRl-cA-bbF">
+                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -70,6 +69,7 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="BhO-eC-df3" firstAttribute="leading" secondItem="WcL-Ax-NZb" secondAttribute="leading" id="2jN-5U-Awa"/>
+                            <constraint firstItem="BhO-eC-df3" firstAttribute="height" secondItem="WcL-Ax-NZb" secondAttribute="height" id="2vh-jl-P2E"/>
                             <constraint firstAttribute="trailing" secondItem="BhO-eC-df3" secondAttribute="trailing" id="ea9-Bf-Ccc"/>
                             <constraint firstItem="BhO-eC-df3" firstAttribute="centerY" secondItem="WcL-Ax-NZb" secondAttribute="centerY" id="ixf-Cp-x4R"/>
                         </constraints>

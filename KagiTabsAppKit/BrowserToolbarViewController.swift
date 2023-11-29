@@ -27,7 +27,7 @@ class BrowserToolbarViewController: NSViewController {
       self.tabCollectionViewController = tabCollectionViewController
     }
     
-    self.view.setDebugBorder(.red)  // DEBUG
+//    self.view.setDebugBorder(.red)  // DEBUG
   }
 
   // doesn't work because not in responder chain. :|
