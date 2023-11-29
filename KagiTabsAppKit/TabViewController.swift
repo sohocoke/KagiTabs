@@ -127,7 +127,7 @@ class TabView: NSView {
   @IBOutlet weak var closeButton: NSButton!
   @IBOutlet weak var tabButtonMinimal: NSButton!
   
-  var overriddenWidth: CGFloat?
+  var overriddenWidth: CGFloat?  // TODO obsolete -- remove.
   
   var renderMode: RenderMode = .normal {
     didSet {

@@ -2,9 +2,7 @@ import Cocoa
 import Combine
 
 
-// outstanding issues:
-// - when active tab intrinsic content size is small,
-// -- should keep equal width constraint to avoid it being presented less prominently
+
 class TabCollectionViewController: NSViewController {
 
   @objc dynamic
@@ -74,6 +72,14 @@ class TabCollectionViewController: NSViewController {
     allowCompression(inactiveViews, except: activeView)
     
     updateToEqualWidthConstraints(inactiveViews, superview: tabsStackView)
+    
+    // set active view width >= 1st inactive,
+    // so it doesn't display less prominently if narrow.
+    if let firstInactive = inactiveViews.first {
+      let c = activeView.widthAnchor.constraint(greaterThanOrEqualTo: firstInactive.widthAnchor)
+      c.identifier = "sameWidths"
+      c.isActive = true
+    }
     
     // ensure active tab gets decent prominence.
     let c = activeView.widthAnchor.constraint(greaterThanOrEqualToConstant: activeView.idealSize.width)
