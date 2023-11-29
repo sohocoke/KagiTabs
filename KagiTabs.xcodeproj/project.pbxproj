@@ -49,6 +49,7 @@
 		51DEEEBD2B0FA4DF00BEF0FE /* TabCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DEEEBB2B0FA4DF00BEF0FE /* TabCollectionViewController.xib */; };
 		51DF122D2B15670200E431A7 /* FlexibleToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DF122C2B15670200E431A7 /* FlexibleToolbarItem.swift */; };
 		51DF122E2B1594D400E431A7 /* TestScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4E02B10930800BB669C /* TestScrollViewController.xib */; };
+		51E11CE82B1707C70031078C /* BrowserContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E11CE72B1707C70031078C /* BrowserContentViewController.swift */; };
 		51E4EF572B140F6200FAD2F2 /* TestScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4DF2B10930800BB669C /* TestScrollViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,7 @@
 		51DEEEBA2B0FA4DF00BEF0FE /* TabCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCollectionViewController.swift; sourceTree = "<group>"; };
 		51DEEEBB2B0FA4DF00BEF0FE /* TabCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabCollectionViewController.xib; sourceTree = "<group>"; };
 		51DF122C2B15670200E431A7 /* FlexibleToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleToolbarItem.swift; sourceTree = "<group>"; };
+		51E11CE72B1707C70031078C /* BrowserContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserContentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				51DEEEBA2B0FA4DF00BEF0FE /* TabCollectionViewController.swift */,
 				51DB99C32B0D85E6001340C2 /* TabViewController.swift */,
 				5157E4CD2B0FC7FC00BB669C /* ToolbarViewModel.swift */,
+				51E11CE72B1707C70031078C /* BrowserContentViewController.swift */,
 				519C89B52B14135900A6F3EF /* view-tiling.swift */,
 				510EF6A42B0A339A00178579 /* Assets.xcassets */,
 				510EF6A62B0A339A00178579 /* Main.storyboard */,
@@ -359,6 +362,7 @@
 				51DB99C42B0D85E6001340C2 /* TabViewController.swift in Sources */,
 				51DB99C22B0D6E3C001340C2 /* BrowserWindowController.swift in Sources */,
 				519C89B62B14135900A6F3EF /* view-tiling.swift in Sources */,
+				51E11CE82B1707C70031078C /* BrowserContentViewController.swift in Sources */,
 				510EF6A12B0A339900178579 /* AppDelegate.swift in Sources */,
 				51DEEEBC2B0FA4DF00BEF0FE /* TabCollectionViewController.swift in Sources */,
 				51DEEEB92B0FA11100BEF0FE /* toolbar-items.swift in Sources */,
