@@ -10,10 +10,12 @@ class BrowserWindowController: NSWindowController {
   /// set during toolbar delegate method invocation.
   var browserToolbarViewController: BrowserToolbarViewController?
   
-  
+  /// manages a web view per tab.
+  var browserContentViewControllers: [Tab.ID : BrowserContentViewController] = [:]
+
+
   var subscriptions: Any?
-  
-  
+
   // MARK: window lifecycle
   
   override func windowDidLoad() {
@@ -75,12 +77,29 @@ class BrowserWindowController: NSWindowController {
           
           let c = browserContentViewController(tab: tab)  // tidy!
           activate(browserContentViewController: c)
+        },
+      self.publisher(for: \.viewModel.tabs)
+        .scan(([], [])) { (priorClosureResult, current) -> ([Tab], [Tab]) in
+          let (_, prior) = priorClosureResult
+          return (prior, current)
+        }
+        .map { prior, current in
+          let oldTabIds = prior.map { $0.id }
+          let newTabIds = current.map { $0.id }
+          
+          let removed = prior.filter { !newTabIds.contains($0.id) }
+          return removed
+        }
+        .sink { [unowned self] removedTabs in
+          for removed in removedTabs {
+            tearDown(tab: removed)
+          }
         }
     ]
   }
   
   
-  var browserContentViewControllers: [Tab.ID : BrowserContentViewController] = [:]
+  // MARK: misc
 
   func browserContentViewController(tab: Tab) -> BrowserContentViewController {
     if browserContentViewControllers[tab.id] == nil {
@@ -99,6 +118,10 @@ class BrowserWindowController: NSWindowController {
     self.contentViewController = browserContentViewController
   }
 
+  func tearDown(tab: Tab) {
+    browserContentViewControllers[tab.id]?.view.removeFromSuperview()
+    self.browserContentViewControllers.removeValue(forKey: tab.id)
+  }
 }
  
 
