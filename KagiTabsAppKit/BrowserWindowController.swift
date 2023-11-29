@@ -5,7 +5,7 @@ import Cocoa
 class BrowserWindowController: NSWindowController {
   
   @objc dynamic
-  var viewModel = ToolbarViewModel.stub
+  var toolbarViewModel = ToolbarViewModel.stub
   
   /// set during toolbar delegate method invocation.
   var browserToolbarViewController: BrowserToolbarViewController?
@@ -29,18 +29,18 @@ class BrowserWindowController: NSWindowController {
   // we define the actions here so toolbar item validation and control action dispatches work with toolbar presentation.
   
   @IBAction func addTab(_ sender: Any) {
-    self.viewModel.addNewTab()
+    self.toolbarViewModel.addNewTab()
   }
 
   @IBAction func closeTab(_ sender: NSView) {
     if let tabViewController = browserToolbarViewController?.tabCollectionViewController?.tabViewController(decendentView: sender) {
-      self.viewModel.close(tab: tabViewController.tab)
+      self.toolbarViewModel.close(tab: tabViewController.tab)
     }
   }
   
   @IBAction func activateTab(_ sender: NSView) {
     if let tabViewController = browserToolbarViewController?.tabCollectionViewController?.tabViewController(decendentView: sender) {
-      self.viewModel.activeTabId = tabViewController.tab.id
+      self.toolbarViewModel.activeTabId = tabViewController.tab.id
     }
   }
 
@@ -57,11 +57,11 @@ class BrowserWindowController: NSWindowController {
       }
 
     let tab: Tab
-    if let activeTab = viewModel.activeTab {
+    if let activeTab = toolbarViewModel.activeTab {
       tab = activeTab
     } else {
-      tab = viewModel.addNewTab()
-      viewModel.activeTabId = tab.id
+      tab = toolbarViewModel.addNewTab()
+      toolbarViewModel.activeTabId = tab.id
     }
     
     tab.url = url
@@ -70,7 +70,7 @@ class BrowserWindowController: NSWindowController {
   
   var viewModelSubscriptions: Any {
     [
-      self.publisher(for: \.viewModel.activeTab)
+      self.publisher(for: \.toolbarViewModel.activeTab)
         .sink { [unowned self] tab in
           guard let tab = tab
           else { return }
@@ -78,7 +78,7 @@ class BrowserWindowController: NSWindowController {
           let c = browserContentViewController(tab: tab)  // tidy!
           activate(browserContentViewController: c)
         },
-      self.publisher(for: \.viewModel.tabs)
+      self.publisher(for: \.toolbarViewModel.tabs)
         .scan(([], [])) { (priorClosureResult, current) -> ([Tab], [Tab]) in
           let (_, prior) = priorClosureResult
           return (prior, current)
@@ -132,13 +132,13 @@ extension BrowserWindowController: NSToolbarDelegate {
     if itemIdentifier.rawValue == ToolbarIdentifiers.browserToolbar.rawValue {
       if flag {
         // the actual instance
-        let toolbarItem = BrowserToolbarItem(itemIdentifier: itemIdentifier, viewModel: viewModel)
+        let toolbarItem = BrowserToolbarItem(itemIdentifier: itemIdentifier, viewModel: toolbarViewModel)
         self.browserToolbarViewController = toolbarItem.browserToolbarViewController
         return toolbarItem
       } else {
         // the customisation palette instance
         // STUB
-        let toolbarItem = BrowserToolbarItem(itemIdentifier: itemIdentifier, viewModel: viewModel)
+        let toolbarItem = BrowserToolbarItem(itemIdentifier: itemIdentifier, viewModel: toolbarViewModel)
         return toolbarItem
       }
     }
