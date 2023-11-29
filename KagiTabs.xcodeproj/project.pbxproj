@@ -31,8 +31,8 @@
 		5180795F2B0955B900F0BB5B /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5180795E2B0955B900F0BB5B /* ToolbarView.swift */; };
 		518079612B096E9700F0BB5B /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518079602B096E9700F0BB5B /* TabsView.swift */; };
 		519C89B42B1410DB00A6F3EF /* TestLineLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519C89B32B1410DB00A6F3EF /* TestLineLayout.xib */; };
-		519C89B62B14135900A6F3EF /* tiled-view-layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519C89B52B14135900A6F3EF /* tiled-view-layout.swift */; };
-		519C89B72B14137000A6F3EF /* tiled-view-layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519C89B52B14135900A6F3EF /* tiled-view-layout.swift */; };
+		519C89B62B14135900A6F3EF /* view-tiling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519C89B52B14135900A6F3EF /* view-tiling.swift */; };
+		519C89B72B14137000A6F3EF /* view-tiling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519C89B52B14135900A6F3EF /* view-tiling.swift */; };
 		51CC43072B15B65B00B9FA46 /* TestScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4DF2B10930800BB669C /* TestScrollViewController.swift */; };
 		51CC43082B15B65B00B9FA46 /* TestScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4E02B10930800BB669C /* TestScrollViewController.xib */; };
 		51CC430A2B1607D400B9FA46 /* TestTabCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CC43092B1607D400B9FA46 /* TestTabCollectionViewController.swift */; };
@@ -78,7 +78,7 @@
 		5180795E2B0955B900F0BB5B /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
 		518079602B096E9700F0BB5B /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		519C89B32B1410DB00A6F3EF /* TestLineLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestLineLayout.xib; sourceTree = "<group>"; };
-		519C89B52B14135900A6F3EF /* tiled-view-layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "tiled-view-layout.swift"; sourceTree = "<group>"; };
+		519C89B52B14135900A6F3EF /* view-tiling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "view-tiling.swift"; sourceTree = "<group>"; };
 		51CC43092B1607D400B9FA46 /* TestTabCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTabCollectionViewController.swift; sourceTree = "<group>"; };
 		51DB99BF2B0D6B1F001340C2 /* TabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabViewController.xib; sourceTree = "<group>"; };
 		51DB99C12B0D6E3C001340C2 /* BrowserWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserWindowController.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 				51DEEEBA2B0FA4DF00BEF0FE /* TabCollectionViewController.swift */,
 				51DB99C32B0D85E6001340C2 /* TabViewController.swift */,
 				5157E4CD2B0FC7FC00BB669C /* ToolbarViewModel.swift */,
-				519C89B52B14135900A6F3EF /* tiled-view-layout.swift */,
+				519C89B52B14135900A6F3EF /* view-tiling.swift */,
 				510EF6A42B0A339A00178579 /* Assets.xcassets */,
 				510EF6A62B0A339A00178579 /* Main.storyboard */,
 				5157E4E42B11EC6700BB669C /* BrowserToolbar.storyboard */,
@@ -358,7 +358,7 @@
 				5157E4CE2B0FC7FC00BB669C /* ToolbarViewModel.swift in Sources */,
 				51DB99C42B0D85E6001340C2 /* TabViewController.swift in Sources */,
 				51DB99C22B0D6E3C001340C2 /* BrowserWindowController.swift in Sources */,
-				519C89B62B14135900A6F3EF /* tiled-view-layout.swift in Sources */,
+				519C89B62B14135900A6F3EF /* view-tiling.swift in Sources */,
 				510EF6A12B0A339900178579 /* AppDelegate.swift in Sources */,
 				51DEEEBC2B0FA4DF00BEF0FE /* TabCollectionViewController.swift in Sources */,
 				51DEEEB92B0FA11100BEF0FE /* toolbar-items.swift in Sources */,
@@ -384,7 +384,7 @@
 			files = (
 				515247E02B12CB92000DEA4F /* ToolbarViewModel.swift in Sources */,
 				51DB99DD2B0DD611001340C2 /* TabViewController.swift in Sources */,
-				519C89B72B14137000A6F3EF /* tiled-view-layout.swift in Sources */,
+				519C89B72B14137000A6F3EF /* view-tiling.swift in Sources */,
 				51DB99D22B0DD372001340C2 /* ViewController.swift in Sources */,
 				510A5EDF2B1306E200824E5A /* TestDynamicConstraintsViewController.swift in Sources */,
 				5113C5492B16BC3800B2CBF2 /* TestStackViewAnimationViewController.swift in Sources */,

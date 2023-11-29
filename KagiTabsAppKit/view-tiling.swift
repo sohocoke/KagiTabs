@@ -1,7 +1,14 @@
 import AppKit
 
 
-
+/// Methods for horizontal tiling of subview based on autolayout properties only.
+/// 
+/// The initial objective was to avoid using NSStackView to allow for computation of total item widths,
+/// which posed some headaches with regards to margins / behaviour inside scroll view.
+/// 
+/// Ended up going with NSStackView anyway, by configuring margins inside component views.
+/// Extensive testing will prove whether that decision turns out to be the best one.
+///
 extension NSView {
   
   /// adds views as subviews laid out horizontally, vertically centred.

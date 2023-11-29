@@ -29,20 +29,21 @@ class BrowserToolbarItem: NSToolbarItem {
 //        self.view?.widthAnchor.constraint(lessThanOrEqualToConstant: 15000) {
 //      self.view?.addConstraint(c)
 //    }
+    // result: they don't.
   }
-}
-extension BrowserToolbarItem: NSToolbarDelegate {
-  
 }
 
 extension NSView {
   func updateWidthConstraint(width: CGFloat) {
-    let constraints = NSLayoutConstraint.constraints(withVisualFormat: "[view(>=\(width))]", metrics: nil, views: ["view": self])
+    self.constraints.filter { $0.identifier == "tooblarWidth"}
+      .forEach { $0.isActive = false }
+    
+    let constraints = NSLayoutConstraint.constraints(
+      withVisualFormat: "[view(>=\(width))]", metrics: nil, views: ["view": self])
     for c in constraints {
       c.identifier = "toolbarWidth"
+      c.isActive = true
     }
-    self.removeConstraints(self.constraints.filter { $0.identifier == "tooblarWidth"})
-    self.addConstraints(constraints)
   }
 }
 

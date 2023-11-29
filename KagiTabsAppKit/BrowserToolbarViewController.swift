@@ -2,6 +2,8 @@ import AppKit
 
 
 
+// NOTE: in xib, we have a very tall fixed height, to ease testing inside the toolbar,
+// pending optimisation.
 class BrowserToolbarViewController: NSViewController {
   
   var tabCollectionViewController: TabCollectionViewController? {
@@ -25,7 +27,7 @@ class BrowserToolbarViewController: NSViewController {
       self.tabCollectionViewController = tabCollectionViewController
     }
     
-    self.view.setDebugBorder(.red)
+    self.view.setDebugBorder(.red)  // DEBUG
   }
 
 }
