@@ -713,12 +713,25 @@
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="Khf-gz-ZPi" kind="relationship" relationship="window.shadowedContentViewController" id="pTU-fe-2zD"/>
+                        <segue destination="Khf-gz-ZPi" kind="relationship" relationship="window.shadowedContentViewController" id="rKv-ty-ATB"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
+        </scene>
+        <!--Browser Content Host View Controller-->
+        <scene sceneID="A4s-ee-qdZ">
+            <objects>
+                <viewController id="Khf-gz-ZPi" userLabel="Browser Content Host View Controller" sceneMemberID="viewController">
+                    <view key="view" translatesAutoresizingMaskIntoConstraints="NO" id="76p-Ch-qhB">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                </viewController>
+                <customObject id="WMe-7d-wbX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-240" y="711"/>
         </scene>
         <!--TestTabCollection-->
         <scene sceneID="HOH-Wa-75s">
@@ -728,18 +741,13 @@
             </objects>
             <point key="canvasLocation" x="196" y="491"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="A4s-ee-qdZ">
+        <!--BrowserToolbar-->
+        <scene sceneID="Z1c-j6-Li8">
             <objects>
-                <viewController id="Khf-gz-ZPi" sceneMemberID="viewController">
-                    <view key="view" translatesAutoresizingMaskIntoConstraints="NO" id="76p-Ch-qhB">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                </viewController>
-                <customObject id="WMe-7d-wbX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <controllerPlaceholder storyboardName="BrowserToolbar" id="KOC-xM-uYM" sceneMemberID="viewController"/>
+                <customObject id="M3g-yO-7G3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-240" y="711"/>
+            <point key="canvasLocation" x="-251" y="493"/>
         </scene>
     </scenes>
     <resources>
