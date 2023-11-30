@@ -2,15 +2,18 @@ import Cocoa
 
 let minimalWidthThreshold: CGFloat = 50
 
-/// width modes:
-/// - full: when tab is active: no truncation.
-///   determinants: tab 'ideal' width.
+/// rendering variations:
+/// - full: when tab is active: no truncation
+///   - current implementation; normal render mode + no squish
+///   -  determinants: tab 'ideal' width, active tab min width.
 /// - compact: when (cum. width of full tabs) > (container width), render with width: (container width - active tab width) / n -1, truncate label if necessary.
-///   determinants: container width, # of tabs, width of active tab
+///   - current implementation: normal render mode + squish using layout constraints
+///   -  determinants: container width, # of tabs, width of active tab
 /// - minimal: when truncated label below some legible width, only render icon, subject to minimum width constraint.
-///   determinants: container width, # of tabs, width of active tab, width of label
+///   - current implementation: minimal render mode + no squish
+///   - determinants: container width, # of tabs, width of active tab, width of label
 class TabViewController: NSViewController {
-  
+    
   @objc dynamic
   var tab: Tab {
     get {
@@ -35,11 +38,29 @@ class TabViewController: NSViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+        
     trackCloseButtonHover()
-    self.subscriptions = viewModelSubscriptions
-     + viewSubscriptions
+    self.subscriptions =
+      viewSubscriptions
   }
 
+  var viewSubscriptions: [Any] {
+    [
+      // switch render mode based on available frame.
+      self.publisher(for: \.view.frame)
+        .sink { [unowned self] frame in
+          if frame.width < minimalWidthThreshold {
+            self.tabView.renderMode = .minimal
+          } else {
+            self.tabView.renderMode = .normal
+          }
+        },
+    ]
+  }
+
+  
+  // MARK: mouse tracking for close button
+  
   func trackCloseButtonHover() {
     let trackingArea = NSTrackingArea(
       rect: .zero,
@@ -68,54 +89,7 @@ class TabViewController: NSViewController {
   override func mouseExited(with event: NSEvent) {
     tabView.closeButton.alphaValue = 0
   }
-    
-
-  func updateToIdealWidth() {
-    tabView.renderMode = .normal
-    tabView.invalidateIntrinsicContentSize()
-  }
-  
-  func updateWidth(
-    remainingContainerWidth: CGFloat,
-    tabCount: Int
-  ) {
-    // squeezedWidth is that when many tabs are sharing the remaining container width.
-    let squeezedWidth = remainingContainerWidth / CGFloat(tabCount)
-    
-    // override width only when squeezed width is less than the ideal with.
-    if squeezedWidth < tabView.idealSize.width {
-      tabView.renderMode =
-        squeezedWidth < minimalWidthThreshold ?
-        .minimal
-        : .normal
-    } else {
-      tabView.renderMode = .normal
-    }
-    
-    tabView.invalidateIntrinsicContentSize()
-  }
-  
-  
-  var viewModelSubscriptions: [Any] {
-    [
-      self.publisher(for: \.tab.label)
-        .assign(to: \.tabView.tabButton.title, on: self)
-    ]
-  }
-
-  var viewSubscriptions: [Any] {
-    [
-      // switch render mode based on available frame.
-      self.publisher(for: \.view.frame)
-        .sink { [unowned self] frame in
-          if frame.width < minimalWidthThreshold {
-            self.tabView.renderMode = .minimal
-          } else {
-            self.tabView.renderMode = .normal
-          }
-        },
-    ]
-  }
+      
 }
 
 
