@@ -14,17 +14,17 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView clipsToBounds="YES" horizontalCompressionResistancePriority="247" translatesAutoresizingMaskIntoConstraints="NO" id="CJw-am-yjm" userLabel="Enclosing View">
+        <customView horizontalCompressionResistancePriority="247" translatesAutoresizingMaskIntoConstraints="NO" id="CJw-am-yjm" userLabel="Enclosing View">
             <rect key="frame" x="0.0" y="0.0" width="416" height="169"/>
             <subviews>
-                <scrollView horizontalCompressionResistancePriority="247" borderType="line" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="epe-hB-edh">
+                <scrollView horizontalCompressionResistancePriority="247" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="epe-hB-edh">
                     <rect key="frame" x="-1" y="-1" width="418" height="171"/>
                     <clipView key="contentView" drawsBackground="NO" id="OqO-zc-lJq">
-                        <rect key="frame" x="1" y="1" width="416" height="169"/>
+                        <rect key="frame" x="0.0" y="0.0" width="418" height="171"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <customView horizontalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="9fl-a5-lhn" userLabel="Content View">
-                                <rect key="frame" x="208" y="-1" width="0.0" height="171"/>
+                                <rect key="frame" x="209" y="0.0" width="0.0" height="171"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="248" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="248" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="69N-2I-2zX">
                                         <rect key="frame" x="0.0" y="1" width="0.0" height="169"/>
@@ -80,12 +80,12 @@
                     <constraints>
                         <constraint firstItem="9fl-a5-lhn" firstAttribute="height" secondItem="epe-hB-edh" secondAttribute="height" id="OWP-6P-vZJ"/>
                     </constraints>
-                    <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="u1s-RT-Iub">
-                        <rect key="frame" x="1" y="154" width="416" height="16"/>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="u1s-RT-Iub">
+                        <rect key="frame" x="-100" y="-100" width="418" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="hbH-VI-BKU">
-                        <rect key="frame" x="401" y="1" width="16" height="169"/>
+                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="hbH-VI-BKU">
+                        <rect key="frame" x="-100" y="-100" width="16" height="171"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
