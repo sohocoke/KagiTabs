@@ -10,20 +10,20 @@
         <scene sceneID="PEd-7d-5j0">
             <objects>
                 <viewController id="bU7-R8-ocO" userLabel="Browser Toolbar View Controller" customClass="BrowserToolbarViewController" customModule="KagiTabsAppKit" customModuleProvider="target" sceneMemberID="viewController">
-                    <customView key="view" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VIJ-cY-Yvl">
+                    <customView key="view" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="VIJ-cY-Yvl">
                         <rect key="frame" x="0.0" y="0.0" width="255" height="25"/>
                         <subviews>
-                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="bqb-1q-unu" userLabel="Address Field Container View">
-                                <rect key="frame" x="0.0" y="0.0" width="120" height="25"/>
+                            <containerView horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="bqb-1q-unu" userLabel="Address Field Container View">
+                                <rect key="frame" x="0.0" y="0.0" width="180" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" priority="250" constant="120" id="YS0-cZ-rF7"/>
+                                    <constraint firstAttribute="width" constant="180" identifier="address-width-temp-till-tabs-stabilised" id="YS0-cZ-rF7"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="yln-uZ-XSo" kind="embed" id="gkw-rL-VNQ"/>
                                 </connections>
                             </containerView>
-                            <containerView horizontalHuggingPriority="249" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="6En-xX-TeV" userLabel="Tab Collection Container View">
-                                <rect key="frame" x="128" y="0.0" width="127" height="25"/>
+                            <containerView horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="6En-xX-TeV" userLabel="Tab Collection Container View">
+                                <rect key="frame" x="188" y="0.0" width="67" height="25"/>
                                 <connections>
                                     <segue destination="u0l-L8-hS5" kind="embed" id="kz0-9h-GB6"/>
                                 </connections>
@@ -49,10 +49,10 @@
         <scene sceneID="x5H-VZ-qom">
             <objects>
                 <viewController id="yln-uZ-XSo" userLabel="Address Field View Controller" sceneMemberID="viewController">
-                    <view key="view" translatesAutoresizingMaskIntoConstraints="NO" id="WcL-Ax-NZb">
+                    <view key="view" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="WcL-Ax-NZb">
                         <rect key="frame" x="0.0" y="0.0" width="180" height="21"/>
                         <subviews>
-                            <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BhO-eC-df3" userLabel="address field">
+                            <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="BhO-eC-df3" userLabel="address field">
                                 <rect key="frame" x="0.0" y="0.0" width="180" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="iFg-L6-BTo"/>
