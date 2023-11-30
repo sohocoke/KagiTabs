@@ -18,16 +18,18 @@ class BrowserToolbarViewController: NSViewController {
       tabCollectionViewController?.viewModel = viewModel
     }
   }
+
+  // a 0-width constraint set up to position the address field correctly when no tabs.
+  @IBOutlet weak var tabCollectionWidthWhenTabsHidden: NSLayoutConstraint?
   
-  /// constraint defined in xib that sizes the address field appropriately based on tabs visibility.
-  @IBOutlet var addressFieldWidthWhenTabsShown: NSLayoutConstraint?
-
-
   @objc dynamic
   var isTabsVisible: Bool = false {
     didSet {
       NSAnimationContext.runAnimationGroup { context in
-        self.addressFieldWidthWhenTabsShown?.isActive = isTabsVisible
+        // zero-out the tabs width when not visible.
+        tabCollectionWidthWhenTabsHidden?.priority = isTabsVisible ? .defaultLow - 100 : .required
+        
+        // obsolete now.
         tabsContainerView?.animator().isHidden = !isTabsVisible
         
         self.view.layoutSubtreeIfNeeded()
