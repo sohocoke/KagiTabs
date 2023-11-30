@@ -17,7 +17,7 @@
         <customView clipsToBounds="YES" horizontalCompressionResistancePriority="247" translatesAutoresizingMaskIntoConstraints="NO" id="CJw-am-yjm" userLabel="Enclosing View">
             <rect key="frame" x="0.0" y="0.0" width="416" height="169"/>
             <subviews>
-                <scrollView horizontalCompressionResistancePriority="247" borderType="line" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epe-hB-edh">
+                <scrollView horizontalCompressionResistancePriority="247" borderType="line" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="epe-hB-edh">
                     <rect key="frame" x="-1" y="-1" width="418" height="171"/>
                     <clipView key="contentView" drawsBackground="NO" id="OqO-zc-lJq">
                         <rect key="frame" x="1" y="1" width="416" height="169"/>

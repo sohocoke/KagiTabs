@@ -689,6 +689,7 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="480" height="270"/>
                         <toolbar key="toolbar" implicitIdentifier="FA4C3F4D-2734-405C-9300-959B18BCEAF4" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="mcm-YN-b1H">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="2417EEE2-63BD-41F4-A3B9-F4E7650AAA63" explicitItemIdentifier="newTab" label="New Tab" paletteLabel="New Tab" tag="-1" image="plus" catalog="system" bordered="YES" sizingBehavior="auto" id="2Kw-3W-vrH">
