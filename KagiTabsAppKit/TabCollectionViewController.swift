@@ -80,8 +80,6 @@ class TabCollectionViewController: NSViewController {
     
     allowCompression(inactiveViews, except: activeView)
     
-//    updateToEqualWidthConstraints(inactiveViews, superview: tabsStackView)
-    
     let availableWidth = view.frame.width
     let activeItemWidth = max(
       activeView.idealSize.width,
@@ -103,13 +101,7 @@ class TabCollectionViewController: NSViewController {
     )
     inactiveTabComputedWidth = max(inactiveTabComputedWidth, inactiveTabMinWidth)  // floor it at minWidth
     
-    // active tab width should always be prominent: use activeItemWidth.
-    // inactive tabs: 
-    // - when no-squish, use inactiveTabComputedWidth.
-    // - when squishable, use inactiveTabComputedWidth and let it compress.
-    //  OR: compute separtely.
-    // - when overflow, use minWidth.
-    
+    // break out to 3 cases.
     enum LayoutCase {
       case noSquish
       case needSquish
@@ -131,166 +123,42 @@ class TabCollectionViewController: NSViewController {
     
     // install the default constraints.
     (inactiveViews + [activeView]).forEach { view in
-      constraint(view: view, id: "inactiveWidth", priority: .defaultHigh, init: { view in
+      constraint(view: view, id: "inactiveWidth", priority: .defaultHigh, init: {
         view.widthAnchor.constraint(lessThanOrEqualToConstant: inactiveTabComputedWidth)
       }).isActive = view != activeView
-      constraint(view: view, id: "activeWidth", init: { view in
+      constraint(view: view, id: "activeWidth", init: {
         view.widthAnchor.constraint(equalToConstant: activeItemWidth)
       }).isActive = view == activeView
-      constraint(view: view, id: "minWidth", init: { view in
+      constraint(view: view, id: "minWidth", init: {
         view.widthAnchor.constraint(greaterThanOrEqualToConstant: inactiveTabMinWidth)
       }).isActive = layoutCase == .needScroll
     }
     
-    func constraint(view: NSView, id: String, priority: NSLayoutConstraint.Priority? = nil,`init`: (NSView) -> NSLayoutConstraint) -> NSLayoutConstraint {
-      // IT1 naiive impl.
-      view.removeConstraints(view.constraints.filter { $0.identifier == id })
-      let c = `init`(view) // stub
-      c.identifier = id
-      if let priority = priority {
-        c.priority = priority
-      }
-      return c
-    }
-    
+    // update scrollability based on the layout case.
     switch layoutCase {
     case .noSquish:
       // turn on the no-op scroll.
       self.isScrollable = true
       
+    case .needScroll:
+      self.isScrollable = true
+      
     case .needSquish:
       self.isScrollable = false
-      
-      // deactivate min width constraints.
-
-    case .needScroll:
-      // enable the scrolling.
-      self.isScrollable = true
-      
-      // activate min width constraints of inactive items,
-      // deactivate for active item.
     }
     
-    return; // end IT2
-    
-    
-    // IT1
-    
-    // set active view width >= 1st inactive,
-    // so it doesn't display less prominently if narrow.
-    if let firstInactive = inactiveViews.first {
-      let c = activeView.widthAnchor.constraint(greaterThanOrEqualTo: firstInactive.widthAnchor)
-      c.identifier = "sameWidths" // reusing this constraint id.
-      c.isActive = true
-    }
-    
-    // ** pin stack view and item min widths for certain conditions for ( scroll view width, sum(item.width), sum(item.minWidth) ),
-    // to get scrolling + compression working.
-
-    // clear the first inactive tab min size constraint,
-    // which is only needed on overflow,
-    // then add when necessary below.
-    tabViewControllers.forEach {
-      $0.tabView.constraints.filter { $0.identifier == "inactiveTabToMinSize" }
-        .forEach { $0.isActive = false }
-    }
-    
-    
-
-    
-    let unsquishedTotalItemWidth: CGFloat = tabViewControllers.reduce(.zero) { acc, e in
-      acc +
-      e.tabView.idealSize.width
-    }
-
-    let minTotalItemWidth: CGFloat = tabViewControllers.reduce(.zero) { acc, e in
-      let width = e.isActive
-        ? activeItemWidth
-        : e.tabView.minSize.width
-      return acc + width
-    }
-    
-    let idealTotalExceedsAvailableWidth = unsquishedTotalItemWidth > availableWidth
-    let minTotalExceedsAvailableWidth = minTotalItemWidth > availableWidth
-    
-    if idealTotalExceedsAvailableWidth {
-      
-      if minTotalExceedsAvailableWidth {
-        //  must overflow!
-        self.isScrollable = true
-        
-        // constrain inactive tab to min size
-        if let firstInactiveView = inactiveViews.first {
-          let constraint = firstInactiveView.animator().widthAnchor.constraint(equalToConstant: firstInactiveView.minSize.width)
-          constraint.identifier = "inactiveTabToMinSize"
-          constraint.isActive = true
-        }
-        
-        // IT2
-        // for each view, set up inactive width, min width and active width constraints.
-        // turn on / off using priorities.
-        // - active width: on when active
-        // - inactive width: on when inactive and > minWidth
-        // - min width on when inactive and < min width
-        
-      } else {
-        // items should be squished, not scrolled
-        self.isScrollable = false
-        
-      }
-    }
-    else {
-      // turn on the no-op scrolling, to let constraints work naturally
-      self.isScrollable = true
-    }
-    
-//    // if sum(item.width) exceeds scroll view width,
-//    if tabsScrollView.frame.width > 0
-//        && idealTotalItemWidth > 0
-//        && idealTotalItemWidth > tabsScrollView.frame.width {
-//      
-//      // if sum(item.minWidth) within scroll view width,
-//      if minTotalItemWidth < tabsScrollView.frame.width {
-//
-//        // switch off scrolling so items can compress.
-//        self.isScrollable = false
-//
-//      } else {
-//        // sum(item.minWidth) exceeds scroll view width -- 'overflow'.
-//
-//        // turn on scrolling and constrain first inactive tab to minsize.
-//        self.isScrollable = true
-//        if let firstInactiveView = inactiveViews.first {
-//          let constraint = firstInactiveView.animator().widthAnchor.constraint(equalToConstant: firstInactiveView.minSize.width)
-//          constraint.identifier = "inactiveTabToMinSize"
-//          constraint.isActive = true
-//        }
-//      }
-//      
-//    } else {
-//      // enable scrolling which would be a no-op for these widths.
-//      
-//      self.isScrollable = true
-//    }
+    return
   }
   
   var isScrollable: Bool = false {
     didSet {
-      if isScrollable {
-        // unpin the stackview from the scrollview.
-        self.view.constraints.filter {
-          $0.identifier == "tabsStackWidthPinnedToScrollViewFrame"
-        }.forEach {
-          $0.isActive = false
-        }
+      // when scrollable, don't pin the stackview.
+      let shouldPinStackViewWidthToFrame = !isScrollable
+      
+      constraint(view: view, id: "tabsStackWidthPinnedToFrame") {
+        tabsStackView.widthAnchor.constraint(equalTo: self.view.widthAnchor)
       }
-      else {
-        // pin the stackview from the scrollview so items can compress
-        // without pushing out scrollable content.
-        let c = tabsStackView.widthAnchor.constraint(equalTo: self.view.widthAnchor)
-        c.identifier = "tabsStackWidthPinnedToScrollViewFrame"
-        c.isActive = true
-      }
+      .isActive = shouldPinStackViewWidthToFrame
     }
   }
   
@@ -442,3 +310,16 @@ class TabCollectionViewController: NSViewController {
   ])
   return viewController
 }
+
+
+func constraint(view: NSView, id: String, priority: NSLayoutConstraint.Priority? = nil,`init`: () -> NSLayoutConstraint) -> NSLayoutConstraint {
+  // IT1 naiive impl: remove constraints with same id and re-create.
+  view.removeConstraints(view.constraints.filter { $0.identifier == id })
+  let constraint = `init`()
+  constraint.identifier = id
+  if let priority = priority {
+    constraint.priority = priority
+  }
+  return constraint
+}
+
