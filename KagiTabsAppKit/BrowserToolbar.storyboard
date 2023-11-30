@@ -11,7 +11,7 @@
             <objects>
                 <viewController id="bU7-R8-ocO" userLabel="Browser Toolbar View Controller" customClass="BrowserToolbarViewController" customModule="KagiTabsAppKit" customModuleProvider="target" sceneMemberID="viewController">
                     <customView key="view" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="VIJ-cY-Yvl">
-                        <rect key="frame" x="0.0" y="0.0" width="1172" height="26"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1172" height="50"/>
                         <subviews>
                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalCompressionResistancePriority="251" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mgo-9G-RdL">
                                 <rect key="frame" x="0.0" y="0.0" width="1172" height="50"/>
@@ -70,7 +70,7 @@
                     <view key="view" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="WcL-Ax-NZb">
                         <rect key="frame" x="0.0" y="0.0" width="180" height="20"/>
                         <subviews>
-                            <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verifyAmbiguity="ignoreSizes" translatesAutoresizingMaskIntoConstraints="NO" id="BhO-eC-df3" userLabel="address field">
+                            <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verifyAmbiguity="ignoreSizes" translatesAutoresizingMaskIntoConstraints="NO" id="BhO-eC-df3" userLabel="address field">
                                 <rect key="frame" x="0.0" y="-3" width="180" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="26" id="gOr-X6-KTN"/>
