@@ -10,34 +10,48 @@
         <scene sceneID="PEd-7d-5j0">
             <objects>
                 <viewController id="bU7-R8-ocO" userLabel="Browser Toolbar View Controller" customClass="BrowserToolbarViewController" customModule="KagiTabsAppKit" customModuleProvider="target" sceneMemberID="viewController">
-                    <customView key="view" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="VIJ-cY-Yvl">
+                    <customView key="view" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VIJ-cY-Yvl">
                         <rect key="frame" x="0.0" y="0.0" width="255" height="25"/>
                         <subviews>
-                            <containerView horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="bqb-1q-unu" userLabel="Address Field Container View">
-                                <rect key="frame" x="0.0" y="0.0" width="180" height="25"/>
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mgo-9G-RdL">
+                                <rect key="frame" x="0.0" y="0.0" width="255" height="25"/>
+                                <subviews>
+                                    <containerView horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="bqb-1q-unu" userLabel="Address Field Container View">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" identifier="address-width-temp-till-tabs-stabilised" id="YS0-cZ-rF7"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="yln-uZ-XSo" kind="embed" id="gkw-rL-VNQ"/>
+                                        </connections>
+                                    </containerView>
+                                    <containerView horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="6En-xX-TeV" userLabel="Tab Collection Container View">
+                                        <rect key="frame" x="188" y="0.0" width="67" height="25"/>
+                                        <connections>
+                                            <segue destination="u0l-L8-hS5" kind="embed" id="kz0-9h-GB6"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="180" identifier="address-width-temp-till-tabs-stabilised" id="YS0-cZ-rF7"/>
+                                    <constraint firstItem="6En-xX-TeV" firstAttribute="height" secondItem="bqb-1q-unu" secondAttribute="height" id="XX9-RR-9dp"/>
+                                    <constraint firstItem="bqb-1q-unu" firstAttribute="height" secondItem="Mgo-9G-RdL" secondAttribute="height" id="pJT-I4-vzn"/>
                                 </constraints>
-                                <connections>
-                                    <segue destination="yln-uZ-XSo" kind="embed" id="gkw-rL-VNQ"/>
-                                </connections>
-                            </containerView>
-                            <containerView horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="6En-xX-TeV" userLabel="Tab Collection Container View">
-                                <rect key="frame" x="188" y="0.0" width="67" height="25"/>
-                                <connections>
-                                    <segue destination="u0l-L8-hS5" kind="embed" id="kz0-9h-GB6"/>
-                                </connections>
-                            </containerView>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="bqb-1q-unu" firstAttribute="firstBaseline" secondItem="VIJ-cY-Yvl" secondAttribute="firstBaseline" id="7yR-83-FXR"/>
-                            <constraint firstItem="6En-xX-TeV" firstAttribute="height" secondItem="bqb-1q-unu" secondAttribute="height" id="XJe-hY-z7B"/>
-                            <constraint firstItem="6En-xX-TeV" firstAttribute="firstBaseline" secondItem="bqb-1q-unu" secondAttribute="firstBaseline" id="aOP-Ac-Kct"/>
+                            <constraint firstAttribute="trailing" secondItem="Mgo-9G-RdL" secondAttribute="trailing" id="EV2-Vs-DnG"/>
+                            <constraint firstItem="Mgo-9G-RdL" firstAttribute="leading" secondItem="VIJ-cY-Yvl" secondAttribute="leading" id="QZg-99-Paz"/>
+                            <constraint firstAttribute="bottom" secondItem="Mgo-9G-RdL" secondAttribute="bottom" id="XfV-nl-sct"/>
                             <constraint firstAttribute="height" constant="25" id="bKB-XH-ioO"/>
-                            <constraint firstItem="6En-xX-TeV" firstAttribute="leading" secondItem="bqb-1q-unu" secondAttribute="trailing" constant="8" symbolic="YES" id="c9f-cr-vC4"/>
-                            <constraint firstAttribute="trailing" secondItem="6En-xX-TeV" secondAttribute="trailing" id="m8c-tN-YwM"/>
-                            <constraint firstItem="bqb-1q-unu" firstAttribute="height" secondItem="VIJ-cY-Yvl" secondAttribute="height" id="oNT-Ho-r88"/>
-                            <constraint firstItem="bqb-1q-unu" firstAttribute="leading" secondItem="VIJ-cY-Yvl" secondAttribute="leading" id="sOr-2f-n4D"/>
+                            <constraint firstItem="Mgo-9G-RdL" firstAttribute="top" secondItem="VIJ-cY-Yvl" secondAttribute="top" id="uEA-iK-TJ3"/>
                         </constraints>
                     </customView>
                 </viewController>
