@@ -65,7 +65,7 @@ class TabCollectionViewController: NSViewController {
   
   // MARK: tab sizing
   
-  func updateTabSizes() {
+  func updateTabSizes(animate: Bool = true) {
     guard let activeView = activeTabViewController?.tabView
     else { return }
     
@@ -146,8 +146,14 @@ class TabCollectionViewController: NSViewController {
     case .needSquish:
       self.isScrollable = false
     }
-    
-    return
+      
+    if animate {
+      NSAnimationContext.runAnimationGroup { context in
+        context.allowsImplicitAnimation = true
+        
+        view.animator().layoutSubtreeIfNeeded()
+      }
+    }
   }
   
   var isScrollable: Bool = false {
@@ -238,11 +244,7 @@ class TabCollectionViewController: NSViewController {
             tabViewController.isActive = tabViewController.tab.id == activeTabId
           }
           
-          // update tabs accordingly
-//          NSAnimationContext.runAnimationGroup { context in
-//            context.allowsImplicitAnimation = true
-            self.updateTabSizes()
-//          }
+          self.updateTabSizes()
         },
     ]
   }
@@ -252,7 +254,7 @@ class TabCollectionViewController: NSViewController {
       self.publisher(for: \.view.frame)
         .removeDuplicates()
         .sink { [unowned self] _ in
-          self.updateTabSizes()
+          self.updateTabSizes(animate: false)
         }
     ]
   }
