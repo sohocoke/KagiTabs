@@ -64,6 +64,12 @@
                                 </textFieldCell>
                                 <connections>
                                     <action selector="addressFieldSubmitted:" target="MMP-OD-AMH" id="F86-9S-mbp"/>
+                                    <binding destination="yln-uZ-XSo" name="value" keyPath="view.window.windowController.toolbarViewModel.activeTab.url.absoluteString" id="Yyh-6w-uM3">
+                                        <dictionary key="options">
+                                            <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                            <bool key="NSConditionallySetsEditable" value="NO"/>
+                                        </dictionary>
+                                    </binding>
                                 </connections>
                             </textField>
                         </subviews>
