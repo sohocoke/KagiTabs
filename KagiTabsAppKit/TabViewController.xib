@@ -16,8 +16,8 @@
             <rect key="frame" x="0.0" y="0.0" width="163" height="20"/>
             <subviews>
                 <button horizontalHuggingPriority="248" verticalHuggingPriority="750" horizontalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="c51-qN-F0V" userLabel="Tab Button">
-                    <rect key="frame" x="1" y="-2" width="161" height="23"/>
-                    <buttonCell key="cell" type="roundTextured" title="Textured " bezelStyle="texturedRounded" image="NSSmartBadgeTemplate" imagePosition="leading" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="m4A-h3-N9y">
+                    <rect key="frame" x="2" y="-2" width="159" height="23"/>
+                    <buttonCell key="cell" type="roundTextured" title="Textured " bezelStyle="texturedRounded" image="doc" catalog="system" imagePosition="leading" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="m4A-h3-N9y">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -27,7 +27,7 @@
                     </connections>
                 </button>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="ydW-aG-xCU" userLabel="Close Button">
-                    <rect key="frame" x="4" y="3.5" width="15" height="14"/>
+                    <rect key="frame" x="6" y="3.5" width="15" height="14"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="xmark.square.fill" catalog="system" imagePosition="only" alignment="center" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" inset="2" id="0xc-do-ZzF">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -38,7 +38,7 @@
                 </button>
                 <button hidden="YES" horizontalHuggingPriority="248" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="gA1-mY-slP" userLabel="Tab Button Minimal">
                     <rect key="frame" x="69" y="-2" width="26" height="23"/>
-                    <buttonCell key="cell" type="roundTextured" title="Textured " bezelStyle="texturedRounded" image="NSSmartBadgeTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AKU-HV-lfK">
+                    <buttonCell key="cell" type="roundTextured" title="Textured " bezelStyle="texturedRounded" image="doc" catalog="system" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AKU-HV-lfK">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -48,15 +48,14 @@
                 </button>
             </subviews>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="c51-qN-F0V" secondAttribute="bottom" id="4gg-Kk-IYP"/>
                 <constraint firstItem="gA1-mY-slP" firstAttribute="height" relation="greaterThanOrEqual" secondItem="QN1-Nq-FRA" secondAttribute="height" id="56M-I5-p8f"/>
                 <constraint firstItem="gA1-mY-slP" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="705-th-TXZ"/>
                 <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="gA1-mY-slP" secondAttribute="width" id="WdN-gD-XRn"/>
                 <constraint firstItem="ydW-aG-xCU" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="Www-2N-gq1"/>
-                <constraint firstItem="c51-qN-F0V" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" constant="2" id="XyH-sZ-BaV"/>
-                <constraint firstItem="ydW-aG-xCU" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" constant="4" id="hlr-u3-SEl"/>
-                <constraint firstAttribute="trailing" secondItem="c51-qN-F0V" secondAttribute="trailing" constant="2" id="kYB-NR-9ic"/>
-                <constraint firstItem="c51-qN-F0V" firstAttribute="top" secondItem="QN1-Nq-FRA" secondAttribute="top" id="u6p-99-j2v"/>
+                <constraint firstItem="c51-qN-F0V" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" constant="3" id="XyH-sZ-BaV"/>
+                <constraint firstItem="ydW-aG-xCU" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" constant="6" id="hlr-u3-SEl"/>
+                <constraint firstAttribute="trailing" secondItem="c51-qN-F0V" secondAttribute="trailing" constant="3" id="kYB-NR-9ic"/>
+                <constraint firstItem="c51-qN-F0V" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="mRy-GO-dH8"/>
                 <constraint firstItem="gA1-mY-slP" firstAttribute="centerX" secondItem="QN1-Nq-FRA" secondAttribute="centerX" id="zJw-k0-TzH"/>
             </constraints>
             <connections>
@@ -68,7 +67,7 @@
         </customView>
     </objects>
     <resources>
-        <image name="NSSmartBadgeTemplate" width="14" height="14"/>
+        <image name="doc" catalog="system" width="14" height="16"/>
         <image name="xmark.square.fill" catalog="system" width="15" height="14"/>
     </resources>
 </document>
