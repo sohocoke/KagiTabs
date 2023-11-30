@@ -2,15 +2,7 @@ import Foundation
 
 
 
-// MARK: - view model
-
 class ToolbarViewModel: NSObject {
-  internal init(tabs: [Tab]) {
-    self.tabs = tabs
-    if let lastTab = tabs.last {
-      self.activeTabId = lastTab.id
-    }
-  }
   
   @objc dynamic
   var tabs: [Tab] {
@@ -35,20 +27,14 @@ class ToolbarViewModel: NSObject {
     }
   }
   
-  static var stub = ToolbarViewModel(tabs: [
-    Tab(label: "test \(Date())", url: URL(string: "https://example.com")!),
-    Tab(label: "test \(Date())", url: URL(string: "https://kagi.com")!),
-    Tab(label: "test \(Date())"),
-    Tab(label: "test \(Date())"),
-//    Tab(label: "test \(Date())"),
-//    Tab(label: "test \(Date())"),
-//    Tab(label: "test \(Date())"),
-//    Tab(label: "test \(Date())"),
-//    Tab(label: "test \(Date())"),
-//    Tab(label: "test \(Date())"),
-//    Tab(label: "test \(Date())"),
-//    Tab(label: "test \(Date())"),
-  ])
+  
+  internal init(tabs: [Tab]) {
+    self.tabs = tabs
+    if let lastTab = tabs.last {
+      self.activeTabId = lastTab.id
+    }
+  }
+  
   
   @discardableResult
   func addNewTab() -> Tab {
@@ -93,3 +79,15 @@ class Tab: NSObject, Identifiable {
   var faviconImageData: Data?
 }
 
+
+
+// MARK: -
+
+extension ToolbarViewModel {
+  static var stub = ToolbarViewModel(tabs: [
+    Tab(label: "test \(Date())", url: URL(string: "https://orion.com")!),
+    Tab(label: "test \(Date())", url: URL(string: "https://kagi.com")!),
+    Tab(label: "test \(Date())", url: URL(string: "https://www.w3c.org")!),
+    Tab(label: "test \(Date())"),
+  ])
+}
