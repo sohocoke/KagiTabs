@@ -189,11 +189,12 @@ class TabCollectionViewController: NSViewController {
                 .animator()
                 .alphaValue = 0
               
+              // remove early, so tab count is correct for size computation
+              vc.removeFromParent()
             } completionHandler: {
               // remove all constraints to guard against edge cases
               NSLayoutConstraint.deactivate(vc.view.animator().constraints)
               vc.view.removeFromSuperview()
-              vc.removeFromParent()
             }
             self.tabsStackView
               .animator()
