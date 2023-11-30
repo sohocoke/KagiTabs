@@ -105,6 +105,7 @@ class TabViewController: NSViewController {
 
   var viewSubscriptions: [Any] {
     [
+      // switch render mode based on available frame.
       self.publisher(for: \.view.frame)
         .sink { [unowned self] frame in
           if frame.width < minimalWidthThreshold {

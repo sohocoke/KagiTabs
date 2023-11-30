@@ -295,11 +295,6 @@ class TabCollectionViewController: NSViewController {
         
         },
       
-      self.publisher(for: \.viewModel?.activeTab?.label)
-        .sink { [unowned self] activeTabId in
-          self.updateTabSizes()
-        },
-      
       self.publisher(for: \.viewModel?.activeTabId)
         .sink { [unowned self] activeTabId in
           // update active vc
@@ -309,6 +304,21 @@ class TabCollectionViewController: NSViewController {
           
           self.updateTabSizes()
         },
+      
+      // update sizes if active tab label changes.
+      self.publisher(for: \.viewModel?.activeTab?.label)
+        .sink { [unowned self] _ in
+          // sadly, without an async dispatch, the model change is not applied to the view
+          // for our size update to pick it up.
+          // avoid convoluted kvo signalling from the label button to a neat keypath (e.g. \.activeTabController?. ...)
+          // by doing an async dispatch.
+          // a bit hacky but good enough for the simple use case.
+          DispatchQueue.main.async {
+            self.updateTabSizes()
+          }
+        },
+      
+
     ]
   }
   
