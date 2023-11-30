@@ -16,6 +16,7 @@
                             <containerView horizontalHuggingPriority="247" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="bqb-1q-unu" userLabel="Address Field Container View">
                                 <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="180" identifier="widthWhenTabsVisible" id="A9y-fh-5af"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" priority="999" constant="600" identifier="maxWidth" id="nWt-12-Rx3"/>
                                 </constraints>
                                 <connections>
@@ -38,13 +39,13 @@
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="26" id="bKB-XH-ioO"/>
                             <constraint firstItem="bqb-1q-unu" firstAttribute="leading" secondItem="VIJ-cY-Yvl" secondAttribute="leading" id="dui-fv-Uzq"/>
                             <constraint firstItem="bqb-1q-unu" firstAttribute="top" secondItem="VIJ-cY-Yvl" secondAttribute="top" id="fIE-1j-ydf"/>
-                            <constraint firstItem="6En-xX-TeV" firstAttribute="leading" secondItem="VIJ-cY-Yvl" secondAttribute="leading" priority="750" constant="180" id="lTD-zX-diI"/>
                             <constraint firstItem="6En-xX-TeV" firstAttribute="height" secondItem="bqb-1q-unu" secondAttribute="height" id="vxU-KP-HbE"/>
                             <constraint firstItem="6En-xX-TeV" firstAttribute="leading" secondItem="bqb-1q-unu" secondAttribute="trailing" id="xD4-CW-qY8"/>
                             <constraint firstAttribute="trailing" secondItem="6En-xX-TeV" secondAttribute="trailing" id="zT0-d9-UHk"/>
                         </constraints>
                     </customView>
                     <connections>
+                        <outlet property="addressFieldWidthWhenTabsVisible" destination="A9y-fh-5af" id="q6j-e9-YUW"/>
                         <outlet property="tabCollectionWidthWhenTabsHidden" destination="j1O-UP-Ciq" id="YXO-dU-7wq"/>
                     </connections>
                 </viewController>
