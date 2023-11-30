@@ -10,23 +10,24 @@
         <scene sceneID="PEd-7d-5j0">
             <objects>
                 <viewController id="bU7-R8-ocO" userLabel="Browser Toolbar View Controller" customClass="BrowserToolbarViewController" customModule="KagiTabsAppKit" customModuleProvider="target" sceneMemberID="viewController">
-                    <customView key="view" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VIJ-cY-Yvl">
-                        <rect key="frame" x="0.0" y="0.0" width="255" height="25"/>
+                    <customView key="view" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="VIJ-cY-Yvl">
+                        <rect key="frame" x="0.0" y="0.0" width="1172" height="26"/>
                         <subviews>
-                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mgo-9G-RdL">
-                                <rect key="frame" x="0.0" y="0.0" width="255" height="25"/>
+                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalCompressionResistancePriority="251" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mgo-9G-RdL">
+                                <rect key="frame" x="0.0" y="0.0" width="1172" height="50"/>
                                 <subviews>
-                                    <containerView horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="bqb-1q-unu" userLabel="Address Field Container View">
-                                        <rect key="frame" x="0.0" y="0.0" width="180" height="25"/>
+                                    <containerView horizontalHuggingPriority="247" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="bqb-1q-unu" userLabel="Address Field Container View">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="180" identifier="address-width-temp-till-tabs-stabilised" id="YS0-cZ-rF7"/>
+                                            <constraint firstAttribute="width" constant="180" identifier="programatically-activated" id="YS0-cZ-rF7"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" priority="999" constant="600" id="nWt-12-Rx3"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="yln-uZ-XSo" kind="embed" id="gkw-rL-VNQ"/>
                                         </connections>
                                     </containerView>
                                     <containerView horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="6En-xX-TeV" userLabel="Tab Collection Container View">
-                                        <rect key="frame" x="188" y="0.0" width="67" height="25"/>
+                                        <rect key="frame" x="188" y="0.0" width="984" height="50"/>
                                         <connections>
                                             <segue destination="u0l-L8-hS5" kind="embed" id="kz0-9h-GB6"/>
                                         </connections>
@@ -50,10 +51,13 @@
                             <constraint firstAttribute="trailing" secondItem="Mgo-9G-RdL" secondAttribute="trailing" id="EV2-Vs-DnG"/>
                             <constraint firstItem="Mgo-9G-RdL" firstAttribute="leading" secondItem="VIJ-cY-Yvl" secondAttribute="leading" id="QZg-99-Paz"/>
                             <constraint firstAttribute="bottom" secondItem="Mgo-9G-RdL" secondAttribute="bottom" id="XfV-nl-sct"/>
-                            <constraint firstAttribute="height" constant="25" id="bKB-XH-ioO"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="26" id="bKB-XH-ioO"/>
                             <constraint firstItem="Mgo-9G-RdL" firstAttribute="top" secondItem="VIJ-cY-Yvl" secondAttribute="top" id="uEA-iK-TJ3"/>
                         </constraints>
                     </customView>
+                    <connections>
+                        <outlet property="addressFieldWidthWhenTabsShown" destination="YS0-cZ-rF7" id="cfG-DN-DMU"/>
+                    </connections>
                 </viewController>
                 <customObject id="9uD-mB-xHs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -64,24 +68,26 @@
             <objects>
                 <viewController id="yln-uZ-XSo" userLabel="Address Field View Controller" sceneMemberID="viewController">
                     <view key="view" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="WcL-Ax-NZb">
-                        <rect key="frame" x="0.0" y="0.0" width="180" height="21"/>
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="20"/>
                         <subviews>
-                            <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="BhO-eC-df3" userLabel="address field">
-                                <rect key="frame" x="0.0" y="0.0" width="180" height="21"/>
+                            <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verifyAmbiguity="ignoreSizes" translatesAutoresizingMaskIntoConstraints="NO" id="BhO-eC-df3" userLabel="address field">
+                                <rect key="frame" x="0.0" y="-3" width="180" height="26"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="26" id="gOr-X6-KTN"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="iFg-L6-BTo"/>
                                 </constraints>
-                                <textFieldCell key="cell" controlSize="large" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" title="https://example.com" drawsBackground="YES" usesSingleLineMode="YES" id="WRl-cA-bbF">
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" borderStyle="bezel" title="https://example.com" usesSingleLineMode="YES" bezelStyle="round" id="WRl-cA-bbF">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
                                     <action selector="addressFieldSubmitted:" target="MMP-OD-AMH" id="F86-9S-mbp"/>
-                                    <binding destination="yln-uZ-XSo" name="value" keyPath="view.window.windowController.toolbarViewModel.activeTab.url.absoluteString" id="Yyh-6w-uM3">
+                                    <binding destination="yln-uZ-XSo" name="value" keyPath="view.window.windowController.toolbarViewModel.activeTab.url.absoluteString" id="wJY-FA-J0l">
                                         <dictionary key="options">
                                             <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
                                             <bool key="NSConditionallySetsEditable" value="NO"/>
+                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                                         </dictionary>
                                     </binding>
                                 </connections>
@@ -89,15 +95,14 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="BhO-eC-df3" firstAttribute="leading" secondItem="WcL-Ax-NZb" secondAttribute="leading" id="2jN-5U-Awa"/>
-                            <constraint firstItem="BhO-eC-df3" firstAttribute="height" secondItem="WcL-Ax-NZb" secondAttribute="height" id="2vh-jl-P2E"/>
                             <constraint firstAttribute="trailing" secondItem="BhO-eC-df3" secondAttribute="trailing" id="ea9-Bf-Ccc"/>
-                            <constraint firstItem="BhO-eC-df3" firstAttribute="centerY" secondItem="WcL-Ax-NZb" secondAttribute="centerY" id="ixf-Cp-x4R"/>
+                            <constraint firstItem="BhO-eC-df3" firstAttribute="centerY" secondItem="WcL-Ax-NZb" secondAttribute="centerY" id="hcl-P3-G1U"/>
                         </constraints>
                     </view>
                 </viewController>
                 <customObject id="MMP-OD-AMH" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-496" y="243"/>
+            <point key="canvasLocation" x="-525" y="156"/>
         </scene>
         <!--Tab Collection View Controller-->
         <scene sceneID="Pbt-6o-cYf">
