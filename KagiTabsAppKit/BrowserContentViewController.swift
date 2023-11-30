@@ -46,6 +46,8 @@ class BrowserContentViewController: NSViewController {
             self.tab?.label = title
           }
         },
+      self.publisher(for: \.webView?.url)
+        .assign(to: \.url, on: tab!)  // hmmmm... potentially dangerous.
     ]
   }
   
