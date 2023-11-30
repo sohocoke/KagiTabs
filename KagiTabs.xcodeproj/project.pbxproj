@@ -24,12 +24,6 @@
 		5157E4DA2B10497700BB669C /* TestTabCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4D92B10497700BB669C /* TestTabCollection.storyboard */; };
 		5157E4E52B11EC6700BB669C /* BrowserToolbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4E42B11EC6700BB669C /* BrowserToolbar.storyboard */; };
 		5157E4E72B12B7B100BB669C /* BrowserContent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4E62B12B7B100BB669C /* BrowserContent.storyboard */; };
-		518079502B09552600F0BB5B /* KagiTabsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5180794F2B09552600F0BB5B /* KagiTabsApp.swift */; };
-		518079522B09552600F0BB5B /* BrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518079512B09552600F0BB5B /* BrowserView.swift */; };
-		518079542B09552700F0BB5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518079532B09552700F0BB5B /* Assets.xcassets */; };
-		518079572B09552700F0BB5B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 518079562B09552700F0BB5B /* Preview Assets.xcassets */; };
-		5180795F2B0955B900F0BB5B /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5180795E2B0955B900F0BB5B /* ToolbarView.swift */; };
-		518079612B096E9700F0BB5B /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518079602B096E9700F0BB5B /* TabsView.swift */; };
 		519C89B42B1410DB00A6F3EF /* TestLineLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519C89B32B1410DB00A6F3EF /* TestLineLayout.xib */; };
 		519C89B62B14135900A6F3EF /* view-tiling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519C89B52B14135900A6F3EF /* view-tiling.swift */; };
 		519C89B72B14137000A6F3EF /* view-tiling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519C89B52B14135900A6F3EF /* view-tiling.swift */; };
@@ -70,14 +64,6 @@
 		5157E4E02B10930800BB669C /* TestScrollViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestScrollViewController.xib; sourceTree = "<group>"; };
 		5157E4E42B11EC6700BB669C /* BrowserToolbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BrowserToolbar.storyboard; sourceTree = "<group>"; };
 		5157E4E62B12B7B100BB669C /* BrowserContent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BrowserContent.storyboard; sourceTree = "<group>"; };
-		5180794C2B09552600F0BB5B /* KagiTabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KagiTabs.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5180794F2B09552600F0BB5B /* KagiTabsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KagiTabsApp.swift; sourceTree = "<group>"; };
-		518079512B09552600F0BB5B /* BrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserView.swift; sourceTree = "<group>"; };
-		518079532B09552700F0BB5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		518079562B09552700F0BB5B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		518079582B09552700F0BB5B /* KagiTabs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KagiTabs.entitlements; sourceTree = "<group>"; };
-		5180795E2B0955B900F0BB5B /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
-		518079602B096E9700F0BB5B /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		519C89B32B1410DB00A6F3EF /* TestLineLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestLineLayout.xib; sourceTree = "<group>"; };
 		519C89B52B14135900A6F3EF /* view-tiling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "view-tiling.swift"; sourceTree = "<group>"; };
 		51CC43092B1607D400B9FA46 /* TestTabCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTabCollectionViewController.swift; sourceTree = "<group>"; };
@@ -98,13 +84,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		510EF69B2B0A339900178579 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		518079492B09552600F0BB5B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -157,7 +136,6 @@
 		518079432B09552600F0BB5B = {
 			isa = PBXGroup;
 			children = (
-				5180794E2B09552600F0BB5B /* KagiTabs */,
 				510EF69F2B0A339900178579 /* KagiTabsAppKit */,
 				51DB99CE2B0DD372001340C2 /* KagiTabsPreview */,
 				5180794D2B09552600F0BB5B /* Products */,
@@ -167,33 +145,10 @@
 		5180794D2B09552600F0BB5B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5180794C2B09552600F0BB5B /* KagiTabs.app */,
 				510EF69E2B0A339900178579 /* KagiTabsAppKit.app */,
 				51DB99CD2B0DD372001340C2 /* KagiTabsPreview.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		5180794E2B09552600F0BB5B /* KagiTabs */ = {
-			isa = PBXGroup;
-			children = (
-				5180794F2B09552600F0BB5B /* KagiTabsApp.swift */,
-				518079512B09552600F0BB5B /* BrowserView.swift */,
-				5180795E2B0955B900F0BB5B /* ToolbarView.swift */,
-				518079602B096E9700F0BB5B /* TabsView.swift */,
-				518079532B09552700F0BB5B /* Assets.xcassets */,
-				518079582B09552700F0BB5B /* KagiTabs.entitlements */,
-				518079552B09552700F0BB5B /* Preview Content */,
-			);
-			path = KagiTabs;
-			sourceTree = "<group>";
-		};
-		518079552B09552700F0BB5B /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				518079562B09552700F0BB5B /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		51DB99CE2B0DD372001340C2 /* KagiTabsPreview */ = {
@@ -235,23 +190,6 @@
 			productReference = 510EF69E2B0A339900178579 /* KagiTabsAppKit.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5180794B2B09552600F0BB5B /* KagiTabs */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5180795B2B09552700F0BB5B /* Build configuration list for PBXNativeTarget "KagiTabs" */;
-			buildPhases = (
-				518079482B09552600F0BB5B /* Sources */,
-				518079492B09552600F0BB5B /* Frameworks */,
-				5180794A2B09552600F0BB5B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = KagiTabs;
-			productName = KagiTabs;
-			productReference = 5180794C2B09552600F0BB5B /* KagiTabs.app */;
-			productType = "com.apple.product-type.application";
-		};
 		51DB99CC2B0DD372001340C2 /* KagiTabsPreview */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 51DB99D92B0DD373001340C2 /* Build configuration list for PBXNativeTarget "KagiTabsPreview" */;
@@ -282,9 +220,6 @@
 					510EF69D2B0A339900178579 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
-					5180794B2B09552600F0BB5B = {
-						CreatedOnToolsVersion = 15.0.1;
-					};
 					51DB99CC2B0DD372001340C2 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -303,7 +238,6 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5180794B2B09552600F0BB5B /* KagiTabs */,
 				510EF69D2B0A339900178579 /* KagiTabsAppKit */,
 				51DB99CC2B0DD372001340C2 /* KagiTabsPreview */,
 			);
@@ -323,15 +257,6 @@
 				510EF6A82B0A339A00178579 /* Main.storyboard in Resources */,
 				5157E4E52B11EC6700BB669C /* BrowserToolbar.storyboard in Resources */,
 				5157E4E72B12B7B100BB669C /* BrowserContent.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5180794A2B09552600F0BB5B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				518079572B09552700F0BB5B /* Preview Assets.xcassets in Resources */,
-				518079542B09552700F0BB5B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,17 +293,6 @@
 				51DEEEB92B0FA11100BEF0FE /* toolbar-items.swift in Sources */,
 				515247DF2B12BEC3000DEA4F /* BrowserToolbarViewController.swift in Sources */,
 				51CC43072B15B65B00B9FA46 /* TestScrollViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		518079482B09552600F0BB5B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				518079522B09552600F0BB5B /* BrowserView.swift in Sources */,
-				518079502B09552600F0BB5B /* KagiTabsApp.swift in Sources */,
-				518079612B096E9700F0BB5B /* TabsView.swift in Sources */,
-				5180795F2B0955B900F0BB5B /* ToolbarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,62 +502,6 @@
 			};
 			name = Release;
 		};
-		5180795C2B09552700F0BB5B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = KagiTabs/KagiTabs.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"KagiTabs/Preview Content\"";
-				DEVELOPMENT_TEAM = XT4CJ9TCMZ;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bigbearlabs.KagiTabs;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		5180795D2B09552700F0BB5B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = KagiTabs/KagiTabs.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"KagiTabs/Preview Content\"";
-				DEVELOPMENT_TEAM = XT4CJ9TCMZ;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bigbearlabs.KagiTabs;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 		51DB99DA2B0DD373001340C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -715,15 +573,6 @@
 			buildConfigurations = (
 				518079592B09552700F0BB5B /* Debug */,
 				5180795A2B09552700F0BB5B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5180795B2B09552700F0BB5B /* Build configuration list for PBXNativeTarget "KagiTabs" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5180795C2B09552700F0BB5B /* Debug */,
-				5180795D2B09552700F0BB5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
