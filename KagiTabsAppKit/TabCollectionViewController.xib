@@ -50,14 +50,6 @@
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" id="JTa-4I-Ah7"/>
                                         </constraints>
-                                        <contentFilters>
-                                            <ciFilter name="CIEdges">
-                                                <configuration>
-                                                    <null key="inputImage"/>
-                                                    <real key="inputIntensity" value="1"/>
-                                                </configuration>
-                                            </ciFilter>
-                                        </contentFilters>
                                     </customView>
                                 </subviews>
                                 <constraints>
