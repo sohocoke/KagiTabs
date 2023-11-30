@@ -18,7 +18,7 @@
                 <button horizontalHuggingPriority="248" verticalHuggingPriority="750" horizontalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="c51-qN-F0V" userLabel="Tab Button">
                     <rect key="frame" x="2" y="-2" width="159" height="23"/>
                     <buttonCell key="cell" type="roundTextured" title="Textured " bezelStyle="texturedRounded" image="doc" catalog="system" imagePosition="leading" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="m4A-h3-N9y">
-                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
