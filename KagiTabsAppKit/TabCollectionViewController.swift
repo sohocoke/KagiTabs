@@ -2,13 +2,26 @@ import Cocoa
 import Combine
 
 
+
 // use some constants for width to simplify the logic,
 // can elaborate later.
-let activeTabMinWidth: CGFloat = 50
+let activeTabMinWidth: CGFloat = 140
 let inactiveTabMaxWidth: CGFloat  = 120
 
-/// outstanding animations:
-/// - frame change on tab activation
+
+
+/// wow. we went deeeep into the autolayout cave.
+///
+/// tried the following tactics:
+/// - use a stack view, make intrinsicContentSize overrides at stretegic junctures
+/// - use a tiling strategy in a plain old NSView, to make precise computations
+/// - go back to a stack view configured to allow for computation based on items only,
+///     move away from intrinsicContentSize and perform width computation for various scenarios
+///
+/// I think we hit the spec now.
+/// But should there be a need to iterate, I'd consider:
+/// - go back to using intrinsicContentSize with precise invalidation based on tab content change
+/// - look at reducing constraints by more dynamically modifying comp resistance priorities
 class TabCollectionViewController: NSViewController {
 
   @objc dynamic
@@ -75,12 +88,15 @@ class TabCollectionViewController: NSViewController {
     
     guard inactiveViews.count > 0
     else { return }
-
+    
     // ** use width constraints and compression resistance.
     
     allowCompression(inactiveViews, except: activeView)
     
+    // obtain / compute important lengths for constraint setup.
+    
     let availableWidth = view.frame.width
+    
     let activeItemWidth = max(
       activeView.idealSize.width,
       activeTabMinWidth  // avoid tiny active tabs.
@@ -88,18 +104,27 @@ class TabCollectionViewController: NSViewController {
     
     let availableInactiveWidth = max(
       availableWidth - activeItemWidth,
-      0  // disallow negative
+      0  // disallow negative width.
     )
-
-    let inactiveTabMinWidth = inactiveViews[0].minSize.width
-    let totalMinWidth = inactiveTabMinWidth * CGFloat(inactiveViews.count) + activeItemWidth
-        
+    let inactiveTabSquishLowLimit = inactiveViews[0].minSize.width  // max-squish limit.
+    
+    // absolute minimum width of the scrollable content.
+    let totalMinWidth = inactiveTabSquishLowLimit * CGFloat(inactiveViews.count) + activeItemWidth
+    
     // inactive tabs are of equal widths and capped.
-    var inactiveTabComputedWidth = min(
-      availableInactiveWidth / CGFloat(inactiveViews.count),
-      inactiveTabMaxWidth  // avoid very prominent inactive tabs.
-    )
-    inactiveTabComputedWidth = max(inactiveTabComputedWidth, inactiveTabMinWidth)  // floor it at minWidth
+    // to use in need-squish.
+    var inactiveTabComputedWidth =  availableInactiveWidth / CGFloat(inactiveViews.count)
+    
+    inactiveTabComputedWidth = max(inactiveTabComputedWidth, inactiveTabSquishLowLimit)  // floor it at inactiveTabSquishLowLimit
+    
+    // sometimes we have plenty of space, letting us avoid capping any widths.
+    let totalIdealWidth = activeItemWidth + inactiveViews.reduce(.zero) { acc, e in
+      let widthWanted = max(
+        e.idealSize.width,
+        inactiveTabMaxWidth  // avoid tiny inactive tabs
+      )
+      return acc + widthWanted
+    }
     
     // break out to 3 cases.
     enum LayoutCase {
@@ -110,7 +135,7 @@ class TabCollectionViewController: NSViewController {
     let layoutCase: LayoutCase
     
     // when there's enough room to present everything, we're in no-squish territory.
-    if inactiveTabComputedWidth * CGFloat(inactiveViews.count) + activeItemWidth < availableWidth {
+    if totalIdealWidth < availableWidth {
       layoutCase = .noSquish
     }
     // when we minimise everything but it still doesn't fit, we're in need-scroll territory.
@@ -121,17 +146,55 @@ class TabCollectionViewController: NSViewController {
       layoutCase = .needSquish
     }
     
-    // install the default constraints.
+    // install the constraints.
     (inactiveViews + [activeView]).forEach { view in
-      constraint(view: view, id: "inactiveWidth", priority: .defaultHigh, init: {
-        view.widthAnchor.constraint(lessThanOrEqualToConstant: inactiveTabComputedWidth)
-      }).isActive = view != activeView
-      constraint(view: view, id: "activeWidth", init: {
+      
+      let isActive = view == activeView
+      
+      // set width for active tab, so it's always presented prominently.
+      let activeWidthC = constraint(view: view, id: "activeWidth", init: {
         view.widthAnchor.constraint(equalToConstant: activeItemWidth)
-      }).isActive = view == activeView
-      constraint(view: view, id: "minWidth", init: {
-        view.widthAnchor.constraint(greaterThanOrEqualToConstant: inactiveTabMinWidth)
-      }).isActive = layoutCase == .needScroll
+      })
+      
+      // secure minimal widths for inactive tabs except in .needScroll, to avoid tiny tabs.
+      let inactiveMinWidthC = constraint(view: view, id: "inactiveMinWidth", 
+                                         priority: .defaultLow - 1,  // allow compression.
+                                         init: {
+        view.widthAnchor.constraint(greaterThanOrEqualToConstant: inactiveTabMaxWidth)
+      })
+        
+      // on .needSquish, cap inactive tab widths to computed.
+      let inactiveWidthC = constraint(view: view, id: "inactiveWidth", 
+                                      priority: .defaultHigh,
+                                      init: {
+        view.widthAnchor.constraint(equalToConstant: inactiveTabComputedWidth)
+      })
+        
+      // on .needScroll, constrain inactive tab width to minimal width,
+      // since scrolling requires minimal inactive tabs.
+      let maxSquishWidthC = constraint(view: view, id: "maxSquishWidth", init: {
+        view.widthAnchor.constraint(equalToConstant: inactiveTabSquishLowLimit)
+      })
+      
+      switch (isActive, layoutCase) {
+      case (true, _):
+        NSLayoutConstraint.activate([activeWidthC])
+        
+      // rest is for inactive tab cases.
+      case (_, .noSquish):
+        NSLayoutConstraint.activate([
+          inactiveMinWidthC,
+        ])
+      case (_, .needSquish):
+        NSLayoutConstraint.activate([
+          inactiveMinWidthC,
+          inactiveWidthC,
+        ])
+      case (_, .needScroll):
+        NSLayoutConstraint.activate([
+          maxSquishWidthC
+        ])
+      }
     }
     
     // update scrollability based on the layout case.
