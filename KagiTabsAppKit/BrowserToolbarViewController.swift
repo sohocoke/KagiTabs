@@ -45,7 +45,6 @@ class BrowserToolbarViewController: NSViewController {
     super.viewWillAppear()
     
     self.subscriptions = viewModelSubscriptions
-    self.isTabsVisible = viewModel?.tabs.count ?? 0 > 1
   }
   
   
