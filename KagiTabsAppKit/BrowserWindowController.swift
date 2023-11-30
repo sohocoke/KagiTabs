@@ -114,7 +114,8 @@ class BrowserWindowController: NSWindowController {
   }
   
   func tearDownBrowser(tab: Tab) {
-    for case let vc as BrowserContentViewController in contentViewController?.children ?? [] {
+    for case let vc as BrowserContentViewController in contentViewController?.children ?? []
+    where vc.tab?.id == tab.id {
       vc.tearDown()
     }
   }
