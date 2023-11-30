@@ -19,32 +19,11 @@ class BrowserToolbarItem: NSToolbarItem {
     self.label = "Address and Tabs"
     self.paletteLabel = "Address and Tabs"
     
+    // thse size properties are deprecated as of macOS12.
+    // since we're targetting macOS11, just use them for now, in favour of auto layout constraints
+    // that work with all the width variations in the toolbar -- they turned out to be v tricky.
     self.minSize.width = 150
     self.maxSize.width = 15000
-
-//    // let's see if these constraints work as equivalents to setting min / max size
-//    self.view?.updateWidthConstraint(width: 150)
-//    
-//    if let c =
-//        self.view?.widthAnchor.constraint(lessThanOrEqualToConstant: 15000) {
-//      self.view?.addConstraint(c)
-//    }
-    // result: they don't.
   }
 }
-
-extension NSView {
-  func updateWidthConstraint(width: CGFloat) {
-    self.constraints.filter { $0.identifier == "tooblarWidth"}
-      .forEach { $0.isActive = false }
-    
-    let constraints = NSLayoutConstraint.constraints(
-      withVisualFormat: "[view(>=\(width))]", metrics: nil, views: ["view": self])
-    for c in constraints {
-      c.identifier = "toolbarWidth"
-      c.isActive = true
-    }
-  }
-}
-
 
