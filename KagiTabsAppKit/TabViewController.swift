@@ -162,3 +162,27 @@ class TabView: NSView {
   return viewController
 }
 
+
+// MARK: - data transformer for binding
+
+@objc
+class DataToNSImageTransformer: ValueTransformer {
+  
+  override func transformedValue(_ value: Any?) -> Any? {
+    guard let data = value as? Data else {
+      return NSImage(systemSymbolName: "doc", accessibilityDescription: "Empty Document")
+    }
+    
+    return NSImage(data: data)
+  }
+  
+  
+  static let name = NSValueTransformerName(rawValue: "DataToNSImageTransformer")
+  
+}
+
+var dataToNSImageTransformer: ValueTransformer = {
+  let valueTransformer = DataToNSImageTransformer()
+  ValueTransformer.setValueTransformer(valueTransformer, forName: DataToNSImageTransformer.name)
+  return valueTransformer
+}()

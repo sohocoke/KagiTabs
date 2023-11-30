@@ -35,7 +35,24 @@ class BrowserContentViewController: NSViewController {
           }
         },
       
-      // view observations
+      // quick-and-dirty favicon retrieval.
+      self.publisher(for: \.tab?.url, options: [.initial, .new])
+        .compactMap { $0 }
+        .map { url in
+          var components = URLComponents(url: url, resolvingAgainstBaseURL: false)!
+          components.path = "/favicon.ico"
+          components.query = ""
+          return components.url!
+        }
+        .flatMap { url in
+          URLSession.shared.dataTaskPublisher(for: url)
+        }
+        .map { $0.data }
+        .receive(on: DispatchQueue.main)
+        .sink(receiveCompletion: { _ in }) { [weak self] imageData in
+          self?.tab?.faviconImageData = imageData
+        }
+      ,
       self.publisher(for: \.webView?.title)
         .combineLatest(
           self.publisher(for: \.webView?.url).prepend(nil)

@@ -5,8 +5,14 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-  func applicationDidFinishLaunching(_ aNotification: Notification) {
-    // Insert code here to initialize your application
+  override init() {
+    super.init()
+    
+    // initialise the value transformer for image binding onto a lazy global.
+    _ = dataToNSImageTransformer
+  }
+  
+  func applicationWillFinishLaunching(_ aNotification: Notification) {
   }
 
   func applicationWillTerminate(_ aNotification: Notification) {
