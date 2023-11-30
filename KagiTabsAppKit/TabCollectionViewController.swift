@@ -54,11 +54,13 @@ class TabCollectionViewController: NSViewController {
   
   // MARK: view lifecycle
   
-  override func viewDidAppear() {
-    super.viewDidAppear()
     
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  
     // clear placeholder views from stack view.
     tabsStackView.arrangedSubviews.forEach {
+      assert(!children.map { $0.view }.contains($0))
       tabsStackView.removeArrangedSubview($0)
       $0.removeFromSuperview()
     }
@@ -67,12 +69,6 @@ class TabCollectionViewController: NSViewController {
       viewModelSubscriptions
       + viewSubscriptions
     
-  }
-  
-  override func viewWillDisappear() {
-    self.subscriptions = nil
-    
-    super.viewWillDisappear()
   }
     
   
@@ -236,11 +232,15 @@ class TabCollectionViewController: NSViewController {
   
   var viewModelSubscriptions: [Any] {
     [
-      self.publisher(for: \.viewModel?.tabs)
+      self.publisher(for: \.viewModel?.tabs, options: [.initial, .new])
+        .prepend([])
         .map { [unowned self] tabs in
           let tabs = tabs ?? []
-          let prior = self.children.compactMap {
-            ($0 as? TabViewController)?.tab
+          let prior: [Tab] = self.children.compactMap {
+            let vc = $0 as? TabViewController
+            assert(vc == nil || vc!.view.superview != nil)
+            
+            return vc?.tab
           }
           
           let oldTabIds = prior.map { $0.id }
