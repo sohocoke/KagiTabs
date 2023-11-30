@@ -723,14 +723,6 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--BrowserToolbar-->
-        <scene sceneID="Z1c-j6-Li8">
-            <objects>
-                <controllerPlaceholder storyboardName="BrowserToolbar" id="KOC-xM-uYM" sceneMemberID="viewController"/>
-                <customObject id="M3g-yO-7G3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-251" y="493"/>
-        </scene>
         <!--Browser Content Host View Controller-->
         <scene sceneID="A4s-ee-qdZ">
             <objects>
@@ -751,6 +743,14 @@
                 <customObject id="mgW-k0-QiJ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="196" y="491"/>
+        </scene>
+        <!--TestBrowserToolbar-->
+        <scene sceneID="Z1c-j6-Li8">
+            <objects>
+                <controllerPlaceholder storyboardName="BrowserToolbar" id="KOC-xM-uYM" userLabel="TestBrowserToolbar" sceneMemberID="viewController"/>
+                <customObject id="M3g-yO-7G3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-251" y="493"/>
         </scene>
     </scenes>
     <resources>
