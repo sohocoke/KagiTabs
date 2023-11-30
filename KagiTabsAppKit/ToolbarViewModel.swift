@@ -27,8 +27,11 @@ class ToolbarViewModel: NSObject {
   
   @objc dynamic
   var activeTabId: Tab.ID? {
+    willSet {
+      willChangeValue(forKey: #keyPath(ToolbarViewModel.activeTab))
+    }
     didSet {
-      self.activeTab = tabs.first { $0.id == activeTabId }
+      didChangeValue(forKey: #keyPath(ToolbarViewModel.activeTab))
     }
   }
   
@@ -49,7 +52,7 @@ class ToolbarViewModel: NSObject {
   
   @discardableResult
   func addNewTab() -> Tab {
-    let tab = Tab(label: "new tab")
+    let tab = Tab(label: "Blank Tab")
     self.tabs.append(tab)
     return tab
   }
@@ -65,7 +68,9 @@ class ToolbarViewModel: NSObject {
   }
   
   @objc dynamic
-  private(set) var activeTab: Tab?
+  var activeTab: Tab? {
+    tabs.last { $0.id == activeTabId }
+  }
 }
 
 
