@@ -27,15 +27,40 @@ class BrowserToolbarViewController: NSViewController {
   @objc dynamic
   var isTabsVisible: Bool = false {
     didSet {
+      guard isTabsVisible != oldValue else { return }
+      
+      // avoid weird frame animation when address field is focused / text selected,
+      // by juggling first responder when condition is met.
+      //
+      // due to time pressure, we choose not to re-organise the storyboard view controllers
+      // in order to simply expose a ref to the text field.
+      // this should be done differently in production-quality code.
+      
+      var firstResponderTextField: NSView?
+      if let firstResponderView = view.window?.firstResponder as? NSView,
+        // obtain the actual text field that we must make first responder, not the appkit field editor.
+         let textField = firstResponderView.superview?.superview as? NSTextField,
+         textField.isDescendant(of: view) {
+        // a text field is first responder; keep hold of it, resign first responder,
+        // then re-instate first responder status after animation.
+        firstResponderTextField = textField
+        
+        view.window?.makeFirstResponder(nil)
+      }
+      
       NSAnimationContext.runAnimationGroup { context in
         context.allowsImplicitAnimation = true
         
         // zero-out the tabs width when not visible.
         tabCollectionWidthWhenTabsHidden?.animator().priority = isTabsVisible ? .defaultLow - 100 : .required
-
+        // resize the address bar.
         addressFieldWidthWhenTabsVisible?.animator().priority = isTabsVisible ? .required : .defaultLow - 100
         
         self.view.animator().layoutSubtreeIfNeeded()
+      } completionHandler: { [weak self] in
+        if let textField = firstResponderTextField {
+          self?.view.window?.makeFirstResponder(textField)
+        }
       }
     }
   }
