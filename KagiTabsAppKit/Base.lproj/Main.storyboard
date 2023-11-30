@@ -692,18 +692,21 @@
                         <value key="minSize" type="size" width="480" height="270"/>
                         <toolbar key="toolbar" implicitIdentifier="FA4C3F4D-2734-405C-9300-959B18BCEAF4" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="mcm-YN-b1H">
                             <allowedToolbarItems>
-                                <toolbarItem implicitItemIdentifier="2417EEE2-63BD-41F4-A3B9-F4E7650AAA63" explicitItemIdentifier="newTab" label="New Tab" paletteLabel="New Tab" tag="-1" image="plus" catalog="system" bordered="YES" sizingBehavior="auto" id="2Kw-3W-vrH">
+                                <toolbarItem implicitItemIdentifier="2417EEE2-63BD-41F4-A3B9-F4E7650AAA63" explicitItemIdentifier="navigateBack" label="Back" paletteLabel="Back" tag="-1" image="chevron.backward" catalog="system" bordered="YES" sizingBehavior="auto" id="2Kw-3W-vrH">
                                     <connections>
-                                        <action selector="addTab:" target="Oky-zY-oP4" id="OWw-kx-r2Q"/>
+                                        <action selector="goBack:" target="Oky-zY-oP4" id="VTZ-Ix-VBR"/>
+                                    </connections>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="2CC4AC52-6AF7-4942-B566-FC7C63F45493" explicitItemIdentifier="newTab" label="New Tab" paletteLabel="New Tab" tag="-1" image="plus" catalog="system" bordered="YES" sizingBehavior="auto" id="97I-VE-6e8">
+                                    <connections>
+                                        <action selector="addTab:" target="Oky-zY-oP4" id="HG1-KI-wHd"/>
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="1MT-Xr-atl"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="4eg-bA-4w8"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="dHW-rS-3JS"/>
                             </allowedToolbarItems>
-                            <defaultToolbarItems>
-                                <toolbarItem reference="2Kw-3W-vrH"/>
-                            </defaultToolbarItems>
+                            <defaultToolbarItems/>
                             <connections>
                                 <outlet property="delegate" destination="B8D-0N-5wS" id="Urq-oQ-lzM"/>
                             </connections>
@@ -719,6 +722,14 @@
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
+        </scene>
+        <!--BrowserToolbar-->
+        <scene sceneID="Z1c-j6-Li8">
+            <objects>
+                <controllerPlaceholder storyboardName="BrowserToolbar" id="KOC-xM-uYM" sceneMemberID="viewController"/>
+                <customObject id="M3g-yO-7G3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-251" y="493"/>
         </scene>
         <!--Browser Content Host View Controller-->
         <scene sceneID="A4s-ee-qdZ">
@@ -741,16 +752,9 @@
             </objects>
             <point key="canvasLocation" x="196" y="491"/>
         </scene>
-        <!--BrowserToolbar-->
-        <scene sceneID="Z1c-j6-Li8">
-            <objects>
-                <controllerPlaceholder storyboardName="BrowserToolbar" id="KOC-xM-uYM" sceneMemberID="viewController"/>
-                <customObject id="M3g-yO-7G3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-251" y="493"/>
-        </scene>
     </scenes>
     <resources>
+        <image name="chevron.backward" catalog="system" width="10" height="14"/>
         <image name="plus" catalog="system" width="14" height="13"/>
     </resources>
 </document>

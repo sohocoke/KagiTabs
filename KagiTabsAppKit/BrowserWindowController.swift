@@ -154,15 +154,17 @@ extension BrowserWindowController: NSToolbarDelegate {
   
   func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
     [
-      // programmatically inited toolbar items
-      .init(rawValue: "browserToolbar"),
-      
-      // items inited in xib
-      .init(rawValue: "newTab"),
+      .init(rawValue: ToolbarIdentifiers.navigateBack.rawValue),
+      .init(rawValue: ToolbarIdentifiers.browserToolbar.rawValue),
+      .init(rawValue: ToolbarIdentifiers.newTab.rawValue),
     ]
   }
 }
 
 enum ToolbarIdentifiers: String {
   case browserToolbar
+  
+  // items inited in xib
+  case newTab
+  case navigateBack
 }
