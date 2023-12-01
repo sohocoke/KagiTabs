@@ -21,15 +21,11 @@
 		515247E42B12CC4B000DEA4F /* TabCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DEEEBB2B0FA4DF00BEF0FE /* TabCollectionViewController.xib */; };
 		515247E62B12CC90000DEA4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 515247E52B12CC90000DEA4F /* Main.storyboard */; };
 		5157E4CE2B0FC7FC00BB669C /* view-model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4CD2B0FC7FC00BB669C /* view-model.swift */; };
-		5157E4DA2B10497700BB669C /* TestTabCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4D92B10497700BB669C /* TestTabCollection.storyboard */; };
 		5157E4E52B11EC6700BB669C /* BrowserToolbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4E42B11EC6700BB669C /* BrowserToolbar.storyboard */; };
 		5157E4E72B12B7B100BB669C /* BrowserContent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4E62B12B7B100BB669C /* BrowserContent.storyboard */; };
 		519C89B42B1410DB00A6F3EF /* TestLineLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519C89B32B1410DB00A6F3EF /* TestLineLayout.xib */; };
 		519C89B62B14135900A6F3EF /* view-tiling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519C89B52B14135900A6F3EF /* view-tiling.swift */; };
 		519C89B72B14137000A6F3EF /* view-tiling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519C89B52B14135900A6F3EF /* view-tiling.swift */; };
-		51CC43072B15B65B00B9FA46 /* TestScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4DF2B10930800BB669C /* TestScrollViewController.swift */; };
-		51CC43082B15B65B00B9FA46 /* TestScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4E02B10930800BB669C /* TestScrollViewController.xib */; };
-		51CC430A2B1607D400B9FA46 /* TestTabCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CC43092B1607D400B9FA46 /* TestTabCollectionViewController.swift */; };
 		51DB99C02B0D6B1F001340C2 /* TabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DB99BF2B0D6B1F001340C2 /* TabViewController.xib */; };
 		51DB99C22B0D6E3C001340C2 /* BrowserWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB99C12B0D6E3C001340C2 /* BrowserWindowController.swift */; };
 		51DB99C42B0D85E6001340C2 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB99C32B0D85E6001340C2 /* TabViewController.swift */; };
@@ -38,7 +34,7 @@
 		51DB99D42B0DD373001340C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51DB99D32B0DD373001340C2 /* Assets.xcassets */; };
 		51DB99DD2B0DD611001340C2 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB99C32B0D85E6001340C2 /* TabViewController.swift */; };
 		51DB99DF2B0DD648001340C2 /* TabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DB99BF2B0D6B1F001340C2 /* TabViewController.xib */; };
-		51DEEEB92B0FA11100BEF0FE /* toolbar-items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DEEEB82B0FA11100BEF0FE /* toolbar-items.swift */; };
+		51DEEEB92B0FA11100BEF0FE /* toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DEEEB82B0FA11100BEF0FE /* toolbar.swift */; };
 		51DEEEBC2B0FA4DF00BEF0FE /* TabCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DEEEBA2B0FA4DF00BEF0FE /* TabCollectionViewController.swift */; };
 		51DEEEBD2B0FA4DF00BEF0FE /* TabCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DEEEBB2B0FA4DF00BEF0FE /* TabCollectionViewController.xib */; };
 		51DF122D2B15670200E431A7 /* FlexibleToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DF122C2B15670200E431A7 /* FlexibleToolbarItem.swift */; };
@@ -75,7 +71,7 @@
 		51DB99D12B0DD372001340C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		51DB99D32B0DD373001340C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51DB99D82B0DD373001340C2 /* KagiTabsPreview.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KagiTabsPreview.entitlements; sourceTree = "<group>"; };
-		51DEEEB82B0FA11100BEF0FE /* toolbar-items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "toolbar-items.swift"; sourceTree = "<group>"; };
+		51DEEEB82B0FA11100BEF0FE /* toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toolbar.swift; sourceTree = "<group>"; };
 		51DEEEBA2B0FA4DF00BEF0FE /* TabCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCollectionViewController.swift; sourceTree = "<group>"; };
 		51DEEEBB2B0FA4DF00BEF0FE /* TabCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabCollectionViewController.xib; sourceTree = "<group>"; };
 		51DF122C2B15670200E431A7 /* FlexibleToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleToolbarItem.swift; sourceTree = "<group>"; };
@@ -106,19 +102,19 @@
 				5157E4CD2B0FC7FC00BB669C /* view-model.swift */,
 				510EF6A02B0A339900178579 /* AppDelegate.swift */,
 				51DB99C12B0D6E3C001340C2 /* BrowserWindowController.swift */,
-				51DEEEB82B0FA11100BEF0FE /* toolbar-items.swift */,
+				51DEEEB82B0FA11100BEF0FE /* toolbar.swift */,
 				515247DE2B12BEC3000DEA4F /* BrowserToolbarViewController.swift */,
 				51DEEEBA2B0FA4DF00BEF0FE /* TabCollectionViewController.swift */,
 				51DB99C32B0D85E6001340C2 /* TabViewController.swift */,
 				51E11CE72B1707C70031078C /* BrowserContentViewController.swift */,
 				519C89B52B14135900A6F3EF /* view-tiling.swift */,
+				5157E4E32B11EB2800BB669C /* test tab collection layout */,
 				510EF6A42B0A339A00178579 /* Assets.xcassets */,
 				510EF6A62B0A339A00178579 /* Main.storyboard */,
 				5157E4E42B11EC6700BB669C /* BrowserToolbar.storyboard */,
 				5157E4E62B12B7B100BB669C /* BrowserContent.storyboard */,
 				51DEEEBB2B0FA4DF00BEF0FE /* TabCollectionViewController.xib */,
 				51DB99BF2B0D6B1F001340C2 /* TabViewController.xib */,
-				5157E4E32B11EB2800BB669C /* test tab collection layout */,
 				510EF6A92B0A339A00178579 /* KagiTabsAppKit.entitlements */,
 			);
 			path = KagiTabsAppKit;
@@ -250,9 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				510EF6A52B0A339A00178579 /* Assets.xcassets in Resources */,
-				5157E4DA2B10497700BB669C /* TestTabCollection.storyboard in Resources */,
 				51DB99C02B0D6B1F001340C2 /* TabViewController.xib in Resources */,
-				51CC43082B15B65B00B9FA46 /* TestScrollViewController.xib in Resources */,
 				51DEEEBD2B0FA4DF00BEF0FE /* TabCollectionViewController.xib in Resources */,
 				510EF6A82B0A339A00178579 /* Main.storyboard in Resources */,
 				5157E4E52B11EC6700BB669C /* BrowserToolbar.storyboard in Resources */,
@@ -282,7 +276,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51CC430A2B1607D400B9FA46 /* TestTabCollectionViewController.swift in Sources */,
 				5157E4CE2B0FC7FC00BB669C /* view-model.swift in Sources */,
 				51DB99C42B0D85E6001340C2 /* TabViewController.swift in Sources */,
 				51DB99C22B0D6E3C001340C2 /* BrowserWindowController.swift in Sources */,
@@ -290,9 +283,8 @@
 				51E11CE82B1707C70031078C /* BrowserContentViewController.swift in Sources */,
 				510EF6A12B0A339900178579 /* AppDelegate.swift in Sources */,
 				51DEEEBC2B0FA4DF00BEF0FE /* TabCollectionViewController.swift in Sources */,
-				51DEEEB92B0FA11100BEF0FE /* toolbar-items.swift in Sources */,
+				51DEEEB92B0FA11100BEF0FE /* toolbar.swift in Sources */,
 				515247DF2B12BEC3000DEA4F /* BrowserToolbarViewController.swift in Sources */,
-				51CC43072B15B65B00B9FA46 /* TestScrollViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
