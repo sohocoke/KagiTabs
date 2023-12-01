@@ -43,7 +43,14 @@ class TabViewController: NSViewController {
     self.subscriptions =
       viewSubscriptions
   }
+  
+  override func viewDidAppear() {
+    super.viewDidAppear()
+    
+    self.view.scaleFromCentre()
+  }
 
+  
   var viewSubscriptions: [Any] {
     [
       // switch render mode based on available frame.
