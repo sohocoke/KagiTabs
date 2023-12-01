@@ -95,7 +95,8 @@ class TabCollectionViewController: NSViewController {
     
     let activeItemWidth = max(
       activeView.idealSize.width,
-      activeTabMinWidth  // avoid tiny active tabs.
+      activeTabMinWidth,  // avoid tiny active tabs.
+      inactiveTabMaxWidth  // at least as big as the inactive tabs.
     )
     
     let availableInactiveWidth = max(
