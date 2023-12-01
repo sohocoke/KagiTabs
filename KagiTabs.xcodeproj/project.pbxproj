@@ -71,6 +71,7 @@
 		51B24AED2B195DFA000A2BDA /* browser-content-actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "browser-content-actions.swift"; sourceTree = "<group>"; };
 		51B24AF32B197BDB000A2BDA /* TestViewAppearAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewAppearAnimationViewController.swift; sourceTree = "<group>"; };
 		51B24AF52B198A6C000A2BDA /* view-animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "view-animation.swift"; sourceTree = "<group>"; };
+		51B24AF92B198DE1000A2BDA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		51CC43092B1607D400B9FA46 /* TestTabCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTabCollectionViewController.swift; sourceTree = "<group>"; };
 		51DB99BF2B0D6B1F001340C2 /* TabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabViewController.xib; sourceTree = "<group>"; };
 		51DB99C12B0D6E3C001340C2 /* BrowserWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserWindowController.swift; sourceTree = "<group>"; };
@@ -134,6 +135,7 @@
 		518079432B09552600F0BB5B = {
 			isa = PBXGroup;
 			children = (
+				51B24AF92B198DE1000A2BDA /* README.md */,
 				510EF69F2B0A339900178579 /* KagiTabsAppKit */,
 				51DB99CE2B0DD372001340C2 /* KagiTabsPreview */,
 				5180794D2B09552600F0BB5B /* Products */,
