@@ -2,6 +2,17 @@ import Foundation
 
 
 
+class BrowserWindowViewModel: NSObject {
+  
+  @objc dynamic
+  let toolbar: ToolbarViewModel
+  
+  init(toolbar: ToolbarViewModel) {
+    self.toolbar = toolbar
+  }
+}
+
+
 class ToolbarViewModel: NSObject {
   
   @objc dynamic
@@ -47,7 +58,8 @@ class ToolbarViewModel: NSObject {
     self.tabs.removeAll { $0.id == tab.id }
   }
   
-  // MARK: -
+  
+  // MARK: derived properties
   
   var lastAddedTab: Tab? {
     tabs.last
@@ -61,7 +73,7 @@ class ToolbarViewModel: NSObject {
 
 
 class Tab: NSObject, Identifiable {
-  internal init(label: String, url: URL? = nil, faviconImageData: Data? = nil) {
+  internal init(label: String = "New Tab", url: URL? = nil, faviconImageData: Data? = nil) {
     self.label = label
     self.url = url
     self.faviconImageData = faviconImageData
@@ -85,9 +97,9 @@ class Tab: NSObject, Identifiable {
 
 extension ToolbarViewModel {
   static var stub = ToolbarViewModel(tabs: [
-    Tab(label: "test \(Date())", url: URL(string: "https://orion.com")!),
-    Tab(label: "test \(Date())", url: URL(string: "https://kagi.com")!),
-    Tab(label: "test \(Date())", url: URL(string: "https://www.w3c.org")!),
-    Tab(label: "test \(Date())"),
+    Tab(label: "Orion", url: URL(string: "https://kagi.com/orion")!),
+    Tab(label: "Kagi", url: URL(string: "https://kagi.com")!),
+    Tab(),
+    Tab(label: "Apple", url: URL(string: "https://apple.com")!),
   ])
 }

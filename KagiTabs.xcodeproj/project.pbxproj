@@ -14,13 +14,13 @@
 		5113C5492B16BC3800B2CBF2 /* TestStackViewAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5113C5472B16BC3800B2CBF2 /* TestStackViewAnimationViewController.swift */; };
 		5113C54A2B16BC3800B2CBF2 /* TestStackViewAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5113C5482B16BC3800B2CBF2 /* TestStackViewAnimationViewController.xib */; };
 		515247DF2B12BEC3000DEA4F /* BrowserToolbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515247DE2B12BEC3000DEA4F /* BrowserToolbarViewController.swift */; };
-		515247E02B12CB92000DEA4F /* ToolbarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4CD2B0FC7FC00BB669C /* ToolbarViewModel.swift */; };
+		515247E02B12CB92000DEA4F /* view-model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4CD2B0FC7FC00BB669C /* view-model.swift */; };
 		515247E12B12CBA9000DEA4F /* BrowserContent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4E62B12B7B100BB669C /* BrowserContent.storyboard */; };
 		515247E22B12CBB7000DEA4F /* BrowserToolbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515247DE2B12BEC3000DEA4F /* BrowserToolbarViewController.swift */; };
 		515247E32B12CBBE000DEA4F /* TabCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DEEEBA2B0FA4DF00BEF0FE /* TabCollectionViewController.swift */; };
 		515247E42B12CC4B000DEA4F /* TabCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DEEEBB2B0FA4DF00BEF0FE /* TabCollectionViewController.xib */; };
 		515247E62B12CC90000DEA4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 515247E52B12CC90000DEA4F /* Main.storyboard */; };
-		5157E4CE2B0FC7FC00BB669C /* ToolbarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4CD2B0FC7FC00BB669C /* ToolbarViewModel.swift */; };
+		5157E4CE2B0FC7FC00BB669C /* view-model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4CD2B0FC7FC00BB669C /* view-model.swift */; };
 		5157E4DA2B10497700BB669C /* TestTabCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4D92B10497700BB669C /* TestTabCollection.storyboard */; };
 		5157E4E52B11EC6700BB669C /* BrowserToolbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4E42B11EC6700BB669C /* BrowserToolbar.storyboard */; };
 		5157E4E72B12B7B100BB669C /* BrowserContent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4E62B12B7B100BB669C /* BrowserContent.storyboard */; };
@@ -58,7 +58,7 @@
 		5113C5482B16BC3800B2CBF2 /* TestStackViewAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestStackViewAnimationViewController.xib; sourceTree = "<group>"; };
 		515247DE2B12BEC3000DEA4F /* BrowserToolbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserToolbarViewController.swift; sourceTree = "<group>"; };
 		515247E52B12CC90000DEA4F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		5157E4CD2B0FC7FC00BB669C /* ToolbarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarViewModel.swift; sourceTree = "<group>"; };
+		5157E4CD2B0FC7FC00BB669C /* view-model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "view-model.swift"; sourceTree = "<group>"; };
 		5157E4D92B10497700BB669C /* TestTabCollection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestTabCollection.storyboard; sourceTree = "<group>"; };
 		5157E4DF2B10930800BB669C /* TestScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScrollViewController.swift; sourceTree = "<group>"; };
 		5157E4E02B10930800BB669C /* TestScrollViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestScrollViewController.xib; sourceTree = "<group>"; };
@@ -103,13 +103,13 @@
 		510EF69F2B0A339900178579 /* KagiTabsAppKit */ = {
 			isa = PBXGroup;
 			children = (
+				5157E4CD2B0FC7FC00BB669C /* view-model.swift */,
 				510EF6A02B0A339900178579 /* AppDelegate.swift */,
 				51DB99C12B0D6E3C001340C2 /* BrowserWindowController.swift */,
 				51DEEEB82B0FA11100BEF0FE /* toolbar-items.swift */,
 				515247DE2B12BEC3000DEA4F /* BrowserToolbarViewController.swift */,
 				51DEEEBA2B0FA4DF00BEF0FE /* TabCollectionViewController.swift */,
 				51DB99C32B0D85E6001340C2 /* TabViewController.swift */,
-				5157E4CD2B0FC7FC00BB669C /* ToolbarViewModel.swift */,
 				51E11CE72B1707C70031078C /* BrowserContentViewController.swift */,
 				519C89B52B14135900A6F3EF /* view-tiling.swift */,
 				510EF6A42B0A339A00178579 /* Assets.xcassets */,
@@ -283,7 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51CC430A2B1607D400B9FA46 /* TestTabCollectionViewController.swift in Sources */,
-				5157E4CE2B0FC7FC00BB669C /* ToolbarViewModel.swift in Sources */,
+				5157E4CE2B0FC7FC00BB669C /* view-model.swift in Sources */,
 				51DB99C42B0D85E6001340C2 /* TabViewController.swift in Sources */,
 				51DB99C22B0D6E3C001340C2 /* BrowserWindowController.swift in Sources */,
 				519C89B62B14135900A6F3EF /* view-tiling.swift in Sources */,
@@ -300,7 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				515247E02B12CB92000DEA4F /* ToolbarViewModel.swift in Sources */,
+				515247E02B12CB92000DEA4F /* view-model.swift in Sources */,
 				51DB99DD2B0DD611001340C2 /* TabViewController.swift in Sources */,
 				519C89B72B14137000A6F3EF /* view-tiling.swift in Sources */,
 				51DB99D22B0DD372001340C2 /* ViewController.swift in Sources */,
