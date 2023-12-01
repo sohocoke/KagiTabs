@@ -26,6 +26,8 @@
 		519C89B42B1410DB00A6F3EF /* TestLineLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519C89B32B1410DB00A6F3EF /* TestLineLayout.xib */; };
 		519C89B62B14135900A6F3EF /* view-tiling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519C89B52B14135900A6F3EF /* view-tiling.swift */; };
 		519C89B72B14137000A6F3EF /* view-tiling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519C89B52B14135900A6F3EF /* view-tiling.swift */; };
+		51B24AEB2B195D7F000A2BDA /* tab-actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B24AEA2B195D7F000A2BDA /* tab-actions.swift */; };
+		51B24AEE2B195DFA000A2BDA /* browser-content-actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B24AED2B195DFA000A2BDA /* browser-content-actions.swift */; };
 		51DB99C02B0D6B1F001340C2 /* TabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DB99BF2B0D6B1F001340C2 /* TabViewController.xib */; };
 		51DB99C22B0D6E3C001340C2 /* BrowserWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB99C12B0D6E3C001340C2 /* BrowserWindowController.swift */; };
 		51DB99C42B0D85E6001340C2 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB99C32B0D85E6001340C2 /* TabViewController.swift */; };
@@ -62,6 +64,8 @@
 		5157E4E62B12B7B100BB669C /* BrowserContent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BrowserContent.storyboard; sourceTree = "<group>"; };
 		519C89B32B1410DB00A6F3EF /* TestLineLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestLineLayout.xib; sourceTree = "<group>"; };
 		519C89B52B14135900A6F3EF /* view-tiling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "view-tiling.swift"; sourceTree = "<group>"; };
+		51B24AEA2B195D7F000A2BDA /* tab-actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "tab-actions.swift"; sourceTree = "<group>"; };
+		51B24AED2B195DFA000A2BDA /* browser-content-actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "browser-content-actions.swift"; sourceTree = "<group>"; };
 		51CC43092B1607D400B9FA46 /* TestTabCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTabCollectionViewController.swift; sourceTree = "<group>"; };
 		51DB99BF2B0D6B1F001340C2 /* TabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabViewController.xib; sourceTree = "<group>"; };
 		51DB99C12B0D6E3C001340C2 /* BrowserWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserWindowController.swift; sourceTree = "<group>"; };
@@ -101,20 +105,13 @@
 			children = (
 				5157E4CD2B0FC7FC00BB669C /* view-model.swift */,
 				510EF6A02B0A339900178579 /* AppDelegate.swift */,
-				51DB99C12B0D6E3C001340C2 /* BrowserWindowController.swift */,
-				51DEEEB82B0FA11100BEF0FE /* toolbar.swift */,
-				515247DE2B12BEC3000DEA4F /* BrowserToolbarViewController.swift */,
-				51DEEEBA2B0FA4DF00BEF0FE /* TabCollectionViewController.swift */,
-				51DB99C32B0D85E6001340C2 /* TabViewController.swift */,
-				51E11CE72B1707C70031078C /* BrowserContentViewController.swift */,
-				519C89B52B14135900A6F3EF /* view-tiling.swift */,
+				51B24AF02B195E63000A2BDA /* window */,
+				51B24AE92B195D4A000A2BDA /* toolbar */,
+				51B24AEC2B195DE9000A2BDA /* browser-content */,
+				51B24AEF2B195E32000A2BDA /* view-ext */,
 				5157E4E32B11EB2800BB669C /* test tab collection layout */,
 				510EF6A42B0A339A00178579 /* Assets.xcassets */,
 				510EF6A62B0A339A00178579 /* Main.storyboard */,
-				5157E4E42B11EC6700BB669C /* BrowserToolbar.storyboard */,
-				5157E4E62B12B7B100BB669C /* BrowserContent.storyboard */,
-				51DEEEBB2B0FA4DF00BEF0FE /* TabCollectionViewController.xib */,
-				51DB99BF2B0D6B1F001340C2 /* TabViewController.xib */,
 				510EF6A92B0A339A00178579 /* KagiTabsAppKit.entitlements */,
 			);
 			path = KagiTabsAppKit;
@@ -145,6 +142,47 @@
 				51DB99CD2B0DD372001340C2 /* KagiTabsPreview.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		51B24AE92B195D4A000A2BDA /* toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				51DEEEB82B0FA11100BEF0FE /* toolbar.swift */,
+				51B24AEA2B195D7F000A2BDA /* tab-actions.swift */,
+				515247DE2B12BEC3000DEA4F /* BrowserToolbarViewController.swift */,
+				51DEEEBA2B0FA4DF00BEF0FE /* TabCollectionViewController.swift */,
+				51DB99C32B0D85E6001340C2 /* TabViewController.swift */,
+				5157E4E42B11EC6700BB669C /* BrowserToolbar.storyboard */,
+				51DEEEBB2B0FA4DF00BEF0FE /* TabCollectionViewController.xib */,
+				51DB99BF2B0D6B1F001340C2 /* TabViewController.xib */,
+			);
+			path = toolbar;
+			sourceTree = "<group>";
+		};
+		51B24AEC2B195DE9000A2BDA /* browser-content */ = {
+			isa = PBXGroup;
+			children = (
+				51B24AED2B195DFA000A2BDA /* browser-content-actions.swift */,
+				51E11CE72B1707C70031078C /* BrowserContentViewController.swift */,
+				5157E4E62B12B7B100BB669C /* BrowserContent.storyboard */,
+			);
+			path = "browser-content";
+			sourceTree = "<group>";
+		};
+		51B24AEF2B195E32000A2BDA /* view-ext */ = {
+			isa = PBXGroup;
+			children = (
+				519C89B52B14135900A6F3EF /* view-tiling.swift */,
+			);
+			path = "view-ext";
+			sourceTree = "<group>";
+		};
+		51B24AF02B195E63000A2BDA /* window */ = {
+			isa = PBXGroup;
+			children = (
+				51DB99C12B0D6E3C001340C2 /* BrowserWindowController.swift */,
+			);
+			path = window;
 			sourceTree = "<group>";
 		};
 		51DB99CE2B0DD372001340C2 /* KagiTabsPreview */ = {
@@ -277,6 +315,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5157E4CE2B0FC7FC00BB669C /* view-model.swift in Sources */,
+				51B24AEB2B195D7F000A2BDA /* tab-actions.swift in Sources */,
+				51B24AEE2B195DFA000A2BDA /* browser-content-actions.swift in Sources */,
 				51DB99C42B0D85E6001340C2 /* TabViewController.swift in Sources */,
 				51DB99C22B0D6E3C001340C2 /* BrowserWindowController.swift in Sources */,
 				519C89B62B14135900A6F3EF /* view-tiling.swift in Sources */,
