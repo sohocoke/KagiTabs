@@ -77,6 +77,9 @@ class TabViewController: NSViewController {
     )
     tabView.closeButton.addTrackingArea(trackingArea)
     
+    // close button owns tracking area for hover detection,
+    // so mustn't be hidden.
+    // control presentation using alpha value instead.
     tabView.closeButton.alphaValue = 0
   }
   
@@ -88,15 +91,49 @@ class TabViewController: NSViewController {
     }
   }
   
+  @objc dynamic
+  var isHoveredOnCloseButton: Bool = false {
+    didSet {
+      tabView.closeButton.alphaValue = isHoveredOnCloseButton ? 1 : 0
+    }
+  }
   
   override func mouseEntered(with event: NSEvent) {
-    tabView.closeButton.alphaValue = 1
+    self.isHoveredOnCloseButton = true
   }
   
   override func mouseExited(with event: NSEvent) {
-    tabView.closeButton.alphaValue = 0
+    self.isHoveredOnCloseButton = false
   }
       
+  @objc dynamic
+  var faviconImage: NSImage? {
+    guard let image = tab.faviconImageData.flatMap ({ NSImage(data: $0) })
+    else { return nil }
+
+    if isHoveredOnCloseButton {
+      let blankImage = NSImage(size: image.size, flipped: false) { rect in
+        NSColor.clear.set()
+        rect.fill()
+        return true
+      }
+      return blankImage
+    }
+    
+    return image
+  }
+  
+  override class func keyPathsForValuesAffectingValue(forKey key: String) -> Set<String> {
+    switch key {
+    case "faviconImage":
+      return [
+        "tab.faviconImageData",
+        "isHoveredOnCloseButton",
+      ]
+    default:
+      return super.keyPathsForValuesAffectingValue(forKey: key)
+    }
+  }
 }
 
 
