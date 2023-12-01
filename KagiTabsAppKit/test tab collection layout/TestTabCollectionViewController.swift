@@ -1,10 +1,3 @@
-//
-//  TestTabCollectionViewController.swift
-//  KagiTabsAppKit
-//
-//  Created by ilo on 28/11/2023.
-//
-
 import Cocoa
 
 class TestTabCollectionViewController: NSViewController {

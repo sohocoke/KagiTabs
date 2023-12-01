@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  KagiTabsPreview
-//
-//  Created by ilo on 22/11/2023.
-//
-
 import Cocoa
 
 @main
