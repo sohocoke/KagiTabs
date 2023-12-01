@@ -141,7 +141,8 @@ class TabView: NSView {
 
 @objc
 class DataToNSImageTransformer: ValueTransformer {
-  
+  static let name = NSValueTransformerName(rawValue: "DataToNSImageTransformer")
+
   override func transformedValue(_ value: Any?) -> Any? {
     guard let data = value as? Data else {
       return NSImage(systemSymbolName: "doc", accessibilityDescription: "Empty Document")
@@ -149,14 +150,30 @@ class DataToNSImageTransformer: ValueTransformer {
     
     return NSImage(data: data)
   }
-  
-  
-  static let name = NSValueTransformerName(rawValue: "DataToNSImageTransformer")
-  
 }
 
-var dataToNSImageTransformer: ValueTransformer = {
-  let valueTransformer = DataToNSImageTransformer()
-  ValueTransformer.setValueTransformer(valueTransformer, forName: DataToNSImageTransformer.name)
-  return valueTransformer
+var valueTransformers: [ValueTransformer] = {
+  let dataToImageTransformer = DataToNSImageTransformer()
+  ValueTransformer.setValueTransformer(dataToImageTransformer, forName: DataToNSImageTransformer.name)
+  let tabLabelTransformer = NilOrEmptyTabLabelTransformer()
+  ValueTransformer.setValueTransformer(tabLabelTransformer, forName: NilOrEmptyTabLabelTransformer.name)
+  return [
+    dataToImageTransformer,
+    tabLabelTransformer
+  ]
 }()
+
+
+class NilOrEmptyTabLabelTransformer: ValueTransformer {
+  static let name = NSValueTransformerName(rawValue: "NilOrEmptyTabLabelTransformer")
+
+  override func transformedValue(_ value: Any?) -> Any? {
+    guard let label = value as? String,
+          !label.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    else {
+      return "<No Title>"
+    }
+    
+    return label
+  }
+}

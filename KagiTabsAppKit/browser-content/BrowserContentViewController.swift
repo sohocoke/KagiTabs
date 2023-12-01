@@ -33,6 +33,7 @@ class BrowserContentViewController: NSViewController {
         .compactMap { $0 }
         .sink { [weak self] url in
           if self?.webView.url != url {
+            self?.tab?.label = "Loading..."
             let request = URLRequest(url: url)
             self?.webView.load(request)
           }
@@ -61,6 +62,7 @@ class BrowserContentViewController: NSViewController {
       
       self.publisher(for: \.webView?.title)
         .compactMap { $0 }
+        .filter { !$0.isEmpty }
         .assign(to: \.label, on: tab!), // hmmmm... potentially dangerous.
       self.publisher(for: \.webView?.url)
         .assign(to: \.url, on: tab!)

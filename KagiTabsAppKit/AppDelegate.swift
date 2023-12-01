@@ -8,8 +8,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   override init() {
     super.init()
     
-    // initialise the value transformer for image binding onto a lazy global.
-    _ = dataToNSImageTransformer
+    // initialise the value transformers for image binding onto a lazy global.
+    _ = valueTransformers
   }
   
   func applicationWillFinishLaunching(_ aNotification: Notification) {

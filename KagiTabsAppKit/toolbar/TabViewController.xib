@@ -23,13 +23,17 @@
                     </buttonCell>
                     <connections>
                         <action selector="activateTab:" target="-1" id="zJT-s6-vyG"/>
+                        <binding destination="-2" name="value" keyPath="self.isActive" id="KZG-Rm-Of1"/>
                         <binding destination="-2" name="image" keyPath="tab.faviconImageData" id="0uF-76-HJO">
                             <dictionary key="options">
                                 <string key="NSValueTransformerName">DataToNSImageTransformer</string>
                             </dictionary>
                         </binding>
-                        <binding destination="-2" name="value" keyPath="self.isActive" id="KZG-Rm-Of1"/>
-                        <binding destination="-2" name="title" keyPath="tab.label" previousBinding="0uF-76-HJO" id="AtV-oD-lrj"/>
+                        <binding destination="-2" name="title" keyPath="tab.label" previousBinding="0uF-76-HJO" id="OED-Wa-vKG">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NilOrEmptyTabLabelTransformer</string>
+                            </dictionary>
+                        </binding>
                     </connections>
                 </button>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="ydW-aG-xCU" userLabel="Close Button">
