@@ -27,7 +27,7 @@ class BrowserToolbarViewController: NSViewController {
   @objc dynamic
   var isTabsVisible: Bool = false {
     didSet {
-      guard isTabsVisible != oldValue else { return }
+      tabCollectionViewController?.view.isHidden = !isTabsVisible
       
       // avoid weird frame animation when address field is focused / text selected,
       // by juggling first responder when condition is met.
@@ -72,8 +72,8 @@ class BrowserToolbarViewController: NSViewController {
   // MARK: view lifecycle
   
   override func viewDidAppear() {
-    super.viewWillAppear()
-    
+    super.viewDidAppear()
+
     self.subscriptions = viewModelSubscriptions
   }
   
