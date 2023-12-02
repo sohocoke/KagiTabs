@@ -10,7 +10,9 @@
     - Entirely programmatic layout of tabs
   - The final implementation strategy was to use NSStackView in conjunction with computed layouts,
     which went through some iterations in order to successfuly balance the following objectives:
-    - provide a complete realisation of the specs outlined in [link1] and [link2]
+    - provide a complete realisation of the specs outlined in
+      [link1](https://orionfeedback.org/d/92-compact-tabs/82)
+      and [link2](https://www.figma.com/proto/Mua4l78XCMh61F8BN6573Z/Untitled?page-id=0%3A1&node-id=17-1775&viewport=528%2C131%2C0.25&scaling=min-zoom)
     - handle unspecified edge cases, such as long webpage titles
     - allow glitch-free animation
     - work properly when used as a view of an NSToolbarItem
@@ -27,12 +29,7 @@
   
 - The following has been considered out of scope:
   - Main menu
-  - Any WKWebView behaviour beyond those out-of-box 
+  - Any WKWebView behaviour beyond that out-of-box 
   - Failure cases for networking
   - Localisation
   - Any performance optimisations
-  
----
-[link1]:(https://orionfeedback.org/d/92-compact-tabs/82)
-[link2]: (https://www.figma.com/proto/Mua4l78XCMh61F8BN6573Z/Untitled?page-id=0%3A1&node-id=17-1775&viewport=528%2C131%2C0.25&scaling=min-zoom)
-
