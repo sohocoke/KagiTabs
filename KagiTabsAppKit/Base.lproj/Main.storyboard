@@ -686,10 +686,9 @@
                 <windowController id="B8D-0N-5wS" userLabel="Browser Window Controller" customClass="BrowserWindowController" customModule="KagiTabsAppKit" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" toolbarStyle="unified" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="405" y="220" width="900" height="600"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="480" height="270"/>
+                        <value key="minSize" type="size" width="600" height="300"/>
                         <toolbar key="toolbar" implicitIdentifier="FA4C3F4D-2734-405C-9300-959B18BCEAF4" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="mcm-YN-b1H">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="2417EEE2-63BD-41F4-A3B9-F4E7650AAA63" explicitItemIdentifier="navigateBack" label="Back" paletteLabel="Back" tag="-1" image="chevron.backward" catalog="system" bordered="YES" sizingBehavior="auto" id="2Kw-3W-vrH">
@@ -728,7 +727,7 @@
             <objects>
                 <viewController id="Khf-gz-ZPi" userLabel="Browser Content Host View Controller" sceneMemberID="viewController">
                     <view key="view" translatesAutoresizingMaskIntoConstraints="NO" id="76p-Ch-qhB">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="900" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
                 </viewController>
@@ -747,7 +746,7 @@
         <!--TestBrowserToolbar-->
         <scene sceneID="Z1c-j6-Li8">
             <objects>
-                <controllerPlaceholder storyboardName="BrowserToolbar" id="KOC-xM-uYM" userLabel="TestBrowserToolbar" sceneMemberID="viewController"/>
+                <controllerPlaceholder storyboardIdentifier="TestBrowserToolbar" storyboardName="BrowserToolbar" id="KOC-xM-uYM" userLabel="TestBrowserToolbar" sceneMemberID="viewController"/>
                 <customObject id="M3g-yO-7G3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-251" y="493"/>
