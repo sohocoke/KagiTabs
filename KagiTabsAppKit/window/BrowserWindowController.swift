@@ -5,7 +5,11 @@ import Cocoa
 class BrowserWindowController: NSWindowController {
   
   @objc dynamic
-  var viewModel = BrowserWindowViewModel(toolbar: ToolbarViewModel.stub)
+  var viewModel = BrowserWindowViewModel(
+    toolbar: ToolbarViewModel(tabs: [
+      Tab(label: "Welcome!", url: URL(string: "https://kagi.com/orion")!)
+    ])
+  )
   
   /// set during toolbar delegate method invocation.
   var browserToolbarViewController: BrowserToolbarViewController?
