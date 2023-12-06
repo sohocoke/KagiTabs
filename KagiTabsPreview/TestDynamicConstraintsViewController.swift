@@ -48,15 +48,13 @@ class TestDynamicConstraintsViewController: NSViewController {
     tabViewControllers.forEach {
       self.addChild($0)
     }
-
     
-    // TODO refactor constraints etc for reuse
-    let activeView = tabViewControllers.first { $0.isActive }!.view
-    let inactiveViews = tabViewControllers.filter { $0.view != activeView }.map { $0.view }
+    guard let activeView = tabViewControllers.first(where: { $0.isActive })?.view else { fatalError() }
+    
+    let inactiveViews = tabViewControllers.compactMap { $0.view != activeView ? $0.view : nil }
     allowCompression(inactiveViews, except: activeView)
     
     updateToEqualWidthConstraints(inactiveViews, superview: self.view)
-    
   }
   
   @IBAction func addButton(_ sender: Any) {

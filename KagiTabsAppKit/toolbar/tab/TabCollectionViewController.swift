@@ -80,9 +80,7 @@ class TabCollectionViewController: NSViewController {
     guard let activeView = activeTabViewController?.tabView
     else { return }
     
-    let inactiveViews = tabViewControllers.filter {
-      $0.view != activeView
-    }.map { $0.tabView }
+    let inactiveViews = tabViewControllers.compactMap { $0.view != activeView ? $0.tabView : nil }
     
     guard inactiveViews.count > 0
     else { return }
