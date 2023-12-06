@@ -13,25 +13,25 @@
 		510EF6A82B0A339A00178579 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 510EF6A62B0A339A00178579 /* Main.storyboard */; };
 		5113C5492B16BC3800B2CBF2 /* TestStackViewAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5113C5472B16BC3800B2CBF2 /* TestStackViewAnimationViewController.swift */; };
 		5113C54A2B16BC3800B2CBF2 /* TestStackViewAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5113C5482B16BC3800B2CBF2 /* TestStackViewAnimationViewController.xib */; };
-		51244E1D2B20411100E6B842 /* transformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1EADF2B20231C003752EB /* transformers.swift */; };
+		51244E1D2B20411100E6B842 /* Transformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1EADF2B20231C003752EB /* Transformers.swift */; };
 		515247DF2B12BEC3000DEA4F /* BrowserToolbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515247DE2B12BEC3000DEA4F /* BrowserToolbarViewController.swift */; };
-		515247E02B12CB92000DEA4F /* view-model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4CD2B0FC7FC00BB669C /* view-model.swift */; };
+		515247E02B12CB92000DEA4F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4CD2B0FC7FC00BB669C /* ViewModel.swift */; };
 		515247E12B12CBA9000DEA4F /* BrowserContent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4E62B12B7B100BB669C /* BrowserContent.storyboard */; };
 		515247E22B12CBB7000DEA4F /* BrowserToolbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515247DE2B12BEC3000DEA4F /* BrowserToolbarViewController.swift */; };
 		515247E32B12CBBE000DEA4F /* TabCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DEEEBA2B0FA4DF00BEF0FE /* TabCollectionViewController.swift */; };
 		515247E42B12CC4B000DEA4F /* TabCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DEEEBB2B0FA4DF00BEF0FE /* TabCollectionViewController.xib */; };
 		515247E62B12CC90000DEA4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 515247E52B12CC90000DEA4F /* Main.storyboard */; };
-		5157E4CE2B0FC7FC00BB669C /* view-model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4CD2B0FC7FC00BB669C /* view-model.swift */; };
+		5157E4CE2B0FC7FC00BB669C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4CD2B0FC7FC00BB669C /* ViewModel.swift */; };
 		5157E4E52B11EC6700BB669C /* BrowserToolbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4E42B11EC6700BB669C /* BrowserToolbar.storyboard */; };
 		5157E4E72B12B7B100BB669C /* BrowserContent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4E62B12B7B100BB669C /* BrowserContent.storyboard */; };
 		519C89B42B1410DB00A6F3EF /* TestLineLayout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 519C89B32B1410DB00A6F3EF /* TestLineLayout.xib */; };
-		519C89B62B14135900A6F3EF /* view-tiling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519C89B52B14135900A6F3EF /* view-tiling.swift */; };
-		519C89B72B14137000A6F3EF /* view-tiling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519C89B52B14135900A6F3EF /* view-tiling.swift */; };
-		51B24AEB2B195D7F000A2BDA /* tab-actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B24AEA2B195D7F000A2BDA /* tab-actions.swift */; };
-		51B24AEE2B195DFA000A2BDA /* browser-content-actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B24AED2B195DFA000A2BDA /* browser-content-actions.swift */; };
+		519C89B62B14135900A6F3EF /* ViewTiling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519C89B52B14135900A6F3EF /* ViewTiling.swift */; };
+		519C89B72B14137000A6F3EF /* ViewTiling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519C89B52B14135900A6F3EF /* ViewTiling.swift */; };
+		51B24AEB2B195D7F000A2BDA /* BrowserWindowController-TabActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B24AEA2B195D7F000A2BDA /* BrowserWindowController-TabActions.swift */; };
+		51B24AEE2B195DFA000A2BDA /* BrowserWindowController-BrowserActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B24AED2B195DFA000A2BDA /* BrowserWindowController-BrowserActions.swift */; };
 		51B24AF42B197BDB000A2BDA /* TestViewAppearAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B24AF32B197BDB000A2BDA /* TestViewAppearAnimationViewController.swift */; };
-		51B24AF62B198A6C000A2BDA /* view-animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B24AF52B198A6C000A2BDA /* view-animation.swift */; };
-		51B24AF72B198A72000A2BDA /* view-animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B24AF52B198A6C000A2BDA /* view-animation.swift */; };
+		51B24AF62B198A6C000A2BDA /* ViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B24AF52B198A6C000A2BDA /* ViewAnimation.swift */; };
+		51B24AF72B198A72000A2BDA /* ViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B24AF52B198A6C000A2BDA /* ViewAnimation.swift */; };
 		51DB99C02B0D6B1F001340C2 /* TabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DB99BF2B0D6B1F001340C2 /* TabViewController.xib */; };
 		51DB99C22B0D6E3C001340C2 /* BrowserWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB99C12B0D6E3C001340C2 /* BrowserWindowController.swift */; };
 		51DB99C42B0D85E6001340C2 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB99C32B0D85E6001340C2 /* TabViewController.swift */; };
@@ -40,13 +40,13 @@
 		51DB99D42B0DD373001340C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51DB99D32B0DD373001340C2 /* Assets.xcassets */; };
 		51DB99DD2B0DD611001340C2 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DB99C32B0D85E6001340C2 /* TabViewController.swift */; };
 		51DB99DF2B0DD648001340C2 /* TabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DB99BF2B0D6B1F001340C2 /* TabViewController.xib */; };
-		51DEEEB92B0FA11100BEF0FE /* toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DEEEB82B0FA11100BEF0FE /* toolbar.swift */; };
+		51DEEEB92B0FA11100BEF0FE /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DEEEB82B0FA11100BEF0FE /* Toolbar.swift */; };
 		51DEEEBC2B0FA4DF00BEF0FE /* TabCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DEEEBA2B0FA4DF00BEF0FE /* TabCollectionViewController.swift */; };
 		51DEEEBD2B0FA4DF00BEF0FE /* TabCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51DEEEBB2B0FA4DF00BEF0FE /* TabCollectionViewController.xib */; };
 		51DF122D2B15670200E431A7 /* FlexibleToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DF122C2B15670200E431A7 /* FlexibleToolbarItem.swift */; };
 		51DF122E2B1594D400E431A7 /* TestScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4E02B10930800BB669C /* TestScrollViewController.xib */; };
 		51E11CE82B1707C70031078C /* BrowserContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E11CE72B1707C70031078C /* BrowserContentViewController.swift */; };
-		51E1EAE02B20231C003752EB /* transformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1EADF2B20231C003752EB /* transformers.swift */; };
+		51E1EAE02B20231C003752EB /* Transformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1EADF2B20231C003752EB /* Transformers.swift */; };
 		51E1EAE22B202478003752EB /* TestButtonStylingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1EAE12B202478003752EB /* TestButtonStylingViewController.swift */; };
 		51E4EF572B140F6200FAD2F2 /* TestScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4DF2B10930800BB669C /* TestScrollViewController.swift */; };
 /* End PBXBuildFile section */
@@ -62,18 +62,18 @@
 		5113C5482B16BC3800B2CBF2 /* TestStackViewAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestStackViewAnimationViewController.xib; sourceTree = "<group>"; };
 		515247DE2B12BEC3000DEA4F /* BrowserToolbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserToolbarViewController.swift; sourceTree = "<group>"; };
 		515247E52B12CC90000DEA4F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		5157E4CD2B0FC7FC00BB669C /* view-model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "view-model.swift"; sourceTree = "<group>"; };
+		5157E4CD2B0FC7FC00BB669C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		5157E4D92B10497700BB669C /* TestTabCollection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestTabCollection.storyboard; sourceTree = "<group>"; };
 		5157E4DF2B10930800BB669C /* TestScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScrollViewController.swift; sourceTree = "<group>"; };
 		5157E4E02B10930800BB669C /* TestScrollViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestScrollViewController.xib; sourceTree = "<group>"; };
 		5157E4E42B11EC6700BB669C /* BrowserToolbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BrowserToolbar.storyboard; sourceTree = "<group>"; };
 		5157E4E62B12B7B100BB669C /* BrowserContent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BrowserContent.storyboard; sourceTree = "<group>"; };
 		519C89B32B1410DB00A6F3EF /* TestLineLayout.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestLineLayout.xib; sourceTree = "<group>"; };
-		519C89B52B14135900A6F3EF /* view-tiling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "view-tiling.swift"; sourceTree = "<group>"; };
-		51B24AEA2B195D7F000A2BDA /* tab-actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "tab-actions.swift"; sourceTree = "<group>"; };
-		51B24AED2B195DFA000A2BDA /* browser-content-actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "browser-content-actions.swift"; sourceTree = "<group>"; };
+		519C89B52B14135900A6F3EF /* ViewTiling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTiling.swift; sourceTree = "<group>"; };
+		51B24AEA2B195D7F000A2BDA /* BrowserWindowController-TabActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserWindowController-TabActions.swift"; sourceTree = "<group>"; };
+		51B24AED2B195DFA000A2BDA /* BrowserWindowController-BrowserActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserWindowController-BrowserActions.swift"; sourceTree = "<group>"; };
 		51B24AF32B197BDB000A2BDA /* TestViewAppearAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewAppearAnimationViewController.swift; sourceTree = "<group>"; };
-		51B24AF52B198A6C000A2BDA /* view-animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "view-animation.swift"; sourceTree = "<group>"; };
+		51B24AF52B198A6C000A2BDA /* ViewAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAnimation.swift; sourceTree = "<group>"; };
 		51B24AF92B198DE1000A2BDA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		51CC43092B1607D400B9FA46 /* TestTabCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTabCollectionViewController.swift; sourceTree = "<group>"; };
 		51DB99BF2B0D6B1F001340C2 /* TabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabViewController.xib; sourceTree = "<group>"; };
@@ -84,12 +84,12 @@
 		51DB99D12B0DD372001340C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		51DB99D32B0DD373001340C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51DB99D82B0DD373001340C2 /* KagiTabsPreview.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KagiTabsPreview.entitlements; sourceTree = "<group>"; };
-		51DEEEB82B0FA11100BEF0FE /* toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toolbar.swift; sourceTree = "<group>"; };
+		51DEEEB82B0FA11100BEF0FE /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
 		51DEEEBA2B0FA4DF00BEF0FE /* TabCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCollectionViewController.swift; sourceTree = "<group>"; };
 		51DEEEBB2B0FA4DF00BEF0FE /* TabCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabCollectionViewController.xib; sourceTree = "<group>"; };
 		51DF122C2B15670200E431A7 /* FlexibleToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleToolbarItem.swift; sourceTree = "<group>"; };
 		51E11CE72B1707C70031078C /* BrowserContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserContentViewController.swift; sourceTree = "<group>"; };
-		51E1EADF2B20231C003752EB /* transformers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = transformers.swift; sourceTree = "<group>"; };
+		51E1EADF2B20231C003752EB /* Transformers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformers.swift; sourceTree = "<group>"; };
 		51E1EAE12B202478003752EB /* TestButtonStylingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestButtonStylingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,8 +114,8 @@
 		510EF69F2B0A339900178579 /* KagiTabsAppKit */ = {
 			isa = PBXGroup;
 			children = (
-				5157E4CD2B0FC7FC00BB669C /* view-model.swift */,
-				51E1EADF2B20231C003752EB /* transformers.swift */,
+				5157E4CD2B0FC7FC00BB669C /* ViewModel.swift */,
+				51E1EADF2B20231C003752EB /* Transformers.swift */,
 				510EF6A02B0A339900178579 /* AppDelegate.swift */,
 				51B24AF02B195E63000A2BDA /* window */,
 				51B24AE92B195D4A000A2BDA /* toolbar */,
@@ -160,7 +160,7 @@
 		51B24AE92B195D4A000A2BDA /* toolbar */ = {
 			isa = PBXGroup;
 			children = (
-				51DEEEB82B0FA11100BEF0FE /* toolbar.swift */,
+				51DEEEB82B0FA11100BEF0FE /* Toolbar.swift */,
 				515247DE2B12BEC3000DEA4F /* BrowserToolbarViewController.swift */,
 				5157E4E42B11EC6700BB669C /* BrowserToolbar.storyboard */,
 				51B24AF82B198CDF000A2BDA /* tab */,
@@ -171,7 +171,7 @@
 		51B24AEC2B195DE9000A2BDA /* browser-content */ = {
 			isa = PBXGroup;
 			children = (
-				51B24AED2B195DFA000A2BDA /* browser-content-actions.swift */,
+				51B24AED2B195DFA000A2BDA /* BrowserWindowController-BrowserActions.swift */,
 				51E11CE72B1707C70031078C /* BrowserContentViewController.swift */,
 				5157E4E62B12B7B100BB669C /* BrowserContent.storyboard */,
 			);
@@ -181,8 +181,8 @@
 		51B24AEF2B195E32000A2BDA /* view-ext */ = {
 			isa = PBXGroup;
 			children = (
-				519C89B52B14135900A6F3EF /* view-tiling.swift */,
-				51B24AF52B198A6C000A2BDA /* view-animation.swift */,
+				519C89B52B14135900A6F3EF /* ViewTiling.swift */,
+				51B24AF52B198A6C000A2BDA /* ViewAnimation.swift */,
 			);
 			path = "view-ext";
 			sourceTree = "<group>";
@@ -198,7 +198,7 @@
 		51B24AF82B198CDF000A2BDA /* tab */ = {
 			isa = PBXGroup;
 			children = (
-				51B24AEA2B195D7F000A2BDA /* tab-actions.swift */,
+				51B24AEA2B195D7F000A2BDA /* BrowserWindowController-TabActions.swift */,
 				51DEEEBA2B0FA4DF00BEF0FE /* TabCollectionViewController.swift */,
 				51DB99C32B0D85E6001340C2 /* TabViewController.swift */,
 				51DEEEBB2B0FA4DF00BEF0FE /* TabCollectionViewController.xib */,
@@ -338,18 +338,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5157E4CE2B0FC7FC00BB669C /* view-model.swift in Sources */,
-				51B24AEB2B195D7F000A2BDA /* tab-actions.swift in Sources */,
-				51B24AEE2B195DFA000A2BDA /* browser-content-actions.swift in Sources */,
+				5157E4CE2B0FC7FC00BB669C /* ViewModel.swift in Sources */,
+				51B24AEB2B195D7F000A2BDA /* BrowserWindowController-TabActions.swift in Sources */,
+				51B24AEE2B195DFA000A2BDA /* BrowserWindowController-BrowserActions.swift in Sources */,
 				51DB99C42B0D85E6001340C2 /* TabViewController.swift in Sources */,
 				51DB99C22B0D6E3C001340C2 /* BrowserWindowController.swift in Sources */,
-				519C89B62B14135900A6F3EF /* view-tiling.swift in Sources */,
-				51B24AF62B198A6C000A2BDA /* view-animation.swift in Sources */,
-				51E1EAE02B20231C003752EB /* transformers.swift in Sources */,
+				519C89B62B14135900A6F3EF /* ViewTiling.swift in Sources */,
+				51B24AF62B198A6C000A2BDA /* ViewAnimation.swift in Sources */,
+				51E1EAE02B20231C003752EB /* Transformers.swift in Sources */,
 				51E11CE82B1707C70031078C /* BrowserContentViewController.swift in Sources */,
 				510EF6A12B0A339900178579 /* AppDelegate.swift in Sources */,
 				51DEEEBC2B0FA4DF00BEF0FE /* TabCollectionViewController.swift in Sources */,
-				51DEEEB92B0FA11100BEF0FE /* toolbar.swift in Sources */,
+				51DEEEB92B0FA11100BEF0FE /* Toolbar.swift in Sources */,
 				515247DF2B12BEC3000DEA4F /* BrowserToolbarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,10 +358,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				515247E02B12CB92000DEA4F /* view-model.swift in Sources */,
+				515247E02B12CB92000DEA4F /* ViewModel.swift in Sources */,
 				51B24AF42B197BDB000A2BDA /* TestViewAppearAnimationViewController.swift in Sources */,
 				51DB99DD2B0DD611001340C2 /* TabViewController.swift in Sources */,
-				519C89B72B14137000A6F3EF /* view-tiling.swift in Sources */,
+				519C89B72B14137000A6F3EF /* ViewTiling.swift in Sources */,
 				51DB99D22B0DD372001340C2 /* ViewController.swift in Sources */,
 				510A5EDF2B1306E200824E5A /* TestDynamicConstraintsViewController.swift in Sources */,
 				5113C5492B16BC3800B2CBF2 /* TestStackViewAnimationViewController.swift in Sources */,
@@ -370,8 +370,8 @@
 				51E1EAE22B202478003752EB /* TestButtonStylingViewController.swift in Sources */,
 				515247E32B12CBBE000DEA4F /* TabCollectionViewController.swift in Sources */,
 				51DF122D2B15670200E431A7 /* FlexibleToolbarItem.swift in Sources */,
-				51B24AF72B198A72000A2BDA /* view-animation.swift in Sources */,
-				51244E1D2B20411100E6B842 /* transformers.swift in Sources */,
+				51B24AF72B198A72000A2BDA /* ViewAnimation.swift in Sources */,
+				51244E1D2B20411100E6B842 /* Transformers.swift in Sources */,
 				51DB99D02B0DD372001340C2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
