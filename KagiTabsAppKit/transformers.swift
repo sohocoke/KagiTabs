@@ -21,7 +21,6 @@ var valueTransformers: [ValueTransformer] = {
 
 
 class DataToNSImageTransformer: ValueTransformer {
-  static let name = NSValueTransformerName(rawValue: "DataToNSImageTransformer")
 
   override func transformedValue(_ value: Any?) -> Any? {
     guard let data = value as? Data else {
@@ -30,11 +29,12 @@ class DataToNSImageTransformer: ValueTransformer {
     
     return NSImage(data: data)
   }
+  
+  static let name = NSValueTransformerName(rawValue: "DataToNSImageTransformer")
 }
 
 
 class NilOrEmptyTabLabelTransformer: ValueTransformer {
-  static let name = NSValueTransformerName(rawValue: "NilOrEmptyTabLabelTransformer")
 
   override func transformedValue(_ value: Any?) -> Any? {
     guard let label = value as? String,
@@ -45,11 +45,12 @@ class NilOrEmptyTabLabelTransformer: ValueTransformer {
     
     return label
   }
+  
+  static let name = NSValueTransformerName(rawValue: "NilOrEmptyTabLabelTransformer")
 }
 
 
 class UrlToStringTransformer: ValueTransformer {
-  static let name = NSValueTransformerName(rawValue: "UrlToStringTransformer")
 
   override func transformedValue(_ value: Any?) -> Any? {
     guard let url = value as? URL else {
@@ -58,4 +59,6 @@ class UrlToStringTransformer: ValueTransformer {
     
     return url.absoluteString
   }
+  
+  static let name = NSValueTransformerName(rawValue: "UrlToStringTransformer")
 }
