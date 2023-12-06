@@ -69,6 +69,7 @@ class TabCollectionViewController: NSViewController {
       viewModelSubscriptions
       + viewSubscriptions
     
+//    self.view.setDebugBorder(.red)
   }
     
   
@@ -149,29 +150,30 @@ class TabCollectionViewController: NSViewController {
       let isActive = view == activeView
       
       // set width for active tab, so it's always presented prominently.
-      let activeWidthC = constraint(view: view, id: "activeWidth", init: {
+      let activeWidthC = constraint(view: view, id: "activeWidth") {
         view.widthAnchor.constraint(equalToConstant: activeItemWidth)
-      })
+      }
       
       // secure minimal widths for inactive tabs except in .needScroll, to avoid tiny tabs.
-      let inactiveMinWidthC = constraint(view: view, id: "inactiveMinWidth", 
-                                         priority: .defaultLow - 1,  // allow compression.
-                                         init: {
+      let inactiveMinWidthC = constraint(
+        view: view,
+        id: "inactiveMinWidth",
+        // allow compression unless in .noSquish
+        priority: layoutCase == .noSquish ? .required : .defaultLow - 1
+      ) {
         view.widthAnchor.constraint(greaterThanOrEqualToConstant: inactiveTabMaxWidth)
-      })
+      }
         
       // on .needSquish, cap inactive tab widths to computed.
-      let inactiveWidthC = constraint(view: view, id: "inactiveWidth", 
-                                      priority: .defaultHigh,
-                                      init: {
+      let inactiveWidthC = constraint(view: view, id: "inactiveWidth", priority: .defaultHigh) {
         view.widthAnchor.constraint(equalToConstant: inactiveTabComputedWidth)
-      })
+      }
         
       // on .needScroll, constrain inactive tab width to minimal width,
       // since scrolling requires minimal inactive tabs.
-      let maxSquishWidthC = constraint(view: view, id: "maxSquishWidth", init: {
+      let maxSquishWidthC = constraint(view: view, id: "maxSquishWidth") {
         view.widthAnchor.constraint(equalToConstant: inactiveTabSquishLowLimit)
-      })
+      }
       
       switch (isActive, layoutCase) {
       case (true, _):

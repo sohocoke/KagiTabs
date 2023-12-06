@@ -14,21 +14,39 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView autoresizesSubviews="NO" horizontalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="QN1-Nq-FRA" customClass="TabView" customModule="KagiTabsAppKit" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="163" height="20"/>
+            <userGuides>
+                <userLayoutGuide location="50" affinity="minX"/>
+            </userGuides>
             <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qAT-zA-QVu">
+                    <rect key="frame" x="5" y="-6" width="16" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="16" id="Zjg-zC-f2Y"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSAdvanced" id="4QN-go-uOK"/>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="faviconImage" id="25L-K5-9cV"/>
+                    </connections>
+                </imageView>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="WyV-8s-Kle">
+                    <rect key="frame" x="27" y="2" width="133" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" usesSingleLineMode="YES" id="4Ip-ft-Odo">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="tab.label" id="h5R-3G-N5C"/>
+                    </connections>
+                </textField>
                 <button horizontalHuggingPriority="248" verticalHuggingPriority="750" horizontalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="c51-qN-F0V" userLabel="Tab Button">
-                    <rect key="frame" x="0.0" y="2" width="163" height="16"/>
-                    <buttonCell key="cell" type="roundTextured" title="Textured " bezelStyle="texturedRounded" imagePosition="leading" alignment="center" lineBreakMode="truncatingTail" imageScaling="proportionallyDown" inset="2" id="m4A-h3-N9y">
+                    <rect key="frame" x="-1" y="-2" width="165" height="23"/>
+                    <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="m4A-h3-N9y">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
                         <action selector="activateTab:" target="-1" id="zJT-s6-vyG"/>
-                        <binding destination="-2" name="image" keyPath="faviconImage" id="TNc-ie-qsd"/>
-                        <binding destination="-2" name="title" keyPath="tab.label" previousBinding="TNc-ie-qsd" id="itF-Q6-zw5">
-                            <dictionary key="options">
-                                <string key="NSValueTransformerName">NilOrEmptyTabLabelTransformer</string>
-                            </dictionary>
-                        </binding>
                     </connections>
                 </button>
                 <button hidden="YES" horizontalHuggingPriority="248" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="gA1-mY-slP" userLabel="Tab Button Minimal">
@@ -58,19 +76,30 @@
                 </button>
             </subviews>
             <constraints>
+                <constraint firstItem="qAT-zA-QVu" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" priority="750" constant="5" id="3CC-Gt-A1i"/>
+                <constraint firstItem="c51-qN-F0V" firstAttribute="top" secondItem="QN1-Nq-FRA" secondAttribute="top" id="462-rN-IDa"/>
                 <constraint firstItem="gA1-mY-slP" firstAttribute="height" relation="greaterThanOrEqual" secondItem="QN1-Nq-FRA" secondAttribute="height" id="56M-I5-p8f"/>
                 <constraint firstItem="gA1-mY-slP" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="705-th-TXZ"/>
                 <constraint firstAttribute="trailing" secondItem="gA1-mY-slP" secondAttribute="trailing" id="D2D-Wc-TD7"/>
+                <constraint firstAttribute="trailing" secondItem="WyV-8s-Kle" secondAttribute="trailing" constant="5" id="RWo-Kj-kO9"/>
+                <constraint firstItem="WyV-8s-Kle" firstAttribute="leading" secondItem="qAT-zA-QVu" secondAttribute="trailing" constant="8" symbolic="YES" id="Vh7-J6-wds"/>
                 <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="gA1-mY-slP" secondAttribute="width" id="WdN-gD-XRn"/>
                 <constraint firstItem="ydW-aG-xCU" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="Www-2N-gq1"/>
                 <constraint firstItem="c51-qN-F0V" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" id="XyH-sZ-BaV"/>
                 <constraint firstItem="gA1-mY-slP" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" id="ers-6Y-5eA"/>
                 <constraint firstItem="ydW-aG-xCU" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" constant="6" id="hlr-u3-SEl"/>
                 <constraint firstAttribute="trailing" secondItem="c51-qN-F0V" secondAttribute="trailing" id="kYB-NR-9ic"/>
-                <constraint firstItem="c51-qN-F0V" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="mRy-GO-dH8"/>
+                <constraint firstItem="WyV-8s-Kle" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="kaf-Ho-IPj"/>
+                <constraint firstAttribute="bottom" secondItem="c51-qN-F0V" secondAttribute="bottom" id="ny1-Ch-3Em"/>
+                <constraint firstItem="qAT-zA-QVu" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="tQQ-gg-LqW"/>
             </constraints>
             <connections>
                 <outlet property="closeButton" destination="ydW-aG-xCU" id="b9n-gP-2CZ"/>
+                <outlet property="faviconImage" destination="qAT-zA-QVu" id="xyK-Rb-k03"/>
+                <outlet property="faviconImageLeading" destination="3CC-Gt-A1i" id="zm3-er-kp3"/>
+                <outlet property="faviconImageTrailingToLabelLeading" destination="Vh7-J6-wds" id="ImU-w8-EXz"/>
+                <outlet property="label" destination="WyV-8s-Kle" id="Kof-g2-z9l"/>
+                <outlet property="labelTrailing" destination="RWo-Kj-kO9" id="af7-zF-C9J"/>
                 <outlet property="tabButton" destination="c51-qN-F0V" id="fPh-jt-1Js"/>
                 <outlet property="tabButtonMinimal" destination="gA1-mY-slP" id="zVg-FS-Bwj"/>
             </connections>
@@ -79,6 +108,7 @@
         <userDefaultsController representsSharedInstance="YES" id="LPK-cn-v7Z"/>
     </objects>
     <resources>
+        <image name="NSAdvanced" width="32" height="32"/>
         <image name="doc" catalog="system" width="14" height="16"/>
         <image name="xmark.square.fill" catalog="system" width="15" height="14"/>
     </resources>

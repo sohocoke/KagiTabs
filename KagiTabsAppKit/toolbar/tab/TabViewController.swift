@@ -1,7 +1,10 @@
 import Cocoa
 
+/// when width becomes less than this threshold, switch to 'minimal' mode.
 let minimalWidthThreshold: CGFloat = 50
+
 let defaultFaviconImage = NSImage(systemSymbolName: "doc", accessibilityDescription: "Tab")!
+let faviconImageSize = CGSize(width: 16, height: 16)
 
 let activeTabBackgroundColour = NSColor.white.cgColor
 let activeTabCornerRadius = 5.0
@@ -63,6 +66,12 @@ class TabViewController: NSViewController {
     
     self.view.scaleFromCentre()
     self.view.animator().alphaValue = 1
+    
+    // disabling the button's border also  disables hover highlight.
+    // work around by configuring button to show border when mouse inside.
+    self.tabView.tabButton.showsBorderOnlyWhileMouseInside = true
+    
+//    self.view.setDebugBorder(.purple)  // DEBUG
   }
 
   
@@ -145,6 +154,8 @@ class TabViewController: NSViewController {
       return blankImage
     }
     
+    image.size = faviconImageSize
+    
     return image
   }
   
@@ -167,16 +178,24 @@ class TabView: NSView {
   @IBOutlet weak var tabButton: NSButton!
   @IBOutlet weak var closeButton: NSButton!
   @IBOutlet weak var tabButtonMinimal: NSButton!
-  
+  @IBOutlet weak var label: NSTextField!
+  @IBOutlet weak var faviconImage: NSImageView!
+
+  @IBOutlet weak var faviconImageLeading: NSLayoutConstraint!
+  @IBOutlet weak var faviconImageTrailingToLabelLeading: NSLayoutConstraint!
+  @IBOutlet weak var labelTrailing: NSLayoutConstraint!
+
   var renderMode: RenderMode = .normal {
     didSet {
       switch renderMode {
       case .normal:
-        tabButton.isHidden = false
+        label.isHidden = false
+        faviconImage.isHidden = false
         closeButton.isHidden = false
         tabButtonMinimal.isHidden = true
       case .minimal:
-        tabButton.isHidden = true
+        label.isHidden = true
+        faviconImage.isHidden = true
         closeButton.isHidden = true
         tabButtonMinimal.isHidden = false
       }
@@ -189,7 +208,14 @@ class TabView: NSView {
   }
   
   var idealSize: CGSize {
-    tabButton.intrinsicContentSize
+    let width = faviconImageLeading.constant
+      + faviconImage.fittingSize.width
+      + faviconImageTrailingToLabelLeading.constant
+      + label.intrinsicContentSize.width
+      + labelTrailing.constant
+
+    let height = label.frame.height
+    return CGSize(width: width, height: height)
   }
   
   var minSize: CGSize {

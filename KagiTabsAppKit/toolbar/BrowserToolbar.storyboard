@@ -36,7 +36,7 @@
                         <constraints>
                             <constraint firstItem="6En-xX-TeV" firstAttribute="firstBaseline" secondItem="bqb-1q-unu" secondAttribute="firstBaseline" id="LuV-VK-yMg"/>
                             <constraint firstAttribute="bottom" secondItem="bqb-1q-unu" secondAttribute="bottom" id="Xjh-i5-866"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="26" id="bKB-XH-ioO"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="bKB-XH-ioO"/>
                             <constraint firstItem="bqb-1q-unu" firstAttribute="leading" secondItem="VIJ-cY-Yvl" secondAttribute="leading" id="dui-fv-Uzq"/>
                             <constraint firstItem="bqb-1q-unu" firstAttribute="top" secondItem="VIJ-cY-Yvl" secondAttribute="top" id="fIE-1j-ydf"/>
                             <constraint firstItem="6En-xX-TeV" firstAttribute="height" secondItem="bqb-1q-unu" secondAttribute="height" id="vxU-KP-HbE"/>
