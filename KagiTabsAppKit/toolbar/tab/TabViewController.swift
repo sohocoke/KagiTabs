@@ -3,6 +3,11 @@ import Cocoa
 let minimalWidthThreshold: CGFloat = 50
 let defaultFaviconImage = NSImage(systemSymbolName: "doc", accessibilityDescription: "Tab")!
 
+let activeTabBackgroundColour = NSColor.white.cgColor
+let activeTabCornerRadius = 5.0
+let activeTabShadowBlurRadius = 5.0
+let activeTabShadowOffset = CGSize(width: 0, height: -2)
+
 
 /// rendering variations:
 /// - full: when tab is active: no truncation
@@ -38,20 +43,30 @@ class TabViewController: NSViewController {
   var subscriptions: Any?
   
   
+  // MARK: view lifecycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
         
     trackCloseButtonHover()
+
+    self.view.setupBackgroundLayerAndShadow()
+
     self.subscriptions =
       viewSubscriptions
   }
   
-  override func viewDidAppear() {
-    super.viewDidAppear()
+  override func viewWillAppear() {
+    super.viewWillAppear()
+
+    self.view.alphaValue = 0
     
     self.view.scaleFromCentre()
+    self.view.animator().alphaValue = 1
   }
 
+  
+  // MARK: subscriptions
   
   var viewSubscriptions: [Any] {
     [
@@ -63,6 +78,14 @@ class TabViewController: NSViewController {
           } else {
             self.tabView.renderMode = .normal
           }
+        },
+      
+      // update background view visibility when active status changes.
+      self.publisher(for: \.isActive, options: [.initial, .new])
+        .sink { [weak self] isActive in
+          guard let backgroundView = self?.view.subviews.first(where: { $0 is BackgroundRoundRectView })
+          else { return }
+          backgroundView.isHidden = !isActive
         },
     ]
   }
@@ -177,7 +200,61 @@ class TabView: NSView {
 
 
 #Preview {
+  _ = valueTransformers
   let viewController = TabViewController(nibName: nil, bundle: nil)
   viewController.tab = Tab(label: "test")
   return viewController
 }
+
+
+
+extension NSView {
+  /// adds a subview which renders a round rect and a shadow,
+  /// which adapts to the view's size.
+  func setupBackgroundLayerAndShadow() {
+    let view = BackgroundRoundRectView()
+    
+    self.addSubview(view, positioned: .below, relativeTo: nil)
+    
+    // width, height, position constraints
+    view.widthAnchor.constraint(equalTo: self.widthAnchor, constant: 0).isActive = true
+    view.heightAnchor.constraint(equalTo: self.heightAnchor, constant: 0).isActive = true
+    view.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+    view.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+  }
+}
+
+class BackgroundRoundRectView: NSView {
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    
+    let view = self
+    view.translatesAutoresizingMaskIntoConstraints = false
+    
+    let rectLayer = rectLayer()
+    rectLayer.position = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
+    view.layer = rectLayer
+    
+    // setting up the shadow on the topmost layer does not work;
+    // set it up on the view instead.
+    let shadow = NSShadow()
+    shadow.shadowBlurRadius = activeTabShadowBlurRadius
+    shadow.shadowOffset = activeTabShadowOffset
+    view.shadow = shadow
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+}
+
+func rectLayer() -> CALayer {
+  let rect = CALayer()
+  rect.backgroundColor = activeTabBackgroundColour
+  rect.cornerRadius = activeTabCornerRadius
+  rect.anchorPoint = .init(x: 0.5, y: 0.5)
+  
+  return rect
+}
+
+

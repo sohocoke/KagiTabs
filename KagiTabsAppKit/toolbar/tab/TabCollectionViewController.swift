@@ -282,13 +282,9 @@ class TabCollectionViewController: NSViewController {
           // present the added tabs
           tabViewControllersToAdd.forEach {
             self.addChild($0)
-            $0.view.alphaValue = 0
             self.tabsStackView
               .animator()
               .addArrangedSubview($0.view)
-            $0.view
-              .animator()
-              .alphaValue = 1
           }
           
           // update tab sizes
