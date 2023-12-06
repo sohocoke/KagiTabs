@@ -45,6 +45,7 @@
 		51DF122D2B15670200E431A7 /* FlexibleToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DF122C2B15670200E431A7 /* FlexibleToolbarItem.swift */; };
 		51DF122E2B1594D400E431A7 /* TestScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4E02B10930800BB669C /* TestScrollViewController.xib */; };
 		51E11CE82B1707C70031078C /* BrowserContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E11CE72B1707C70031078C /* BrowserContentViewController.swift */; };
+		51E1EAE02B20231C003752EB /* transformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1EADF2B20231C003752EB /* transformers.swift */; };
 		51E4EF572B140F6200FAD2F2 /* TestScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4DF2B10930800BB669C /* TestScrollViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		51DEEEBB2B0FA4DF00BEF0FE /* TabCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabCollectionViewController.xib; sourceTree = "<group>"; };
 		51DF122C2B15670200E431A7 /* FlexibleToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleToolbarItem.swift; sourceTree = "<group>"; };
 		51E11CE72B1707C70031078C /* BrowserContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserContentViewController.swift; sourceTree = "<group>"; };
+		51E1EADF2B20231C003752EB /* transformers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = transformers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				5157E4CD2B0FC7FC00BB669C /* view-model.swift */,
+				51E1EADF2B20231C003752EB /* transformers.swift */,
 				510EF6A02B0A339900178579 /* AppDelegate.swift */,
 				51B24AF02B195E63000A2BDA /* window */,
 				51B24AE92B195D4A000A2BDA /* toolbar */,
@@ -338,6 +341,7 @@
 				51DB99C22B0D6E3C001340C2 /* BrowserWindowController.swift in Sources */,
 				519C89B62B14135900A6F3EF /* view-tiling.swift in Sources */,
 				51B24AF62B198A6C000A2BDA /* view-animation.swift in Sources */,
+				51E1EAE02B20231C003752EB /* transformers.swift in Sources */,
 				51E11CE82B1707C70031078C /* BrowserContentViewController.swift in Sources */,
 				510EF6A12B0A339900178579 /* AppDelegate.swift in Sources */,
 				51DEEEBC2B0FA4DF00BEF0FE /* TabCollectionViewController.swift in Sources */,
