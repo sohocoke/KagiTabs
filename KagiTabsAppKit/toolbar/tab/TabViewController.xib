@@ -61,11 +61,7 @@
                     </buttonCell>
                     <connections>
                         <action selector="activateTab:" target="-1" id="9yb-fj-wfe"/>
-                        <binding destination="-2" name="image" keyPath="tab.faviconImageData" id="5G8-NU-RPO">
-                            <dictionary key="options">
-                                <string key="NSValueTransformerName">DataToNSImageTransformer</string>
-                            </dictionary>
-                        </binding>
+                        <binding destination="-2" name="image" keyPath="faviconImage" id="NVS-lt-ayl"/>
                     </connections>
                 </button>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="ydW-aG-xCU" userLabel="Close Button">
