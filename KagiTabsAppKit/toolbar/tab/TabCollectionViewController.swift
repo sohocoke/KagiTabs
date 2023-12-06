@@ -317,7 +317,28 @@ class TabCollectionViewController: NSViewController {
           }
         },
       
-
+      // update separators when tabset or active tab changes.
+      self.publisher(for: \.viewModel?.tabs)
+        .combineLatest(self.publisher(for: \.viewModel?.activeTabId).prepend(nil))
+        .receive(on: DispatchQueue.main)
+        .sink { [weak self] tabs, activeTabId in
+        
+          // update separators
+          guard let tabViewControllers = self?.tabViewControllers
+          else { return }
+          
+          if let activeVc = tabViewControllers.first(where: { $0.isActive }) {
+            let vcsForNoSeparators = [
+              tabViewControllers.previous(ofItem: activeVc),
+              activeVc,
+              tabViewControllers.last
+            ].compactMap { $0 }
+            
+            tabViewControllers.forEach {
+              $0.separator.isHidden = vcsForNoSeparators.contains($0)
+            }
+          }
+        }
     ]
   }
   
@@ -397,3 +418,13 @@ func constraint(view: NSView, id: String, priority: NSLayoutConstraint.Priority?
   return constraint
 }
 
+
+extension Array where Element: Equatable {
+  func previous(ofItem item: Element) -> Element? {
+    guard let i = firstIndex(of: item) else { return nil }
+    guard i > 0 && self.count > 1 else {
+      return nil
+    }
+    return self[i-1]
+  }
+}

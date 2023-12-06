@@ -42,6 +42,7 @@ class TabViewController: NSViewController {
     self.view as! TabView
   }
   
+  @IBOutlet weak var separator: NSBox!
   
   var subscriptions: Any?
   

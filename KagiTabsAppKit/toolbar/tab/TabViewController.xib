@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TabViewController" customModule="KagiTabsAppKit" customModuleProvider="target">
             <connections>
+                <outlet property="separator" destination="zOw-vW-khB" id="Jcs-Vs-Yim"/>
                 <outlet property="view" destination="QN1-Nq-FRA" id="wda-Hn-L7Q"/>
             </connections>
         </customObject>
@@ -15,7 +16,7 @@
         <customView autoresizesSubviews="NO" horizontalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="QN1-Nq-FRA" customClass="TabView" customModule="KagiTabsAppKit" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="163" height="20"/>
             <userGuides>
-                <userLayoutGuide location="50" affinity="minX"/>
+                <userLayoutGuide location="51" affinity="minX"/>
             </userGuides>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qAT-zA-QVu">
@@ -39,8 +40,11 @@
                         <binding destination="-2" name="value" keyPath="tab.label" id="h5R-3G-N5C"/>
                     </connections>
                 </textField>
+                <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="zOw-vW-khB">
+                    <rect key="frame" x="160" y="0.0" width="5" height="20"/>
+                </box>
                 <button horizontalHuggingPriority="248" verticalHuggingPriority="750" horizontalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="c51-qN-F0V" userLabel="Tab Button">
-                    <rect key="frame" x="-1" y="-2" width="165" height="23"/>
+                    <rect key="frame" x="-1" y="-2" width="164" height="23"/>
                     <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="m4A-h3-N9y">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -77,10 +81,12 @@
             </subviews>
             <constraints>
                 <constraint firstItem="qAT-zA-QVu" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" priority="750" constant="5" id="3CC-Gt-A1i"/>
+                <constraint firstItem="zOw-vW-khB" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="3qm-uX-Jt3"/>
                 <constraint firstItem="c51-qN-F0V" firstAttribute="top" secondItem="QN1-Nq-FRA" secondAttribute="top" id="462-rN-IDa"/>
                 <constraint firstItem="gA1-mY-slP" firstAttribute="height" relation="greaterThanOrEqual" secondItem="QN1-Nq-FRA" secondAttribute="height" id="56M-I5-p8f"/>
                 <constraint firstItem="gA1-mY-slP" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="705-th-TXZ"/>
                 <constraint firstAttribute="trailing" secondItem="gA1-mY-slP" secondAttribute="trailing" id="D2D-Wc-TD7"/>
+                <constraint firstAttribute="trailing" secondItem="zOw-vW-khB" secondAttribute="trailing" id="FLM-7H-eay"/>
                 <constraint firstAttribute="trailing" secondItem="WyV-8s-Kle" secondAttribute="trailing" constant="5" id="RWo-Kj-kO9"/>
                 <constraint firstItem="WyV-8s-Kle" firstAttribute="leading" secondItem="qAT-zA-QVu" secondAttribute="trailing" constant="8" symbolic="YES" id="Vh7-J6-wds"/>
                 <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="gA1-mY-slP" secondAttribute="width" id="WdN-gD-XRn"/>
@@ -88,10 +94,11 @@
                 <constraint firstItem="c51-qN-F0V" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" id="XyH-sZ-BaV"/>
                 <constraint firstItem="gA1-mY-slP" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" id="ers-6Y-5eA"/>
                 <constraint firstItem="ydW-aG-xCU" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" constant="6" id="hlr-u3-SEl"/>
-                <constraint firstAttribute="trailing" secondItem="c51-qN-F0V" secondAttribute="trailing" id="kYB-NR-9ic"/>
+                <constraint firstItem="zOw-vW-khB" firstAttribute="height" secondItem="QN1-Nq-FRA" secondAttribute="height" id="hvZ-fT-uSE"/>
                 <constraint firstItem="WyV-8s-Kle" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="kaf-Ho-IPj"/>
                 <constraint firstAttribute="bottom" secondItem="c51-qN-F0V" secondAttribute="bottom" id="ny1-Ch-3Em"/>
                 <constraint firstItem="qAT-zA-QVu" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="tQQ-gg-LqW"/>
+                <constraint firstItem="zOw-vW-khB" firstAttribute="leading" secondItem="c51-qN-F0V" secondAttribute="trailing" id="tau-tc-i1K"/>
             </constraints>
             <connections>
                 <outlet property="closeButton" destination="ydW-aG-xCU" id="b9n-gP-2CZ"/>
