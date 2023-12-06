@@ -163,6 +163,11 @@ class TabCollectionViewController: NSViewController {
       ) {
         view.widthAnchor.constraint(greaterThanOrEqualToConstant: inactiveTabMaxWidth)
       }
+      
+      // limit max width for inactive tabs.
+      let inactiveMaxWidthC = constraint(view: view, id: "inactiveMaxWidthC") {
+        view.widthAnchor.constraint(lessThanOrEqualToConstant: inactiveTabMaxWidth)
+      }
         
       // on .needSquish, cap inactive tab widths to computed.
       let inactiveWidthC = constraint(view: view, id: "inactiveWidth", priority: .defaultHigh) {
@@ -183,6 +188,7 @@ class TabCollectionViewController: NSViewController {
       case (_, .noSquish):
         NSLayoutConstraint.activate([
           inactiveMinWidthC,
+          inactiveMaxWidthC,
         ])
       case (_, .needSquish):
         NSLayoutConstraint.activate([
