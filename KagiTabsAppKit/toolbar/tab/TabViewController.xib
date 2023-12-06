@@ -16,15 +16,14 @@
             <rect key="frame" x="0.0" y="0.0" width="163" height="20"/>
             <subviews>
                 <button horizontalHuggingPriority="248" verticalHuggingPriority="750" horizontalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="c51-qN-F0V" userLabel="Tab Button">
-                    <rect key="frame" x="-1" y="-2" width="165" height="23"/>
-                    <buttonCell key="cell" type="roundTextured" title="Textured " bezelStyle="texturedRounded" imagePosition="leading" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="m4A-h3-N9y">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                    <rect key="frame" x="0.0" y="2" width="163" height="16"/>
+                    <buttonCell key="cell" type="roundTextured" title="Textured " bezelStyle="texturedRounded" imagePosition="leading" alignment="center" lineBreakMode="truncatingTail" imageScaling="proportionallyDown" inset="2" id="m4A-h3-N9y">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
                         <action selector="activateTab:" target="-1" id="zJT-s6-vyG"/>
                         <binding destination="-2" name="image" keyPath="faviconImage" id="TNc-ie-qsd"/>
-                        <binding destination="-2" name="value" keyPath="self.isActive" id="KZG-Rm-Of1"/>
                         <binding destination="-2" name="title" keyPath="tab.label" previousBinding="TNc-ie-qsd" id="itF-Q6-zw5">
                             <dictionary key="options">
                                 <string key="NSValueTransformerName">NilOrEmptyTabLabelTransformer</string>
@@ -33,7 +32,7 @@
                     </connections>
                 </button>
                 <button hidden="YES" horizontalHuggingPriority="248" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="gA1-mY-slP" userLabel="Tab Button Minimal">
-                    <rect key="frame" x="69" y="-2" width="26" height="23"/>
+                    <rect key="frame" x="-1" y="-2" width="165" height="23"/>
                     <buttonCell key="cell" type="roundTextured" title="Textured " bezelStyle="texturedRounded" image="doc" catalog="system" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AKU-HV-lfK">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -61,13 +60,14 @@
             <constraints>
                 <constraint firstItem="gA1-mY-slP" firstAttribute="height" relation="greaterThanOrEqual" secondItem="QN1-Nq-FRA" secondAttribute="height" id="56M-I5-p8f"/>
                 <constraint firstItem="gA1-mY-slP" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="705-th-TXZ"/>
+                <constraint firstAttribute="trailing" secondItem="gA1-mY-slP" secondAttribute="trailing" id="D2D-Wc-TD7"/>
                 <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="gA1-mY-slP" secondAttribute="width" id="WdN-gD-XRn"/>
                 <constraint firstItem="ydW-aG-xCU" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="Www-2N-gq1"/>
                 <constraint firstItem="c51-qN-F0V" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" id="XyH-sZ-BaV"/>
+                <constraint firstItem="gA1-mY-slP" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" id="ers-6Y-5eA"/>
                 <constraint firstItem="ydW-aG-xCU" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" constant="6" id="hlr-u3-SEl"/>
                 <constraint firstAttribute="trailing" secondItem="c51-qN-F0V" secondAttribute="trailing" id="kYB-NR-9ic"/>
                 <constraint firstItem="c51-qN-F0V" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="mRy-GO-dH8"/>
-                <constraint firstItem="gA1-mY-slP" firstAttribute="centerX" secondItem="QN1-Nq-FRA" secondAttribute="centerX" id="zJw-k0-TzH"/>
             </constraints>
             <connections>
                 <outlet property="closeButton" destination="ydW-aG-xCU" id="b9n-gP-2CZ"/>
