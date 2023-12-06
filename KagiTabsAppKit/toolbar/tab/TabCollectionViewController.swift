@@ -284,9 +284,15 @@ class TabCollectionViewController: NSViewController {
           // present the added tabs
           tabViewControllersToAdd.forEach {
             self.addChild($0)
+
+            // adjusting alpha in the tab vc's didAppear or willAppear results in bad frame animation origin.
+            // so prep it here.
+            $0.view.alphaValue = 0
+            
             self.tabsStackView
               .animator()
               .addArrangedSubview($0.view)
+            $0.view.animator().alphaValue = 1
           }
           
           // update tab sizes

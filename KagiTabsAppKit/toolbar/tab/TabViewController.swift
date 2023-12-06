@@ -60,13 +60,10 @@ class TabViewController: NSViewController {
       viewSubscriptions
   }
   
-  override func viewWillAppear() {
-    super.viewWillAppear()
+  override func viewDidAppear() {
+    super.viewDidAppear()
 
-    self.view.alphaValue = 0
-    
     self.view.scaleFromCentre()
-    self.view.animator().alphaValue = 1
     
     // disabling the button's border also  disables hover highlight.
     // work around by configuring button to show border when mouse inside.
