@@ -6,6 +6,7 @@ import Combine
 // use some constants for width to simplify the logic,
 // can elaborate later.
 let activeTabMinWidth: CGFloat = 140
+let activeTabMaxWidth: CGFloat = 300
 let inactiveTabMaxWidth: CGFloat  = 120
 
 
@@ -94,10 +95,13 @@ class TabCollectionViewController: NSViewController {
     
     let availableWidth = view.frame.width
     
-    let activeItemWidth = max(
-      activeView.idealSize.width,
-      activeTabMinWidth,  // avoid tiny active tabs.
-      inactiveTabMaxWidth  // at least as big as the inactive tabs.
+    let activeItemWidth = min(
+      max(
+        activeView.idealSize.width,
+        activeTabMinWidth,  // avoid tiny active tabs.
+        inactiveTabMaxWidth  // at least as big as the inactive tabs.
+      ),
+      activeTabMaxWidth  // cap it at maxWidth
     )
     
     let availableInactiveWidth = max(
