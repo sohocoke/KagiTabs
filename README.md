@@ -2,6 +2,11 @@
 
 ## Notes
 
+- Targets:
+  - The app target is set to run on macOS 11 or later. 
+  - For quicker iteration on view components, the preview target leverages the Xcode Preview feature 
+    available on macOS 14.
+
 - The main focus of this work is the implementation of the toolbar, particularly the tabs as 
   the tab set moves from 1 to many items.
   - Several attempts were prototyped:
