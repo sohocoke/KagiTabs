@@ -108,10 +108,4 @@ class BrowserToolbarViewController: NSViewController {
         .assign(to: \.isTabsVisible, on: self)
     ]
   }
-  
-
-  // temp-outlet
-  var tabsContainerView: NSView? {
-    self.tabCollectionViewController?.view.superview
-  }
 }
