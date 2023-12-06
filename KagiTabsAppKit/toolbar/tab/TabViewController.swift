@@ -1,6 +1,8 @@
 import Cocoa
 
 let minimalWidthThreshold: CGFloat = 50
+let defaultFaviconImage = NSImage(systemSymbolName: "doc", accessibilityDescription: "Tab")!
+
 
 /// rendering variations:
 /// - full: when tab is active: no truncation
@@ -108,8 +110,8 @@ class TabViewController: NSViewController {
       
   @objc dynamic
   var faviconImage: NSImage? {
-    guard let image = tab.faviconImageData.flatMap ({ NSImage(data: $0) })
-    else { return nil }
+    let image = tab.faviconImageData.flatMap ({ NSImage(data: $0) })
+      ?? defaultFaviconImage
 
     if isHoveredOnCloseButton {
       let blankImage = NSImage(size: image.size, flipped: false) { rect in
@@ -189,7 +191,7 @@ class DataToNSImageTransformer: ValueTransformer {
 
   override func transformedValue(_ value: Any?) -> Any? {
     guard let data = value as? Data else {
-      return NSImage(systemSymbolName: "doc", accessibilityDescription: "Empty Document")
+      return defaultFaviconImage
     }
     
     return NSImage(data: data)
