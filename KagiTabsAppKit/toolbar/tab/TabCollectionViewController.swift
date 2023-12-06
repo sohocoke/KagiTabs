@@ -40,18 +40,7 @@ class TabCollectionViewController: NSViewController {
   @IBOutlet weak var scrollDocumentView: NSView!
   
   var subscriptions: Any?
-  
-  
-  // MARK: initialisers
-
-  required init?(coder: NSCoder) {
-    super.init(nibName: nil, bundle: nil)
-  }
-  
-  init() {
-    super.init(nibName: nil, bundle: nil)
-  }
-  
+    
   
   // MARK: view lifecycle
   
