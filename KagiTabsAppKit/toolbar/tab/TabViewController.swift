@@ -87,12 +87,14 @@ class TabViewController: NSViewController {
           }
         },
       
-      // update background view visibility when active status changes.
+      // update background view and button visibility when active status changes.
       self.publisher(for: \.isActive, options: [.initial, .new])
         .sink { [weak self] isActive in
           guard let backgroundView = self?.view.subviews.first(where: { $0 is BackgroundRoundRectView })
           else { return }
           backgroundView.isHidden = !isActive
+          
+          self?.tabView.tabButton.isHidden = isActive
         },
     ]
   }

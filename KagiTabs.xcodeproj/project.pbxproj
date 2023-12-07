@@ -47,7 +47,7 @@
 		51DF122E2B1594D400E431A7 /* TestScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4E02B10930800BB669C /* TestScrollViewController.xib */; };
 		51E11CE82B1707C70031078C /* BrowserContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E11CE72B1707C70031078C /* BrowserContentViewController.swift */; };
 		51E1EAE02B20231C003752EB /* Transformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1EADF2B20231C003752EB /* Transformers.swift */; };
-		51E1EAE22B202478003752EB /* TestButtonStylingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1EAE12B202478003752EB /* TestButtonStylingViewController.swift */; };
+		51E1EAE22B202478003752EB /* TestRectangleStylingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1EAE12B202478003752EB /* TestRectangleStylingViewController.swift */; };
 		51E4EF572B140F6200FAD2F2 /* TestScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4DF2B10930800BB669C /* TestScrollViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,7 +90,7 @@
 		51DF122C2B15670200E431A7 /* FlexibleToolbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleToolbarItem.swift; sourceTree = "<group>"; };
 		51E11CE72B1707C70031078C /* BrowserContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserContentViewController.swift; sourceTree = "<group>"; };
 		51E1EADF2B20231C003752EB /* Transformers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformers.swift; sourceTree = "<group>"; };
-		51E1EAE12B202478003752EB /* TestButtonStylingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestButtonStylingViewController.swift; sourceTree = "<group>"; };
+		51E1EAE12B202478003752EB /* TestRectangleStylingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRectangleStylingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,7 +217,7 @@
 				5157E4DF2B10930800BB669C /* TestScrollViewController.swift */,
 				5113C5472B16BC3800B2CBF2 /* TestStackViewAnimationViewController.swift */,
 				51B24AF32B197BDB000A2BDA /* TestViewAppearAnimationViewController.swift */,
-				51E1EAE12B202478003752EB /* TestButtonStylingViewController.swift */,
+				51E1EAE12B202478003752EB /* TestRectangleStylingViewController.swift */,
 				515247E52B12CC90000DEA4F /* Main.storyboard */,
 				5113C5482B16BC3800B2CBF2 /* TestStackViewAnimationViewController.xib */,
 				5157E4E02B10930800BB669C /* TestScrollViewController.xib */,
@@ -367,7 +367,7 @@
 				5113C5492B16BC3800B2CBF2 /* TestStackViewAnimationViewController.swift in Sources */,
 				51E4EF572B140F6200FAD2F2 /* TestScrollViewController.swift in Sources */,
 				515247E22B12CBB7000DEA4F /* BrowserToolbarViewController.swift in Sources */,
-				51E1EAE22B202478003752EB /* TestButtonStylingViewController.swift in Sources */,
+				51E1EAE22B202478003752EB /* TestRectangleStylingViewController.swift in Sources */,
 				515247E32B12CBBE000DEA4F /* TabCollectionViewController.swift in Sources */,
 				51DF122D2B15670200E431A7 /* FlexibleToolbarItem.swift in Sources */,
 				51B24AF72B198A72000A2BDA /* ViewAnimation.swift in Sources */,

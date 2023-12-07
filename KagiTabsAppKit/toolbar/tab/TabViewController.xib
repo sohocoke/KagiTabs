@@ -14,13 +14,13 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView autoresizesSubviews="NO" horizontalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="QN1-Nq-FRA" customClass="TabView" customModule="KagiTabsAppKit" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="163" height="20"/>
+            <rect key="frame" x="0.0" y="0.0" width="163" height="28"/>
             <userGuides>
                 <userLayoutGuide location="51" affinity="minX"/>
             </userGuides>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qAT-zA-QVu">
-                    <rect key="frame" x="5" y="-6" width="16" height="32"/>
+                    <rect key="frame" x="5" y="-2" width="16" height="32"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="16" id="Zjg-zC-f2Y"/>
                     </constraints>
@@ -30,7 +30,7 @@
                     </connections>
                 </imageView>
                 <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="WyV-8s-Kle">
-                    <rect key="frame" x="27" y="2" width="133" height="16"/>
+                    <rect key="frame" x="27" y="6" width="133" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" usesSingleLineMode="YES" id="4Ip-ft-Odo">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -40,12 +40,12 @@
                         <binding destination="-2" name="value" keyPath="tab.label" id="h5R-3G-N5C"/>
                     </connections>
                 </textField>
-                <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="zOw-vW-khB">
-                    <rect key="frame" x="160" y="0.0" width="5" height="20"/>
+                <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="zOw-vW-khB" userLabel="Separator">
+                    <rect key="frame" x="160" y="0.0" width="5" height="28"/>
                 </box>
-                <button horizontalHuggingPriority="248" verticalHuggingPriority="750" horizontalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="c51-qN-F0V" userLabel="Tab Button">
-                    <rect key="frame" x="-1" y="-2" width="164" height="23"/>
-                    <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="m4A-h3-N9y">
+                <button horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="c51-qN-F0V" userLabel="Tab Button">
+                    <rect key="frame" x="-1" y="-2" width="164" height="31"/>
+                    <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" alignment="center" controlSize="large" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="m4A-h3-N9y">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -53,8 +53,8 @@
                         <action selector="activateTab:" target="-1" id="zJT-s6-vyG"/>
                     </connections>
                 </button>
-                <button hidden="YES" horizontalHuggingPriority="248" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="gA1-mY-slP" userLabel="Tab Button Minimal">
-                    <rect key="frame" x="-1" y="-2" width="165" height="23"/>
+                <button hidden="YES" horizontalHuggingPriority="248" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="gA1-mY-slP" userLabel="Tab Button Minimal">
+                    <rect key="frame" x="-1" y="-2" width="165" height="31"/>
                     <buttonCell key="cell" type="roundTextured" title="Textured " bezelStyle="texturedRounded" image="doc" catalog="system" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AKU-HV-lfK">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -65,7 +65,7 @@
                     </connections>
                 </button>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="ydW-aG-xCU" userLabel="Close Button">
-                    <rect key="frame" x="6" y="3.5" width="15" height="14"/>
+                    <rect key="frame" x="6" y="7.5" width="15" height="14"/>
                     <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="xmark.square.fill" catalog="system" imagePosition="only" alignment="center" refusesFirstResponder="YES" imageScaling="proportionallyUpOrDown" inset="2" id="0xc-do-ZzF">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -85,6 +85,7 @@
                 <constraint firstAttribute="trailing" secondItem="zOw-vW-khB" secondAttribute="trailing" id="FLM-7H-eay"/>
                 <constraint firstAttribute="trailing" secondItem="WyV-8s-Kle" secondAttribute="trailing" constant="5" id="RWo-Kj-kO9"/>
                 <constraint firstItem="WyV-8s-Kle" firstAttribute="leading" secondItem="qAT-zA-QVu" secondAttribute="trailing" constant="8" symbolic="YES" id="Vh7-J6-wds"/>
+                <constraint firstAttribute="height" constant="28" id="WZU-Ob-bai"/>
                 <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="gA1-mY-slP" secondAttribute="width" id="WdN-gD-XRn"/>
                 <constraint firstItem="ydW-aG-xCU" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="Www-2N-gq1"/>
                 <constraint firstItem="c51-qN-F0V" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" id="XyH-sZ-BaV"/>

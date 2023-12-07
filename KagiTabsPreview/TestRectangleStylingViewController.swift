@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class TestButtonStylingViewController: NSViewController {
+class TestRectangleStylingViewController: NSViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -42,5 +42,5 @@ class TestButtonStylingViewController: NSViewController {
 }
 
 #Preview {
-  TestButtonStylingViewController()
+  TestRectangleStylingViewController()
 }
