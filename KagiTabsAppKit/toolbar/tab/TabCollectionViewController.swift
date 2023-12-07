@@ -369,26 +369,6 @@ class TabCollectionViewController: NSViewController {
 }
 
 
-#Preview {
-  let viewController =  TabCollectionViewController()
-  viewController.viewModel = ToolbarViewModel.stub
-  viewController.viewModel?.tabs.append(contentsOf: [
-    Tab(label: "test \(Date())"),
-    Tab(label: "test \(Date())"),
-    Tab(label: "test \(Date())"),
-    Tab(label: "test \(Date())"),
-    Tab(label: "test \(Date())"),
-    Tab(label: "test \(Date())"),
-    Tab(label: "test \(Date())"),
-    Tab(label: "test \(Date())"),
-    Tab(label: "test \(Date())"),
-    Tab(label: "test \(Date())"),
-    Tab(label: "test \(Date())"),
-    Tab(label: "test \(Date())"),
-  ])
-  return viewController
-}
-
 
 func constraint(view: NSView, id: String, priority: NSLayoutConstraint.Priority? = nil,`init`: () -> NSLayoutConstraint) -> NSLayoutConstraint {
   // IT1 naiive impl: remove constraints with same id and re-create.

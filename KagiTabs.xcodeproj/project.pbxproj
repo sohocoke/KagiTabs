@@ -14,6 +14,7 @@
 		5113C5492B16BC3800B2CBF2 /* TestStackViewAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5113C5472B16BC3800B2CBF2 /* TestStackViewAnimationViewController.swift */; };
 		5113C54A2B16BC3800B2CBF2 /* TestStackViewAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5113C5482B16BC3800B2CBF2 /* TestStackViewAnimationViewController.xib */; };
 		51244E1D2B20411100E6B842 /* Transformers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E1EADF2B20231C003752EB /* Transformers.swift */; };
+		51244E222B216E1200E6B842 /* Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51244E212B216E1200E6B842 /* Previews.swift */; };
 		515247DF2B12BEC3000DEA4F /* BrowserToolbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515247DE2B12BEC3000DEA4F /* BrowserToolbarViewController.swift */; };
 		515247E02B12CB92000DEA4F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157E4CD2B0FC7FC00BB669C /* ViewModel.swift */; };
 		515247E12B12CBA9000DEA4F /* BrowserContent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5157E4E62B12B7B100BB669C /* BrowserContent.storyboard */; };
@@ -60,6 +61,7 @@
 		510EF6A92B0A339A00178579 /* KagiTabsAppKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KagiTabsAppKit.entitlements; sourceTree = "<group>"; };
 		5113C5472B16BC3800B2CBF2 /* TestStackViewAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStackViewAnimationViewController.swift; sourceTree = "<group>"; };
 		5113C5482B16BC3800B2CBF2 /* TestStackViewAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestStackViewAnimationViewController.xib; sourceTree = "<group>"; };
+		51244E212B216E1200E6B842 /* Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Previews.swift; sourceTree = "<group>"; };
 		515247DE2B12BEC3000DEA4F /* BrowserToolbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserToolbarViewController.swift; sourceTree = "<group>"; };
 		515247E52B12CC90000DEA4F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5157E4CD2B0FC7FC00BB669C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				51DB99CF2B0DD372001340C2 /* AppDelegate.swift */,
+				51244E212B216E1200E6B842 /* Previews.swift */,
 				51DB99D12B0DD372001340C2 /* ViewController.swift */,
 				510A5EDE2B1306E200824E5A /* TestDynamicConstraintsViewController.swift */,
 				51DF122C2B15670200E431A7 /* FlexibleToolbarItem.swift */,
@@ -359,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				515247E02B12CB92000DEA4F /* ViewModel.swift in Sources */,
+				51244E222B216E1200E6B842 /* Previews.swift in Sources */,
 				51B24AF42B197BDB000A2BDA /* TestViewAppearAnimationViewController.swift in Sources */,
 				51DB99DD2B0DD611001340C2 /* TabViewController.swift in Sources */,
 				519C89B72B14137000A6F3EF /* ViewTiling.swift in Sources */,

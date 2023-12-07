@@ -225,15 +225,6 @@ class TabView: NSView {
 }
 
 
-#Preview {
-  _ = valueTransformers
-  let viewController = TabViewController(nibName: nil, bundle: nil)
-  viewController.tab = Tab(label: "test")
-  return viewController
-}
-
-
-
 extension NSView {
   /// adds a subview which renders a round rect and a shadow,
   /// which adapts to the view's size.
