@@ -8,8 +8,8 @@ let faviconImageSize = CGSize(width: 16, height: 16)
 
 let activeTabBackgroundColour = NSColor.white.cgColor
 let activeTabCornerRadius = 5.0
-let activeTabShadowBlurRadius = 5.0
-let activeTabShadowOffset = CGSize(width: 0, height: -2)
+let activeTabShadowBlurRadius = 3.0
+let activeTabShadowOffset = CGSize(width: 0, height: -1)
 
 
 /// rendering variations:
