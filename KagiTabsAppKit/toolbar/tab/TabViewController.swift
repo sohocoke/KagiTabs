@@ -11,6 +11,9 @@ let activeTabCornerRadius = 5.0
 let activeTabShadowBlurRadius = 3.0
 let activeTabShadowOffset = CGSize(width: 0, height: -1)
 
+/// button hover shade rendering can be slightly off the rect for a reason not yet known -- use an offset for now.
+let backgroundRectViewTrailingOffset = -1.0
+
 
 /// rendering variations:
 /// - full: when tab is active: no truncation
@@ -37,12 +40,19 @@ class TabViewController: NSViewController {
   @objc dynamic
   var isActive: Bool = false
   
+  var isSeparatorEnabled = true {
+    didSet {
+      separator.isHidden = !isSeparatorEnabled
+    }
+  }
   
   var tabView: TabView {
     self.view as! TabView
   }
   
+  
   @IBOutlet weak var separator: NSBox!
+  
   
   var subscriptions: Any?
   
@@ -54,7 +64,12 @@ class TabViewController: NSViewController {
         
     trackCloseButtonHover()
 
-    self.view.setupBackgroundLayerAndShadow()
+    let bv = BackgroundRoundRectView(frame: .zero)
+    self.view.addSubview(bv, positioned: .below, relativeTo: nil)
+    bv.topAnchor.constraint(equalTo: tabView.tabButton.topAnchor).isActive = true
+    bv.bottomAnchor.constraint(equalTo: tabView.tabButton.bottomAnchor).isActive = true
+    bv.leadingAnchor.constraint(equalTo: tabView.tabButton.leadingAnchor).isActive = true
+    bv.trailingAnchor.constraint(equalTo: tabView.tabButton.trailingAnchor, constant: backgroundRectViewTrailingOffset).isActive = true
 
     self.subscriptions =
       viewSubscriptions
@@ -94,7 +109,6 @@ class TabViewController: NSViewController {
           else { return }
           backgroundView.isHidden = !isActive
           
-          self?.tabView.tabButton.isHidden = isActive
         },
     ]
   }
@@ -241,19 +255,18 @@ class BackgroundRoundRectView: NSView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    let view = self
-    view.translatesAutoresizingMaskIntoConstraints = false
+    self.translatesAutoresizingMaskIntoConstraints = false
     
     let rectLayer = rectLayer()
     rectLayer.position = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
-    view.layer = rectLayer
+    self.layer = rectLayer
     
     // setting up the shadow on the topmost layer does not work;
     // set it up on the view instead.
     let shadow = NSShadow()
     shadow.shadowBlurRadius = activeTabShadowBlurRadius
     shadow.shadowOffset = activeTabShadowOffset
-    view.shadow = shadow
+    self.shadow = shadow
   }
   
   required init?(coder: NSCoder) {

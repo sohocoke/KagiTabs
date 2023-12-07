@@ -344,7 +344,7 @@ class TabCollectionViewController: NSViewController {
             ].compactMap { $0 }
             
             tabViewControllers.forEach {
-              $0.separator.isHidden = vcsForNoSeparators.contains($0)
+              $0.isSeparatorEnabled = !vcsForNoSeparators.contains($0)
             }
           }
         }
