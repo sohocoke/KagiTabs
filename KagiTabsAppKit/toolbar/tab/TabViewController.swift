@@ -218,10 +218,6 @@ class TabView: NSView {
     return CGSize(width: width, height: height)
   }
   
-  var minSize: CGSize {
-    tabButtonMinimal.intrinsicContentSize
-  }
-  
 }
 
 

@@ -5,11 +5,11 @@ import Combine
 
 // use some constants for width to simplify the logic,
 // can elaborate later.
-let activeTabMinWidth: CGFloat = 140
 let activeTabMaxWidth: CGFloat = 300
-let inactiveTabMinWidth: CGFloat = 100
+let activeTabMinWidth: CGFloat = 140
 let inactiveTabMaxWidth: CGFloat = 120
-
+let inactiveTabNormalMinWidth: CGFloat = 100
+let inactiveTabSquishedMinWidth: CGFloat = 30
 
 /// wow. we went deeeep into the autolayout cave.
 ///
@@ -35,6 +35,19 @@ class TabCollectionViewController: NSViewController {
     }
   }
   
+  var isScrollable: Bool = false {
+    didSet {
+      // when not scrollable, pin the stackview to frame so it doesn't expand the scrollable content.
+      let shouldPinStackViewWidthToFrame = !isScrollable
+      
+      constraint(view: view, id: "tabsStackWidthPinnedToFrame") {
+        tabsStackView.widthAnchor.constraint(equalTo: self.view.widthAnchor)
+      }
+      .isActive = shouldPinStackViewWidthToFrame
+    }
+  }
+  
+
   @IBOutlet weak var tabsStackView: NSStackView!
   @IBOutlet @objc dynamic weak var tabsScrollView: NSScrollView!
   @IBOutlet weak var scrollDocumentView: NSView!
@@ -96,24 +109,23 @@ class TabCollectionViewController: NSViewController {
       availableWidth - activeItemWidth,
       0  // disallow negative width.
     )
-    let inactiveTabSquishLowLimit = inactiveViews[0].minSize.width  // max-squish limit.
     
     // absolute minimum width of the scrollable content.
-    let totalMinWidth = inactiveTabSquishLowLimit * CGFloat(inactiveViews.count) + activeItemWidth
+    let totalMinWidth = inactiveTabSquishedMinWidth * CGFloat(inactiveViews.count) + activeItemWidth
     
     // inactive tabs are of equal widths and capped.
     // to use in need-squish.
     // disallow fractional values
     var inactiveTabComputedWidth =  CGFloat( Int(availableInactiveWidth) / inactiveViews.count )
     
-    inactiveTabComputedWidth = max(inactiveTabComputedWidth, inactiveTabSquishLowLimit)  // floor it at inactiveTabSquishLowLimit
+    inactiveTabComputedWidth = max(inactiveTabComputedWidth, inactiveTabSquishedMinWidth)  // floor it at inactiveTabSquishLowLimit
     
     // sometimes we have plenty of space, letting us avoid capping any widths.
     let totalIdealWidth = activeItemWidth + inactiveViews.reduce(.zero) { acc, e in
       let widthWanted = min(
         max(
           e.idealSize.width,
-          inactiveTabMinWidth  // avoid tiny inactive tabs
+          inactiveTabNormalMinWidth  // avoid tiny inactive tabs
         ),
         inactiveTabMaxWidth  // cap at max width
       )
@@ -157,7 +169,7 @@ class TabCollectionViewController: NSViewController {
         // allow compression unless in .noSquish
         priority: layoutCase == .noSquish ? .required : .defaultLow - 1
       ) {
-        view.widthAnchor.constraint(greaterThanOrEqualToConstant: inactiveTabMinWidth)
+        view.widthAnchor.constraint(greaterThanOrEqualToConstant: inactiveTabNormalMinWidth)
       }
       
       // limit max width for inactive tabs.
@@ -173,7 +185,7 @@ class TabCollectionViewController: NSViewController {
       // on .needScroll, constrain inactive tab width to minimal width,
       // since scrolling requires minimal inactive tabs.
       let maxSquishWidthC = constraint(view: view, id: "maxSquishWidth") {
-        view.widthAnchor.constraint(equalToConstant: inactiveTabSquishLowLimit)
+        view.widthAnchor.constraint(equalToConstant: inactiveTabSquishedMinWidth)
       }
       
       switch (isActive, layoutCase) {
@@ -197,7 +209,21 @@ class TabCollectionViewController: NSViewController {
         ])
       }
     }
+          
+    // update scrollability based on the layout case.
+    switch layoutCase {
+    case .noSquish:
+      // turn on the no-op scroll.
+      self.isScrollable = true
       
+    case .needSquish:
+      self.isScrollable = false
+      
+    case .needScroll:
+      self.isScrollable = true
+      
+    }
+
     if animate {
       NSAnimationContext.runAnimationGroup { context in
         context.allowsImplicitAnimation = true

@@ -26,7 +26,7 @@
                             <customView horizontalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="9fl-a5-lhn" userLabel="Content View">
                                 <rect key="frame" x="192" y="0.0" width="32" height="171"/>
                                 <subviews>
-                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="248" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="69N-2I-2zX">
+                                    <stackView distribution="equalSpacing" orientation="horizontal" alignment="centerY" spacing="0.0" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="248" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="69N-2I-2zX">
                                         <rect key="frame" x="0.0" y="1" width="32" height="169"/>
                                         <subviews>
                                             <button hidden="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="TJs-us-5UR">
