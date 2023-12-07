@@ -105,7 +105,9 @@ class BrowserToolbarViewController: NSViewController {
           let shouldShowTabs = (tabs?.count ?? 0) > 1
           return shouldShowTabs
         }
-        .assign(to: \.isTabsVisible, on: self)
+        .sink { [weak self] shouldShowTabs in
+          self?.isTabsVisible = shouldShowTabs
+        }
     ]
   }
 }
