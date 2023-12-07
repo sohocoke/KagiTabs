@@ -44,34 +44,3 @@ func animateScale(view: NSView, from: CGFloat, to: CGFloat, duration: Double) {
   view.layer?.add(animation, forKey: "scale")
     view.layer?.transform = CATransform3DMakeScale(to, to, 1)
 }
-
-
-extension NSView
-{
-    //
-    // Converted to Swift + NSView from:
-    // http://stackoverflow.com/a/10700737
-    //
-    func setAnchorPoint (anchorPoint:CGPoint)
-    {
-        if let layer = self.layer
-        {
-            var newPoint = CGPointMake(self.bounds.size.width * anchorPoint.x, self.bounds.size.height * anchorPoint.y)
-            var oldPoint = CGPointMake(self.bounds.size.width * layer.anchorPoint.x, self.bounds.size.height * layer.anchorPoint.y)
-            
-            newPoint = CGPointApplyAffineTransform(newPoint, layer.affineTransform())
-            oldPoint = CGPointApplyAffineTransform(oldPoint, layer.affineTransform())
-            
-            var position = layer.position
-            
-            position.x -= oldPoint.x
-            position.x += newPoint.x
-            
-            position.y -= oldPoint.y
-            position.y += newPoint.y
-            
-            layer.position = position
-            layer.anchorPoint = anchorPoint
-        }
-    }
-}
