@@ -41,7 +41,7 @@
                     </connections>
                 </textField>
                 <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="zOw-vW-khB" userLabel="Separator">
-                    <rect key="frame" x="160" y="0.0" width="5" height="28"/>
+                    <rect key="frame" x="160" y="6" width="5" height="16"/>
                 </box>
                 <button horizontalHuggingPriority="248" verticalHuggingPriority="248" horizontalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="c51-qN-F0V" userLabel="Tab Button">
                     <rect key="frame" x="-1" y="-2" width="164" height="31"/>
@@ -83,6 +83,7 @@
                 <constraint firstItem="gA1-mY-slP" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="705-th-TXZ"/>
                 <constraint firstAttribute="trailing" secondItem="gA1-mY-slP" secondAttribute="trailing" id="D2D-Wc-TD7"/>
                 <constraint firstAttribute="trailing" secondItem="zOw-vW-khB" secondAttribute="trailing" id="FLM-7H-eay"/>
+                <constraint firstItem="zOw-vW-khB" firstAttribute="height" secondItem="WyV-8s-Kle" secondAttribute="height" id="FyB-Ae-xye"/>
                 <constraint firstAttribute="trailing" secondItem="WyV-8s-Kle" secondAttribute="trailing" constant="5" id="RWo-Kj-kO9"/>
                 <constraint firstItem="WyV-8s-Kle" firstAttribute="leading" secondItem="qAT-zA-QVu" secondAttribute="trailing" constant="8" symbolic="YES" id="Vh7-J6-wds"/>
                 <constraint firstAttribute="height" constant="28" id="WZU-Ob-bai"/>
@@ -91,7 +92,6 @@
                 <constraint firstItem="c51-qN-F0V" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" id="XyH-sZ-BaV"/>
                 <constraint firstItem="gA1-mY-slP" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" id="ers-6Y-5eA"/>
                 <constraint firstItem="ydW-aG-xCU" firstAttribute="leading" secondItem="QN1-Nq-FRA" secondAttribute="leading" constant="6" id="hlr-u3-SEl"/>
-                <constraint firstItem="zOw-vW-khB" firstAttribute="height" secondItem="QN1-Nq-FRA" secondAttribute="height" id="hvZ-fT-uSE"/>
                 <constraint firstItem="WyV-8s-Kle" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="kaf-Ho-IPj"/>
                 <constraint firstAttribute="bottom" secondItem="c51-qN-F0V" secondAttribute="bottom" id="ny1-Ch-3Em"/>
                 <constraint firstItem="qAT-zA-QVu" firstAttribute="centerY" secondItem="QN1-Nq-FRA" secondAttribute="centerY" id="tQQ-gg-LqW"/>
