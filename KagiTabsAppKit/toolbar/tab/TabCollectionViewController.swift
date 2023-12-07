@@ -7,8 +7,8 @@ import Combine
 // can elaborate later.
 let activeTabMinWidth: CGFloat = 140
 let activeTabMaxWidth: CGFloat = 300
-let inactiveTabMaxWidth: CGFloat  = 120
-
+let inactiveTabMinWidth: CGFloat = 100
+let inactiveTabMaxWidth: CGFloat = 120
 
 
 /// wow. we went deeeep into the autolayout cave.
@@ -80,7 +80,8 @@ class TabCollectionViewController: NSViewController {
     
     // obtain / compute important lengths for constraint setup.
     
-    let availableWidth = view.frame.width
+    let insets = tabsStackView.edgeInsets.left + tabsStackView.edgeInsets.right
+    let availableWidth = view.frame.width - insets
     
     let activeItemWidth = min(
       max(
@@ -102,15 +103,19 @@ class TabCollectionViewController: NSViewController {
     
     // inactive tabs are of equal widths and capped.
     // to use in need-squish.
-    var inactiveTabComputedWidth =  availableInactiveWidth / CGFloat(inactiveViews.count)
+    // disallow fractional values
+    var inactiveTabComputedWidth =  CGFloat( Int(availableInactiveWidth) / inactiveViews.count )
     
     inactiveTabComputedWidth = max(inactiveTabComputedWidth, inactiveTabSquishLowLimit)  // floor it at inactiveTabSquishLowLimit
     
     // sometimes we have plenty of space, letting us avoid capping any widths.
     let totalIdealWidth = activeItemWidth + inactiveViews.reduce(.zero) { acc, e in
-      let widthWanted = max(
-        e.idealSize.width,
-        inactiveTabMaxWidth  // avoid tiny inactive tabs
+      let widthWanted = min(
+        max(
+          e.idealSize.width,
+          inactiveTabMinWidth  // avoid tiny inactive tabs
+        ),
+        inactiveTabMaxWidth  // cap at max width
       )
       return acc + widthWanted
     }
@@ -152,7 +157,7 @@ class TabCollectionViewController: NSViewController {
         // allow compression unless in .noSquish
         priority: layoutCase == .noSquish ? .required : .defaultLow - 1
       ) {
-        view.widthAnchor.constraint(greaterThanOrEqualToConstant: inactiveTabMaxWidth)
+        view.widthAnchor.constraint(greaterThanOrEqualToConstant: inactiveTabMinWidth)
       }
       
       // limit max width for inactive tabs.
@@ -160,7 +165,7 @@ class TabCollectionViewController: NSViewController {
         view.widthAnchor.constraint(lessThanOrEqualToConstant: inactiveTabMaxWidth)
       }
         
-      // on .needSquish, cap inactive tab widths to computed.
+      // on .needSquish, set inactive tab widths to computed.
       let inactiveWidthC = constraint(view: view, id: "inactiveWidth", priority: .defaultHigh) {
         view.widthAnchor.constraint(equalToConstant: inactiveTabComputedWidth)
       }
@@ -192,19 +197,6 @@ class TabCollectionViewController: NSViewController {
         ])
       }
     }
-    
-    // update scrollability based on the layout case.
-    switch layoutCase {
-    case .noSquish:
-      // turn on the no-op scroll.
-      self.isScrollable = true
-      
-    case .needScroll:
-      self.isScrollable = true
-      
-    case .needSquish:
-      self.isScrollable = false
-    }
       
     if animate {
       NSAnimationContext.runAnimationGroup { context in
@@ -214,19 +206,7 @@ class TabCollectionViewController: NSViewController {
       }
     }
   }
-  
-  var isScrollable: Bool = false {
-    didSet {
-      // when scrollable, don't pin the stackview.
-      let shouldPinStackViewWidthToFrame = !isScrollable
-      
-      constraint(view: view, id: "tabsStackWidthPinnedToFrame") {
-        tabsStackView.widthAnchor.constraint(equalTo: self.view.widthAnchor)
-      }
-      .isActive = shouldPinStackViewWidthToFrame
-    }
-  }
-  
+    
   
   // MARK: kvo
   

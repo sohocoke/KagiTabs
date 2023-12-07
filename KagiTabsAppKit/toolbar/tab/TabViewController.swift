@@ -1,7 +1,7 @@
 import Cocoa
 
 /// when width becomes less than this threshold, switch to 'minimal' mode.
-let minimalWidthThreshold: CGFloat = 50
+let minimalWidthThreshold: CGFloat = 60
 
 let defaultFaviconImage = NSImage(systemSymbolName: "doc", accessibilityDescription: "Tab")!
 let faviconImageSize = CGSize(width: 16, height: 16)
@@ -80,10 +80,10 @@ class TabViewController: NSViewController {
       // switch render mode based on available frame.
       self.publisher(for: \.view.frame)
         .sink { [unowned self] frame in
-          if frame.width < minimalWidthThreshold {
-            self.tabView.renderMode = .minimal
-          } else {
+          if frame.width > minimalWidthThreshold {
             self.tabView.renderMode = .normal
+          } else {
+            self.tabView.renderMode = .minimal
           }
         },
       

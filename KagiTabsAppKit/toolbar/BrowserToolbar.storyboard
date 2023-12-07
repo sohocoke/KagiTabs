@@ -10,8 +10,8 @@
         <scene sceneID="PEd-7d-5j0">
             <objects>
                 <viewController id="bU7-R8-ocO" userLabel="Browser Toolbar View Controller" customClass="BrowserToolbarViewController" customModule="KagiTabsAppKit" customModuleProvider="target" sceneMemberID="viewController">
-                    <customView key="view" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="VIJ-cY-Yvl">
-                        <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
+                    <customView key="view" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VIJ-cY-Yvl">
+                        <rect key="frame" x="0.0" y="0.0" width="184" height="50"/>
                         <subviews>
                             <containerView horizontalHuggingPriority="247" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="bqb-1q-unu" userLabel="Address Field Container View">
                                 <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
